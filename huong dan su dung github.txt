@@ -1,0 +1,11 @@
+git clone https://github.com/hainguyentn94/VNPT.git
+git init
+2.git config user.name "hainguyentn94"
+3.git config user.email "tienhai.ictu1004@gmail.com"
+
+4.git add *
+5.git commit -m "some init msg"
+
+git bash origin master
+
+git pull
