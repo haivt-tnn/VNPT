@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/theme.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/turquoise.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    @* Header *@
+    <header>
+        <div class="sticky-wrapper" style="height: 84px;">
+            <div class="navbar yamm navbar-default" id="sticky">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a href="~/Home" class="navbar-brand">
+                            <div id="logo"><img src="~/Image/logo.png"></div>
+                        </a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown "><a href="~/Home">Trang Chủ</a></li>
+                            <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle js-activated">Dịch vụ<span class="caret"></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Tổ chức sự kiện</a></li>
+                                    <li><a href="#">Hoạt động giải trí</a></li>
+                                    <li><a href="#">Thư giãn</a></li>
+                                    <li><a href="#">Ẩm thực</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle js-activated">Tin tức<span class="caret"></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="~/Sale">Khuyến mãi</a></li>
+                                    <li><a href="~/Event">Sự kiện</a></li>
+                                    <li><a href="~/OtherEvent">Tin tức khác</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown "><a href="~/Contact">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    @* body *@
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-7">Copyright © 2016  - <span style="color:#000000"></span> &nbsp; &nbsp; | &nbsp; &nbsp;Địa chỉ: ĐH CNTT&TT Thái Nguyên</div>
+                        <div class="col-xs-5 text-right">
+                            |<a href="#" target="_blank">Designed by Falcon</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
