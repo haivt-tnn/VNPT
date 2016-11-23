@@ -127,6 +127,7 @@
     <Content Include="Global.asax" />
     <Content Include="Image\Events\1.jpg" />
     <Content Include="Image\Event\1.jpg" />
+    <Content Include="Image\Intro\intro.jpg" />
     <Content Include="Image\logo1.png" />
     <Content Include="Image\OtherEvent\1.jpg" />
     <Content Include="Image\Room\image_190.jpg" />
@@ -140,10 +141,10 @@
     <Content Include="Image\Sale\image_190.jpg" />
     <Content Include="Image\Sale\image_191.jpg" />
     <Content Include="Image\Sale\image_192.jpg" />
-    <Content Include="Image\Slide\1.jpg" />
-    <Content Include="Image\Slide\2.jpg" />
-    <Content Include="Image\Slide\3.jpg" />
     <Content Include="Image\Slide\loading.gif" />
+    <Content Include="Image\Slide\slide1.jpg" />
+    <Content Include="Image\Slide\slide2.jpg" />
+    <Content Include="Image\Slide\slide3.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
@@ -203,7 +204,6 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Image\Room\DOUBLE\" />
     <Folder Include="Image\Room\VIP\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
