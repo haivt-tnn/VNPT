@@ -129,14 +129,14 @@
     <Content Include="Image\Event\1.jpg" />
     <Content Include="Image\logo.png" />
     <Content Include="Image\OtherEvent\1.jpg" />
-    <Content Include="Image\Rom\image_190.jpg" />
-    <Content Include="Image\Rom\image_191.jpg" />
-    <Content Include="Image\Rom\image_192.jpg" />
-    <Content Include="Image\Rom\TWIN\image_206.jpg" />
-    <Content Include="Image\Rom\TWIN\image_207.jpg" />
-    <Content Include="Image\Rom\TWIN\image_208.jpg" />
-    <Content Include="Image\Rom\TWIN\image_209.jpg" />
-    <Content Include="Image\Rom\TWIN\image_210.jpg" />
+    <Content Include="Image\Room\image_190.jpg" />
+    <Content Include="Image\Room\image_191.jpg" />
+    <Content Include="Image\Room\image_192.jpg" />
+    <Content Include="Image\Room\TWIN\image_206.jpg" />
+    <Content Include="Image\Room\TWIN\image_207.jpg" />
+    <Content Include="Image\Room\TWIN\image_208.jpg" />
+    <Content Include="Image\Room\TWIN\image_209.jpg" />
+    <Content Include="Image\Room\TWIN\image_210.jpg" />
     <Content Include="Image\Sale\image_190.jpg" />
     <Content Include="Image\Sale\image_191.jpg" />
     <Content Include="Image\Sale\image_192.jpg" />
@@ -170,7 +170,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OtherEventController.cs" />
     <Compile Include="Controllers\SaleController.cs" />
-    <Compile Include="Controllers\ViewRomController.cs" />
+    <Compile Include="Controllers\ViewRoomController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -189,7 +189,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\ViewRom\Index.cshtml" />
+    <Content Include="Views\ViewRoom\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -201,8 +201,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
-    <Folder Include="Image\Rom\DOUBLE\" />
-    <Folder Include="Image\Rom\VIP\" />
+    <Folder Include="Image\Room\DOUBLE\" />
+    <Folder Include="Image\Room\VIP\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>

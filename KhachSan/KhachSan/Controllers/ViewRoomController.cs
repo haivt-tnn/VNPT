@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace KhachSan.Controllers
 {
-    public class ViewRomController : Controller
+    public class ViewRoomController : Controller
     {
-        // GET: ViewRom
+        // GET: ViewRoom
         public ActionResult Index()
         {
             return View();
