@@ -127,7 +127,7 @@
     <Content Include="Global.asax" />
     <Content Include="Image\Events\1.jpg" />
     <Content Include="Image\Event\1.jpg" />
-    <Content Include="Image\logo.png" />
+    <Content Include="Image\logo1.png" />
     <Content Include="Image\OtherEvent\1.jpg" />
     <Content Include="Image\Room\image_190.jpg" />
     <Content Include="Image\Room\image_191.jpg" />
