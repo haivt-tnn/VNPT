@@ -166,10 +166,13 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\CulinaryController.cs" />
+    <Compile Include="Controllers\EntertaimentController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OtherEventController.cs" />
+    <Compile Include="Controllers\RelaxController.cs" />
     <Compile Include="Controllers\SaleController.cs" />
     <Compile Include="Controllers\ViewRoomController.cs" />
     <Compile Include="Global.asax.cs">
@@ -191,6 +194,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\ViewRoom\Index.cshtml" />
+    <Content Include="Views\Entertaiment\Index.cshtml" />
+    <Content Include="Views\Relax\Index.cshtml" />
+    <Content Include="Views\Culinary\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
