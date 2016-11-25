@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace KhachSan.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class HomeAdminController : Controller
     {
-        // GET: Admin/Home
+        // GET: Admin/HomeAdmin
         public ActionResult Index()
         {
             return View();

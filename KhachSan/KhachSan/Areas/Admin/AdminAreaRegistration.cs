@@ -15,9 +15,9 @@ namespace KhachSan.Areas.Admin
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "Admin_default",
+                "Admin",
                 "Admin/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { Controller = "HomeAdmin",action = "Index",id = UrlParameter.Optional }
             );
         }
     }
