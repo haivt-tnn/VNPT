@@ -158,9 +158,14 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+=======
     <Content Include="Areas\Admin\Views\Shared\_layout_admin.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\Index.cshtml" />
     <Content Include="Areas\Admin\Content\font-awesome.css.map" />
+>>>>>>> 286e2baa5372cf4d5bd3f9167dcdcbddb9af3970
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -183,8 +188,15 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+<<<<<<< HEAD
+    <Compile Include="Areas\Admin\Code\SessionHelper.cs" />
+    <Compile Include="Areas\Admin\Code\UserSession.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+=======
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+>>>>>>> 286e2baa5372cf4d5bd3f9167dcdcbddb9af3970
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\CulinaryController.cs" />
     <Compile Include="Controllers\EntertaimentController.cs" />
@@ -228,11 +240,27 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+<<<<<<< HEAD
+    <Folder Include="Image\Room\DOUBLE\" />
+    <Folder Include="Image\Room\VIP\" />
+    <Folder Include="Scripts\data\" />
+    <Folder Include="Scripts\dist\" />
+    <Folder Include="Scripts\js\" />
+    <Folder Include="Scripts\less\" />
+    <Folder Include="Scripts\vendor\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{902f2f42-ae0c-485b-8c98-ebbb944cd0e1}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+=======
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Image\Room\DOUBLE\" />
     <Folder Include="Image\Room\VIP\" />
     <Folder Include="Views\Views\" />
     <Folder Include="Models\" />
+>>>>>>> 286e2baa5372cf4d5bd3f9167dcdcbddb9af3970
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
