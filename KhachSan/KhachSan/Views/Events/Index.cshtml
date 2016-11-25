@@ -29,12 +29,13 @@
                                     var greetingMessage = greeting + " Here is Kien, it is " + weekDay + " The " + i + " Time" ;
                                 }
                                 <p>Content: @greetingMessage</p>
-                                <a href="#" class="btn btn-primary btn-block">Chi tiết</a>
+                                <input class="btn btn-primary btn-block" type="button" value="Go Somewhere Else" onclick="location.href='@Url.Action("Hello", "Events")'" />
                             </div>
                         </div>
                     </div>
                 </div>
-            }
+
+                                    }
         </div>
     </div>
 </section>
