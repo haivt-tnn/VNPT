@@ -13,5 +13,13 @@ namespace KhachSan.Controllers
         {
             return View();
         }
+        
+        public ActionResult Hello(Models.EventsModel Idmodel)
+        {
+            var Mess = new Models.EventsModel();
+       
+            Mess.hello = "Hellooooooooooooooooooooo";
+            return View(Mess);
+        }
     }
 }

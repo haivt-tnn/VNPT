@@ -46,9 +46,6 @@ namespace Models
                     kq = true;
                 }
             }
-
-            //var res = context.Database.SqlQuery<bool>("check_Login @User,@Pass", parameter).Single();
-            //return res;
             return kq;
         }
     }

@@ -117,11 +117,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Content\bootstrap.css" />
+    <Content Include="Areas\Admin\Content\bootstrap.min.css" />
+    <Content Include="Areas\Admin\Content\font-awesome.css" />
+    <Content Include="Areas\Admin\Content\font-awesome.min.css" />
+    <Content Include="Areas\Admin\Scripts\bootstrap.js" />
+    <Content Include="Areas\Admin\Scripts\bootstrap.min.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Areas\Admin\Content\metisMenu.css" />
+    <Content Include="Areas\Admin\Content\metisMenu.min.css" />
     <Content Include="Content\normalize.css" />
     <Content Include="Content\responsive.css" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Areas\Admin\Content\sb-admin-2.css" />
+    <Content Include="Areas\Admin\Content\sb-admin-2.min.css" />
     <Content Include="Content\theme.css" />
     <Content Include="Content\turquoise.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -149,13 +158,25 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+=======
+    <Content Include="Areas\Admin\Views\Shared\_layout_admin.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Content\font-awesome.css.map" />
+>>>>>>> 286e2baa5372cf4d5bd3f9167dcdcbddb9af3970
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Areas\Admin\Scripts\jquery.js" />
+    <Content Include="Areas\Admin\Scripts\jquery.min.js" />
     <Content Include="Scripts\jssor.slider-21.1.6.min.js" />
+    <Content Include="Areas\Admin\Scripts\metisMenu.js" />
+    <Content Include="Areas\Admin\Scripts\metisMenu.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Areas\Admin\Scripts\sb-admin-2.js" />
+    <Content Include="Areas\Admin\Scripts\sb-admin-2.min.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
@@ -167,9 +188,13 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+<<<<<<< HEAD
     <Compile Include="Areas\Admin\Code\SessionHelper.cs" />
     <Compile Include="Areas\Admin\Code\UserSession.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+=======
+    <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+>>>>>>> 286e2baa5372cf4d5bd3f9167dcdcbddb9af3970
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -185,6 +210,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EventsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -204,6 +230,7 @@
     <Content Include="Views\Entertaiment\Index.cshtml" />
     <Content Include="Views\Relax\Index.cshtml" />
     <Content Include="Views\Culinary\Index.cshtml" />
+    <Content Include="Views\Events\Hello.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -213,6 +240,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+<<<<<<< HEAD
     <Folder Include="Image\Room\DOUBLE\" />
     <Folder Include="Image\Room\VIP\" />
     <Folder Include="Scripts\data\" />
@@ -226,6 +254,13 @@
       <Project>{902f2f42-ae0c-485b-8c98-ebbb944cd0e1}</Project>
       <Name>Models</Name>
     </ProjectReference>
+=======
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Image\Room\DOUBLE\" />
+    <Folder Include="Image\Room\VIP\" />
+    <Folder Include="Views\Views\" />
+    <Folder Include="Models\" />
+>>>>>>> 286e2baa5372cf4d5bd3f9167dcdcbddb9af3970
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
