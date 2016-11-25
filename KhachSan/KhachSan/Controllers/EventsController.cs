@@ -15,9 +15,8 @@ namespace KhachSan.Controllers
         }
         public ActionResult Hello()
         {
-            var Mess = new Models.EventsModel();
-            Mess.hello = "Heloo";
-            return View(Mess);
+           
+            return View();
         }
     }
 }
