@@ -231,6 +231,7 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Image\Room\DOUBLE\" />
     <Folder Include="Image\Room\VIP\" />
+    <Folder Include="Views\Views\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
