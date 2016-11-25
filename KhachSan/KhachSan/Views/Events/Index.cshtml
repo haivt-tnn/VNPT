@@ -32,7 +32,7 @@
                                 <p>Content: @greetingMessage</p>
                                 @using (Html.BeginForm("Hello", "Events"))
                                 {
-                                    @Html.HiddenFor(model => model.Id)
+                                    
                                     <input class="btn btn-primary btn-block" type="button" value="Go Somewhere Else" onclick="location.href='@Url.Action("Hello", "Events")'" />
                                  }
                             </div>
