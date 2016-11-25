@@ -3,6 +3,7 @@
     ViewBag.Title = "Tổ chức sự kiện";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@model KhachSan.Models.EventsModel
 <!-- Gallery -->
 <section class="rooms mt50">
     <div class="container">
@@ -26,16 +27,19 @@
                                 @{
                                     var greeting = "Welcome! ";
                                     var weekDay = DateTime.Now.DayOfWeek;
-                                    var greetingMessage = greeting + " Here is Kien, it is " + weekDay + " The " + i + " Time" ;
+                                    var greetingMessage = greeting + " Here is Kien, it is " + weekDay + " The " + i + " Time";
                                 }
                                 <p>Content: @greetingMessage</p>
-                                <input class="btn btn-primary btn-block" type="button" value="Go Somewhere Else" onclick="location.href='@Url.Action("Hello", "Events")'" />
+                                @using (Html.BeginForm("Hello", "Events"))
+                                {
+                                    @Html.HiddenFor(model => model.Id)
+                                    <input class="btn btn-primary btn-block" type="button" value="Go Somewhere Else" onclick="location.href='@Url.Action("Hello", "Events")'" />
+                                 }
                             </div>
                         </div>
                     </div>
                 </div>
-
-                                    }
+             }
         </div>
     </div>
 </section>
