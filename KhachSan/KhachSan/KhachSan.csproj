@@ -231,11 +231,8 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Image\Room\DOUBLE\" />
     <Folder Include="Image\Room\VIP\" />
-<<<<<<< HEAD
     <Folder Include="Views\Views\" />
-=======
     <Folder Include="Models\" />
->>>>>>> 2d42852fd1dde31648b7b2dfa827c8b75a5dcf69
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
