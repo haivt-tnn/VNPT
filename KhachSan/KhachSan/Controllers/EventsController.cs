@@ -13,10 +13,7 @@ namespace KhachSan.Controllers
         {
             return View();
         }
-        public ActionResult Hello()
-        {
-           
-            return View();
-        }
+        public ActionResult Details()
+        { return View(); }
     }
 }
