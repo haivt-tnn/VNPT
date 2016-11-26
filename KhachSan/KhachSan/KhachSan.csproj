@@ -170,16 +170,25 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\CulinaryController.cs" />
+    <Compile Include="Controllers\CulinaryDetailsController.cs" />
     <Compile Include="Controllers\EntertaimentController.cs" />
+    <Compile Include="Controllers\EntertaimentDetailsController.cs" />
     <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\EventDetailsController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
+    <Compile Include="Controllers\EventsDetailsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OtherEventController.cs" />
+    <Compile Include="Controllers\OtherEventDetailsController.cs" />
     <Compile Include="Controllers\RelaxController.cs" />
+    <Compile Include="Controllers\RelaxDetailsController.cs" />
     <Compile Include="Controllers\SaleController.cs" />
+    <Compile Include="Controllers\SaleDetailsController.cs" />
     <Compile Include="Controllers\ViewRoomController.cs" />
+    <Compile Include="Controllers\ViewRoomDetailsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -202,6 +211,15 @@
     <Content Include="Views\Entertaiment\Index.cshtml" />
     <Content Include="Views\Relax\Index.cshtml" />
     <Content Include="Views\Culinary\Index.cshtml" />
+    <Content Include="Views\ViewRoomDetails\Index.cshtml" />
+    <Content Include="Views\EventsDetails\Index.cshtml" />
+    <Content Include="Views\EntertaimentDetails\Index.cshtml" />
+    <Content Include="Views\CulinaryDetails\Index.cshtml" />
+    <Content Include="Views\EventDetails\Index.cshtml" />
+    <Content Include="Views\OtherEventDetails\Index.cshtml" />
+    <Content Include="Views\RelaxDetails\Index.cshtml" />
+    <Content Include="Views\SaleDetails\Index.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
