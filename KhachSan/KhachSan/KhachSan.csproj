@@ -117,20 +117,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\Content\bootstrap.css" />
-    <Content Include="Areas\Admin\Content\bootstrap.min.css" />
-    <Content Include="Areas\Admin\Content\font-awesome.css" />
-    <Content Include="Areas\Admin\Content\font-awesome.min.css" />
-    <Content Include="Areas\Admin\Scripts\bootstrap.js" />
-    <Content Include="Areas\Admin\Scripts\bootstrap.min.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Areas\Admin\Content\metisMenu.css" />
-    <Content Include="Areas\Admin\Content\metisMenu.min.css" />
     <Content Include="Content\normalize.css" />
     <Content Include="Content\responsive.css" />
-    <Content Include="Areas\Admin\Content\sb-admin-2.css" />
-    <Content Include="Areas\Admin\Content\sb-admin-2.min.css" />
     <Content Include="Content\theme.css" />
     <Content Include="Content\turquoise.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -160,19 +150,14 @@
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_layout_admin.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\Index.cshtml" />
-    <Content Include="Areas\Admin\Content\font-awesome.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <Content Include="Areas\Admin\Scripts\jquery.js" />
-    <Content Include="Areas\Admin\Scripts\jquery.min.js" />
     <Content Include="Scripts\jssor.slider-21.1.6.min.js" />
-    <Content Include="Areas\Admin\Scripts\metisMenu.js" />
-    <Content Include="Areas\Admin\Scripts\metisMenu.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Areas\Admin\Scripts\sb-admin-2.js" />
-    <Content Include="Areas\Admin\Scripts\sb-admin-2.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Sale\Index.cshtml" />
@@ -185,6 +170,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\CulinaryController.cs" />
     <Compile Include="Controllers\EntertaimentController.cs" />
@@ -198,7 +184,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\EventsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -218,7 +203,14 @@
     <Content Include="Views\Entertaiment\Index.cshtml" />
     <Content Include="Views\Relax\Index.cshtml" />
     <Content Include="Views\Culinary\Index.cshtml" />
-    <Content Include="Views\Events\Hello.cshtml" />
+    <Content Include="Views\Events\Details.cshtml" />
+    <Content Include="Views\Event\Details.cshtml" />
+    <Content Include="Views\OtherEvent\Details.cshtml" />
+    <Content Include="Views\Relax\Details.cshtml" />
+    <Content Include="Views\Sale\Details.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Culinary\Details.cshtml" />
+    <Content Include="Views\Entertaiment\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -228,10 +220,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Content\data\" />
+    <Folder Include="Areas\Admin\Content\dist\" />
+    <Folder Include="Areas\Admin\Content\js\" />
+    <Folder Include="Areas\Admin\Content\less\" />
+    <Folder Include="Areas\Admin\Content\vendor\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Scripts\" />
     <Folder Include="Image\Room\DOUBLE\" />
     <Folder Include="Image\Room\VIP\" />
-    <Folder Include="Views\Views\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>

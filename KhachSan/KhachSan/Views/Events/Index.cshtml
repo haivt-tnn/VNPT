@@ -1,45 +1,36 @@
 ﻿
 @{
-    ViewBag.Title = "Tổ chức sự kiện";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model KhachSan.Models.EventsModel
-<!-- Gallery -->
-<section class="rooms mt50">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <h2 class="lined-heading bounceIn appear animated" data-start="0"><span style="text-transform:uppercase">Tổ chức sự kiện</span></h2>
-            </div>
-        </div>
-
-        <div class="row fadeIn appear animated">
-            @for (var i = 1; i < 10; i++)
-            {
-                <div class="col-sm-4" style="margin-bottom:20px;">
-                    <div class="room-thumb">
-                        <img src="~/Image/OtherEvent/1.jpg" class="img-responsive">
-                        <div class="mask">
-                            <div class="main">
-                                <h5>Kiên đã nhúng tay vào phần này Lần thứ: @i</h5>
+<section class="about mt50">
+    <div class="col-md-12">
+        <h2 class="lined-heading bounceInRight appear animated" data-start="800"><span style="text-transform:uppercase">Tổ chức sự kiện</span></h2>
+        <div class="container">
+            <div class="row">
+                <!-- dv1 -->
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <a href="~/Events/Details">
+                            <img src="~/Image/Intro/intro.jpg" alt="Lights" style="width:100%">
+                            <div class="caption">
+                                <p>Tổ chức tiệc cưới</p>
                             </div>
-                            <div class="content">
-                                @{
-                                    var greeting = "Welcome! ";
-                                    var weekDay = DateTime.Now.DayOfWeek;
-                                    var greetingMessage = greeting + " Here is Kien, it is " + weekDay + " The " + i + " Time";
-                                }
-                                <p>Content: @greetingMessage</p>
-                                @using (Html.BeginForm("Hello", "Events"))
-                                {
-                                    @Html.HiddenFor(model => model.Id)
-                                    <input class="btn btn-primary btn-block" type="button" value="Go Somewhere Else" onclick="location.href='@Url.Action("Hello", "Events")'" />
-                                 }
-                            </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
-             }
+                <!-- dv1 -->
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <a href="~/Events/Details">
+                            <img src="~/Image/Intro/intro.jpg" alt="Lights" style="width:100%">
+                            <div class="caption">
+                                <p>Tổ chức hộ nghị</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
