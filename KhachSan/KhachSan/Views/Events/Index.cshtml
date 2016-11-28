@@ -12,20 +12,23 @@
                 <!-- dv1 -->
                 @foreach (var test in ViewBag.Test)
                 {
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="~/Events/Details">
-                            <img src="~/Image/Intro/intro.jpg" alt="Lights" style="width:100%">
-                            <div class="caption">
-                                @{ 
-                                    var Content = "Tổ chức sự kiện: " + test;
-                                }
-                                <p>@Content</p>
+                    using (Html.BeginForm("Details", "Events"))
+                    {
+                        <div class="col-md-4">
+                            <div class="thumbnail ">
+                                <img src="~/Image/Intro/intro.jpg" class="btn-sm" alt="Lights" style="width:100%">
+                                <a href="~/Events/Details">
+                                    <div class="caption">
+                                        @{
+                                            var content = test;
+                                        }
+                                        <input class="btn btn-danger btn-lg btn-group-justified btn-block" type="submit" value="@content" name="content" />
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                </div>
-                                    }
+                        </div>
+                                                }
+                                            }
             </div>
         </div>
     </div>

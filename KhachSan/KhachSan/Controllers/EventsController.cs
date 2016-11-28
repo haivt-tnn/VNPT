@@ -20,7 +20,12 @@ namespace KhachSan.Controllers
             ViewBag.Test = test;
             return View();
         }
-        public ActionResult Details()
-        { return View(); }
+        
+        public ActionResult Details(string content)
+        {
+            //string content = Request["content"];
+            ViewBag.Id = "Tham số nhận được: " + content;
+            return View();
+        }
     }
 }
