@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KhachSan.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,9 @@ namespace KhachSan.Controllers
         // GET: About
         public ActionResult Index()
         {
-            return View();
+            var tt = new Gioithieu();
+            var model = tt.getAllGioiThieu();
+            return View(model);
         }
     }
 }

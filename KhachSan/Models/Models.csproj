@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{57321077-529A-46D3-916D-D63BF300EA17}</ProjectGuid>
+    <ProjectGuid>{089FA34B-7B2F-480C-AD35-E3763E8464CD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Models</RootNamespace>
@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectDb.cs" />
     <Compile Include="Framework\CHI_TIET_NHAN_PHONG.cs" />
     <Compile Include="Framework\CHI_TIET_PHI_DICH_VU.cs" />
     <Compile Include="Framework\CHI_TIET_PHI_THUE_PHONG.cs" />
@@ -66,20 +67,18 @@
     <Compile Include="Framework\DANH_MUC_NGUOI_DUNG.cs" />
     <Compile Include="Framework\DANH_MUC_PHONG.cs" />
     <Compile Include="Framework\DANH_MUC_TIEN_NGHI.cs" />
+    <Compile Include="Framework\GIOITHIEU.cs" />
     <Compile Include="Framework\KhachSanDbContext.cs" />
     <Compile Include="Framework\PHAN_QUYEN_NGUOI_DUNG.cs" />
     <Compile Include="Framework\PHIEU_DAT_PHONG.cs" />
     <Compile Include="Framework\PHIEU_NHAN_PHONG.cs" />
     <Compile Include="Framework\PHIEU_THANH_TOAN.cs" />
-    <Compile Include="Framework\TINH_TRANG_PHONG.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TaiKhoanModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

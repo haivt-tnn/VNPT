@@ -53,5 +53,7 @@ namespace Models.Framework
         public virtual DANH_MUC_KHACH_HANG DANH_MUC_KHACH_HANG { get; set; }
 
         public virtual DANH_MUC_LOAI_TIEN DANH_MUC_LOAI_TIEN { get; set; }
+
+        public virtual PHIEU_NHAN_PHONG PHIEU_NHAN_PHONG { get; set; }
     }
 }

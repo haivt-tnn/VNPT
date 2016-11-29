@@ -31,7 +31,7 @@ namespace Models.Framework
         public virtual DbSet<PHIEU_DAT_PHONG> PHIEU_DAT_PHONG { get; set; }
         public virtual DbSet<PHIEU_NHAN_PHONG> PHIEU_NHAN_PHONG { get; set; }
         public virtual DbSet<PHIEU_THANH_TOAN> PHIEU_THANH_TOAN { get; set; }
-        public virtual DbSet<TINH_TRANG_PHONG> TINH_TRANG_PHONG { get; set; }
+        public virtual DbSet<GIOITHIEU> GIOITHIEU { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -49,10 +49,6 @@ namespace Models.Framework
                 .HasMany(e => e.DANH_MUC_PHONG)
                 .WithOptional(e => e.DANH_MUC_KIEU_PHONG)
                 .HasForeignKey(e => e.KIEUPHONG);
-
-            modelBuilder.Entity<DANH_MUC_KHACH_HANG>()
-                .Property(e => e.QUOCTICH)
-                .IsFixedLength();
 
             modelBuilder.Entity<DANH_MUC_LOAI_GIAY_TO>()
                 .HasMany(e => e.DANH_MUC_KHACH_HANG)
@@ -113,11 +109,21 @@ namespace Models.Framework
                 .WithMany(e => e.DANH_MUC_PHONG)
                 .Map(m => m.ToTable("TIEN_NGHI_PHONG").MapLeftKey("MASOPHONG").MapRightKey("MATIENNGHI"));
 
+            modelBuilder.Entity<PHIEU_DAT_PHONG>()
+                .HasMany(e => e.PHIEU_NHAN_PHONG)
+                .WithOptional(e => e.PHIEU_DAT_PHONG)
+                .HasForeignKey(e => e.PHIEUDATPHONG);
+
             modelBuilder.Entity<PHIEU_NHAN_PHONG>()
                 .HasMany(e => e.CHI_TIET_NHAN_PHONG)
                 .WithRequired(e => e.PHIEU_NHAN_PHONG)
                 .HasForeignKey(e => e.PHIEUNHANPHONG)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<PHIEU_NHAN_PHONG>()
+                .HasMany(e => e.PHIEU_THANH_TOAN)
+                .WithOptional(e => e.PHIEU_NHAN_PHONG)
+                .HasForeignKey(e => e.PHIEUNHANPHONG);
 
             modelBuilder.Entity<PHIEU_THANH_TOAN>()
                 .HasMany(e => e.CHI_TIET_PHI_DICH_VU)
@@ -130,10 +136,6 @@ namespace Models.Framework
                 .WithRequired(e => e.PHIEU_THANH_TOAN)
                 .HasForeignKey(e => e.PHIEUTHANHTOAN)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<TINH_TRANG_PHONG>()
-                .HasOptional(e => e.TINH_TRANG_PHONG1)
-                .WithRequired(e => e.TINH_TRANG_PHONG2);
         }
     }
 }

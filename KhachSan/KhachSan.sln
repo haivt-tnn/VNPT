@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KhachSan", "KhachSan\KhachSan.csproj", "{95D95B8D-A09D-4AB1-88D0-26CFC76CF9D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{57321077-529A-46D3-916D-D63BF300EA17}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{089FA34B-7B2F-480C-AD35-E3763E8464CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{95D95B8D-A09D-4AB1-88D0-26CFC76CF9D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95D95B8D-A09D-4AB1-88D0-26CFC76CF9D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95D95B8D-A09D-4AB1-88D0-26CFC76CF9D8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{57321077-529A-46D3-916D-D63BF300EA17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{57321077-529A-46D3-916D-D63BF300EA17}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{57321077-529A-46D3-916D-D63BF300EA17}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{57321077-529A-46D3-916D-D63BF300EA17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{089FA34B-7B2F-480C-AD35-E3763E8464CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{089FA34B-7B2F-480C-AD35-E3763E8464CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{089FA34B-7B2F-480C-AD35-E3763E8464CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{089FA34B-7B2F-480C-AD35-E3763E8464CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

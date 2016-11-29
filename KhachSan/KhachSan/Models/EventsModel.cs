@@ -7,9 +7,6 @@ namespace KhachSan.Models
 {
     public class EventsModel
     {
-        public string content
-        {
-            get; set;
-        }
+        public string hello;
     }
 }

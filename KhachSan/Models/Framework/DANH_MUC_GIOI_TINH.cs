@@ -12,7 +12,6 @@ namespace Models.Framework
         public DANH_MUC_GIOI_TINH()
         {
             DANH_MUC_KHACH_HANG = new HashSet<DANH_MUC_KHACH_HANG>();
-            DANH_MUC_NGUOI_DUNG = new HashSet<DANH_MUC_NGUOI_DUNG>();
         }
 
         [Key]
@@ -24,8 +23,5 @@ namespace Models.Framework
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DANH_MUC_KHACH_HANG> DANH_MUC_KHACH_HANG { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DANH_MUC_NGUOI_DUNG> DANH_MUC_NGUOI_DUNG { get; set; }
     }
 }

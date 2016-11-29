@@ -43,9 +43,6 @@ namespace Models.Framework
 
         public DateTime? NGAYTAO { get; set; }
 
-        [StringLength(10)]
-        public string QUOCTICH { get; set; }
-
         [StringLength(50)]
         public string NGUOITAO { get; set; }
 

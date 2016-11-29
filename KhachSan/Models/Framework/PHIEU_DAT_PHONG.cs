@@ -8,6 +8,12 @@ namespace Models.Framework
 
     public partial class PHIEU_DAT_PHONG
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PHIEU_DAT_PHONG()
+        {
+            PHIEU_NHAN_PHONG = new HashSet<PHIEU_NHAN_PHONG>();
+        }
+
         [Key]
         public long SOPHIEU { get; set; }
 
@@ -37,5 +43,8 @@ namespace Models.Framework
         public DateTime? NGAYXACNHAN { get; set; }
 
         public virtual DANH_MUC_LOAI_PHONG DANH_MUC_LOAI_PHONG { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PHIEU_NHAN_PHONG> PHIEU_NHAN_PHONG { get; set; }
     }
 }

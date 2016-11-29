@@ -12,6 +12,7 @@ namespace Models.Framework
         public PHIEU_NHAN_PHONG()
         {
             CHI_TIET_NHAN_PHONG = new HashSet<CHI_TIET_NHAN_PHONG>();
+            PHIEU_THANH_TOAN = new HashSet<PHIEU_THANH_TOAN>();
         }
 
         [Key]
@@ -42,5 +43,10 @@ namespace Models.Framework
         public virtual ICollection<CHI_TIET_NHAN_PHONG> CHI_TIET_NHAN_PHONG { get; set; }
 
         public virtual DANH_MUC_KHACH_HANG DANH_MUC_KHACH_HANG { get; set; }
+
+        public virtual PHIEU_DAT_PHONG PHIEU_DAT_PHONG { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PHIEU_THANH_TOAN> PHIEU_THANH_TOAN { get; set; }
     }
 }

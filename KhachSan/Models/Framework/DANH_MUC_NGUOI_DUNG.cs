@@ -46,10 +46,6 @@ namespace Models.Framework
 
         public int? TRANGTHAI { get; set; }
 
-        public virtual DANH_MUC_DIA_CHI DANH_MUC_DIA_CHI { get; set; }
-
-        public virtual DANH_MUC_GIOI_TINH DANH_MUC_GIOI_TINH { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHAN_QUYEN_NGUOI_DUNG> PHAN_QUYEN_NGUOI_DUNG { get; set; }
     }

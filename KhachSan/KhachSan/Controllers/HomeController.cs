@@ -12,6 +12,8 @@ namespace KhachSan.Controllers
         public ActionResult Index()
         {
             return View();
+            
+            
         }
     }
 }
