@@ -11,10 +11,12 @@
     <link href="~/Areas/Admin/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
     <link href="~/Areas/Admin/Content/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link href="~/Areas/Admin/Content/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+    <!-- DataTables Responsive CSS -->
+    <link href="~/Areas/Admin/Content/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="~/Areas/Admin/Content/dist/css/sb-admin-2.css" rel="stylesheet">
-    <!-- Morris Charts CSS -->
-    <link href="~/Areas/Admin/Content/vendor/morrisjs/morris.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="~/Areas/Admin/Content/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
@@ -22,7 +24,6 @@
     <div id="wrapper">
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
@@ -250,13 +251,13 @@
                         <ul class="nav" id="side-menu">
                             <ul class="nav" id="side-menu">
                                 <li>
-                                    <a href="index.html"><i class="glyphicon glyphicon-home"></i> Sơ đồ khách sạn</a>
+                                    <a data-toggle="modal" href="#myModal"><i class="glyphicon glyphicon-home" ></i> Sơ đồ khách sạn</a>
                                 </li>
                                 <li>
                                     <a href="#"><i class="glyphicon glyphicon-list-alt"></i> Khách sạn<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
                                         <li>
-                                            <a href="#">Danh sách khách sạn</a>
+                                            <a href="">Danh sách khách sạn</a>
                                         </li>
                                         <li>
                                             <a href="#">Quản lý Lầu/Tầng</a>
@@ -270,7 +271,7 @@
                                     <a href="#"><i class="glyphicon glyphicon-th-large"></i> Loại phòng & Giá<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
                                         <li>
-                                            <a href="#">Danh sách loại phòng</a>
+                                            <a href="~/Admin/Phong">Danh sách loại phòng</a>
                                         </li>
                                         <li>
                                             <a href="#">Danh sách giá mẫu</a>
@@ -288,10 +289,10 @@
                                     <a href="#"><i class="glyphicon glyphicon-briefcase"></i> Dịch vụ & Kho<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
                                         <li>
-                                            <a href="#">Danh sách dịch vụ</a>
+                                            <a href="~/Admin/DichVu">Danh sách dịch vụ</a>
                                         </li>
                                         <li>
-                                            <a href="#">Thống kê DV đã bán</a>
+                                            <a href="~/Admin/DichVu/Thongke">Thống kê DV đã bán</a>
                                         </li>
                                     </ul>
 
@@ -339,7 +340,7 @@
                                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Thống kê<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
                                         <li>
-                                            <a href="flot.html">Danh sách hóa đơn</a>
+                                            <a href="~/Admin/Thongke">Danh sách hóa đơn</a>
                                         </li>
                                         <li>
                                             <a href="morris.html">Kiểm tra $ tài khoản</a>
@@ -348,7 +349,7 @@
                                             <a href="morris.html">Kết quả kinh doanh</a>
                                         </li>
                                         <li>
-                                            <a href="morris.html">Báo cáo</a>
+                                            <a href="~/Admin/Thongke/Baocao">Báo cáo</a>
                                         </li>
                                     </ul>
 
@@ -357,16 +358,16 @@
                                     <a href="#"><i class="glyphicon glyphicon-user"></i> Khách hàng<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
                                         <li>
-                                            <a href="flot.html">Khách hàng đang ở</a>
+                                            <a href="~/Admin/Khachhang/KHodau">Khách hàng đang ở</a>
                                         </li>
                                         <li>
-                                            <a href="morris.html">Khách hàng đặt phòng</a>
+                                            <a href="~/Admin/Khachhng/KHodau">Khách hàng đặt phòng</a>
                                         </li>
                                         <li>
                                             <a href="morris.html">Khách hàng để quên</a>
                                         </li>
                                         <li>
-                                            <a href="morris.html">Danh sách khách hàng</a>
+                                            <a href="~/Admin/Khachhang">Danh sách khách hàng</a>
                                         </li>
                                     </ul>
 
@@ -381,10 +382,10 @@
                                             <a href="morris.html">Lịch sử giao ca</a>
                                         </li>
                                         <li>
-                                            <a href="morris.html">Quản lý nhân viên</a>
+                                            <a href="~/Admin/Nhanvien/DSnhanvien">Quản lý nhân viên</a>
                                         </li>
                                         <li>
-                                            <a href="morris.html">Nhóm phân quyền</a>
+                                            <a href="~/Admin/Nhanvien">Nhóm phân quyền</a>
                                         </li>
                                     </ul>
 
@@ -408,16 +409,31 @@
                     </div>
                     <!-- /.sidebar-collapse -->
                 </div>
-            </div>
         </nav>
-        <div class="container body-content">
+        
             @RenderBody()
         </div>
-        </div>
         <!-- /.panel-footer -->
-        <script src="~/Areas/Admin/Content/vendor/jquery/jquery.min.js"></script>
-        <script src="~/Areas/Admin/Content/vendor/bootstrap/js/bootstrap.min.js"></script>
-        <script src="~/Areas/Admin/Content/vendor/metisMenu/metisMenu.min.js"></script>
-        <script src="~/Areas/Admin/Content/dist/js/sb-admin-2.js"></script>
+    <!-- jQuery -->
+    <script src="~/Areas/Admin/Content/vendor/jquery/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Areas/Admin/Content/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/Areas/Admin/Content/vendor/metisMenu/metisMenu.min.js"></script>
+    <!-- DataTables JavaScript -->
+    <script src="~/Areas/Admin/Content/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/Areas/Admin/Content/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="~/Areas/Admin/Content/vendor/datatables-responsive/dataTables.responsive.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="~/Areas/Admin/Content/dist/js/sb-admin-2.js"></script>
+    <script src="~/Areas/Admin/Content/"></script>
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+    </script>
 </body>
 </html>

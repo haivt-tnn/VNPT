@@ -6,14 +6,19 @@ using System.Web.Mvc;
 
 namespace KhachSan.Areas.Admin.Controllers
 {
-    public class HomeAdminController : Controller
+    public class KhachhangController : Controller
     {
-        // GET: Admin/HomeAdmin
+        // GET: Admin/Khachhang
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult Popup()
+        public ActionResult KHodau()
+        {
+            return View();
+
+        }
+            public ActionResult KHdatphong()
         {
             return View();
         }
