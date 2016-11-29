@@ -127,6 +127,7 @@
     <Content Include="Global.asax" />
     <Content Include="Image\Events\1.jpg" />
     <Content Include="Image\Event\1.jpg" />
+    <Content Include="Image\Gioithieu\gt.jpg" />
     <Content Include="Image\Intro\intro.jpg" />
     <Content Include="Image\logo1.png" />
     <Content Include="Image\OtherEvent\1.jpg" />
@@ -201,6 +202,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Gioithieu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -246,7 +248,12 @@
     <Folder Include="Areas\Admin\Scripts\" />
     <Folder Include="Image\Room\DOUBLE\" />
     <Folder Include="Image\Room\VIP\" />
-    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{089fa34b-7b2f-480c-ad35-e3763e8464cd}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
