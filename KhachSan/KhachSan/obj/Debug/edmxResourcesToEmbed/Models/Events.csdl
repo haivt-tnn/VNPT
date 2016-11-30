@@ -8,6 +8,8 @@
     <Property Name="MADV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
     <Property Name="TENDV_VI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="TENDV_EN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MOTANGAN_VI" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="MOTANGAN_EN" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
     <Property Name="MOTA_VI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="MOTA_EN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="URL" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
@@ -25,12 +27,14 @@
   <ComplexType Name="DICH_VU_TIEN_ICH_selectallvi_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="TENDV_VI" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="MOTANGAN_VI" Nullable="true" MaxLength="1000" />
     <Property Type="String" Name="MOTA_VI" Nullable="false" />
     <Property Type="String" Name="URL" Nullable="false" MaxLength="256" />
   </ComplexType>
   <ComplexType Name="DICH_VU_TIEN_ICH_selectonevi_Result">
     <Property Type="String" Name="TENDV_VI" Nullable="false" MaxLength="100" />
     <Property Type="String" Name="MOTA_VI" Nullable="false" />
+    <Property Type="String" Name="MOTANGAN_VI" Nullable="true" MaxLength="1000" />
     <Property Type="String" Name="URL" Nullable="false" MaxLength="256" />
   </ComplexType>
 </Schema>

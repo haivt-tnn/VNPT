@@ -8,6 +8,8 @@
     <Property Name="MADV" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="TENDV_VI" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="TENDV_EN" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="MOTANGAN_VI" Type="nvarchar" MaxLength="1000" />
+    <Property Name="MOTANGAN_EN" Type="nvarchar" MaxLength="1000" />
     <Property Name="MOTA_VI" Type="nvarchar(max)" Nullable="false" />
     <Property Name="MOTA_EN" Type="nvarchar(max)" Nullable="false" />
     <Property Name="URL" Type="nvarchar" MaxLength="256" Nullable="false" />

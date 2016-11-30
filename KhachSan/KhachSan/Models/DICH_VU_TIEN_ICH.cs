@@ -18,6 +18,8 @@ namespace KhachSan.Models
         public string MADV { get; set; }
         public string TENDV_VI { get; set; }
         public string TENDV_EN { get; set; }
+        public string MOTANGAN_VI { get; set; }
+        public string MOTANGAN_EN { get; set; }
         public string MOTA_VI { get; set; }
         public string MOTA_EN { get; set; }
         public string URL { get; set; }

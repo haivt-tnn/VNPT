@@ -13,6 +13,8 @@
           <Property Name="MADV" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="TENDV_VI" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="TENDV_EN" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="MOTANGAN_VI" Type="nvarchar" MaxLength="1000" />
+          <Property Name="MOTANGAN_EN" Type="nvarchar" MaxLength="1000" />
           <Property Name="MOTA_VI" Type="nvarchar(max)" Nullable="false" />
           <Property Name="MOTA_EN" Type="nvarchar(max)" Nullable="false" />
           <Property Name="URL" Type="nvarchar" MaxLength="256" Nullable="false" />
@@ -40,6 +42,8 @@
           <Property Name="MADV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="TENDV_VI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TENDV_EN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MOTANGAN_VI" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="MOTANGAN_EN" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="MOTA_VI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MOTA_EN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="URL" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
@@ -57,12 +61,14 @@
         <ComplexType Name="DICH_VU_TIEN_ICH_selectallvi_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="String" Name="TENDV_VI" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="MOTANGAN_VI" Nullable="true" MaxLength="1000" />
           <Property Type="String" Name="MOTA_VI" Nullable="false" />
           <Property Type="String" Name="URL" Nullable="false" MaxLength="256" />
         </ComplexType>
         <ComplexType Name="DICH_VU_TIEN_ICH_selectonevi_Result">
           <Property Type="String" Name="TENDV_VI" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="MOTA_VI" Nullable="false" />
+          <Property Type="String" Name="MOTANGAN_VI" Nullable="true" MaxLength="1000" />
           <Property Type="String" Name="URL" Nullable="false" MaxLength="256" />
         </ComplexType>
       </Schema>
@@ -78,6 +84,8 @@
                 <ScalarProperty Name="MADV" ColumnName="MADV" />
                 <ScalarProperty Name="TENDV_VI" ColumnName="TENDV_VI" />
                 <ScalarProperty Name="TENDV_EN" ColumnName="TENDV_EN" />
+                <ScalarProperty Name="MOTANGAN_VI" ColumnName="MOTANGAN_VI" />
+                <ScalarProperty Name="MOTANGAN_EN" ColumnName="MOTANGAN_EN" />
                 <ScalarProperty Name="MOTA_VI" ColumnName="MOTA_VI" />
                 <ScalarProperty Name="MOTA_EN" ColumnName="MOTA_EN" />
                 <ScalarProperty Name="URL" ColumnName="URL" />
@@ -90,6 +98,7 @@
               <ComplexTypeMapping TypeName="qlks_dbModel.DICH_VU_TIEN_ICH_selectallvi_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="TENDV_VI" ColumnName="TENDV_VI" />
+                <ScalarProperty Name="MOTANGAN_VI" ColumnName="MOTANGAN_VI" />
                 <ScalarProperty Name="MOTA_VI" ColumnName="MOTA_VI" />
                 <ScalarProperty Name="URL" ColumnName="URL" />
               </ComplexTypeMapping>
@@ -100,6 +109,7 @@
               <ComplexTypeMapping TypeName="qlks_dbModel.DICH_VU_TIEN_ICH_selectonevi_Result">
                 <ScalarProperty Name="TENDV_VI" ColumnName="TENDV_VI" />
                 <ScalarProperty Name="MOTA_VI" ColumnName="MOTA_VI" />
+                <ScalarProperty Name="MOTANGAN_VI" ColumnName="MOTANGAN_VI" />
                 <ScalarProperty Name="URL" ColumnName="URL" />
               </ComplexTypeMapping>
             </ResultMapping>

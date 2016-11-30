@@ -15,6 +15,7 @@ namespace KhachSan.Models
     {
         public string TENDV_VI { get; set; }
         public string MOTA_VI { get; set; }
+        public string MOTANGAN_VI { get; set; }
         public string URL { get; set; }
     }
 }

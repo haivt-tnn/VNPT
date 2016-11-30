@@ -8,6 +8,8 @@
           <ScalarProperty Name="MADV" ColumnName="MADV" />
           <ScalarProperty Name="TENDV_VI" ColumnName="TENDV_VI" />
           <ScalarProperty Name="TENDV_EN" ColumnName="TENDV_EN" />
+          <ScalarProperty Name="MOTANGAN_VI" ColumnName="MOTANGAN_VI" />
+          <ScalarProperty Name="MOTANGAN_EN" ColumnName="MOTANGAN_EN" />
           <ScalarProperty Name="MOTA_VI" ColumnName="MOTA_VI" />
           <ScalarProperty Name="MOTA_EN" ColumnName="MOTA_EN" />
           <ScalarProperty Name="URL" ColumnName="URL" />
@@ -20,6 +22,7 @@
         <ComplexTypeMapping TypeName="qlks_dbModel.DICH_VU_TIEN_ICH_selectallvi_Result">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="TENDV_VI" ColumnName="TENDV_VI" />
+          <ScalarProperty Name="MOTANGAN_VI" ColumnName="MOTANGAN_VI" />
           <ScalarProperty Name="MOTA_VI" ColumnName="MOTA_VI" />
           <ScalarProperty Name="URL" ColumnName="URL" />
         </ComplexTypeMapping>
@@ -30,6 +33,7 @@
         <ComplexTypeMapping TypeName="qlks_dbModel.DICH_VU_TIEN_ICH_selectonevi_Result">
           <ScalarProperty Name="TENDV_VI" ColumnName="TENDV_VI" />
           <ScalarProperty Name="MOTA_VI" ColumnName="MOTA_VI" />
+          <ScalarProperty Name="MOTANGAN_VI" ColumnName="MOTANGAN_VI" />
           <ScalarProperty Name="URL" ColumnName="URL" />
         </ComplexTypeMapping>
       </ResultMapping>
