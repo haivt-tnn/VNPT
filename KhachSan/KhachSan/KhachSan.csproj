@@ -43,6 +43,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -76,6 +84,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -126,6 +136,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Image\Events\1.jpg" />
+    <Content Include="Image\Events\Wind.png" />
     <Content Include="Image\Event\1.jpg" />
     <Content Include="Image\Gioithieu\gt.jpg" />
     <Content Include="Image\Intro\intro.jpg" />
@@ -146,6 +157,16 @@
     <Content Include="Image\Slide\slide1.jpg" />
     <Content Include="Image\Slide\slide2.jpg" />
     <Content Include="Image\Slide\slide3.jpg" />
+    <Content Include="Models\Events.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Events.edmx</DependentUpon>
+      <LastGenOutput>Events.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Events.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Events.edmx</DependentUpon>
+      <LastGenOutput>Events.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
@@ -163,6 +184,13 @@
     <Content Include="Areas\Admin\Views\Khachhang\KHdatphong.cshtml" />
     <Content Include="Areas\Admin\Views\Nhanvien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Nhanvien\DSnhanvien.cshtml" />
+    <EntityDeploy Include="Models\Events.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Events.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Events.edmx.diagram">
+      <DependentUpon>Events.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -201,6 +229,30 @@
     <Compile Include="Controllers\ViewRoomController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DICH_VU_TIEN_ICH.cs">
+      <DependentUpon>Events.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DICH_VU_TIEN_ICH_selectallvi_Result.cs">
+      <DependentUpon>Events.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DICH_VU_TIEN_ICH_selectonevi_Result.cs">
+      <DependentUpon>Events.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Events.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Events.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Events.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Events.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Events.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Events.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Gioithieu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -254,6 +306,9 @@
       <Project>{089fa34b-7b2f-480c-ad35-e3763e8464cd}</Project>
       <Name>Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -3,33 +3,33 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@model IEnumerable<KhachSan.Models.DICH_VU_TIEN_ICH_selectallvi_Result>
+
 <section class="about mt50">
     <div class="col-md-12">
         <h2 class="lined-heading bounceInRight appear animated" data-start="800"><span style="text-transform:uppercase">Tổ chức sự kiện</span></h2>
         <div class="container">
             <div class="row">
-                <!-- dv1 -->
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="~/Events/Details">
-                            <img src="~/Image/Intro/intro.jpg" alt="Lights" style="width:100%">
-                            <div class="caption">
-                                <p>Tổ chức tiệc cưới</p>
+                @foreach (var item in Model)
+                {
+                    using (Html.BeginForm("Details", "Events", new { id = item.ID }))
+                    {
+                        <div class="col-md-4">
+                            <div class="thumbnail">
+                                <a href="~/Events/Details">
+                                    <img src="@item.URL" alt="Lights" class="img-rounded" style="width:100%; padding-bottom:10px">
+                                    @{
+                                        //<p>@Html.DisplayFor(model => item.ID)</p>
+                                        @Html.HiddenFor(model => item.ID)
+                                        var a = item.TENDV_VI;
+                                        var content = item.ID;
+                                        <input class="btn btn-danger btn-md btn-group-justified btn-block" id="@content" type="submit" value="@a" />
+                                    }
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                </div>
-                <!-- dv1 -->
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="~/Events/Details">
-                            <img src="~/Image/Intro/intro.jpg" alt="Lights" style="width:100%">
-                            <div class="caption">
-                                <p>Tổ chức hộ nghị</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                        </div>
+                                            }
+                                        }
             </div>
         </div>
     </div>
