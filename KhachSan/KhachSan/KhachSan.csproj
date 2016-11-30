@@ -136,6 +136,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Image\Events\1.jpg" />
+    <Content Include="Image\Events\Ancient.png" />
+    <Content Include="Image\Events\Crystal.png" />
+    <Content Include="Image\Events\Crystals.png" />
+    <Content Include="Image\Events\Temp.png" />
     <Content Include="Image\Events\Wind.png" />
     <Content Include="Image\Event\1.jpg" />
     <Content Include="Image\Gioithieu\gt.jpg" />
