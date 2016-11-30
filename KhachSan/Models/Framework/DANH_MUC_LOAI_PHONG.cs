@@ -21,6 +21,11 @@ namespace Models.Framework
         [StringLength(50)]
         public string TENLOAIPHONG { get; set; }
 
+        public string MOTA { get; set; }
+
+        [StringLength(50)]
+        public string URLIMAGE { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DANH_MUC_PHONG> DANH_MUC_PHONG { get; set; }
 
