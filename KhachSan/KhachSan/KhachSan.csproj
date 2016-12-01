@@ -146,16 +146,15 @@
     <Content Include="Image\Event\1.jpg" />
     <Content Include="Image\Gioithieu\gt.jpg" />
     <Content Include="Image\Intro\intro.jpg" />
-    <Content Include="Image\logo1.png" />
     <Content Include="Image\OtherEvent\1.jpg" />
-    <Content Include="Image\Room\image_190.jpg" />
-    <Content Include="Image\Room\image_191.jpg" />
-    <Content Include="Image\Room\image_192.jpg" />
+    <Content Include="Image\Room\DOUBLE\1.jpg" />
+    <Content Include="Image\Room\TWIN\1.jpg" />
     <Content Include="Image\Room\TWIN\image_206.jpg" />
     <Content Include="Image\Room\TWIN\image_207.jpg" />
     <Content Include="Image\Room\TWIN\image_208.jpg" />
     <Content Include="Image\Room\TWIN\image_209.jpg" />
     <Content Include="Image\Room\TWIN\image_210.jpg" />
+    <Content Include="Image\Room\VIP\1.jpg" />
     <Content Include="Image\Sale\image_190.jpg" />
     <Content Include="Image\Sale\image_191.jpg" />
     <Content Include="Image\Sale\image_192.jpg" />
@@ -261,6 +260,7 @@
       <DependentUpon>Events.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Gioithieu.cs" />
+    <Compile Include="Models\LoaiPhongModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -304,12 +304,10 @@
     <Folder Include="Areas\Admin\Content\vendor\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Scripts\" />
-    <Folder Include="Image\Room\DOUBLE\" />
-    <Folder Include="Image\Room\VIP\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj">
-      <Project>{089fa34b-7b2f-480c-ad35-e3763e8464cd}</Project>
+      <Project>{a807183a-f9ef-42b6-877f-46c329543c5e}</Project>
       <Name>Models</Name>
     </ProjectReference>
   </ItemGroup>

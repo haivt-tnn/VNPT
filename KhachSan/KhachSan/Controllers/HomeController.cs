@@ -11,9 +11,14 @@ namespace KhachSan.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
-            
-            
+            List<object> myModel = new List<object>();
+            var tt = new Models.Gioithieu();
+            var model = tt.getAllGioiThieu();
+            var ttt = new Models.LoaiPhongModel();
+            var model2 = ttt.getAllLoaiPhong();
+            myModel.Add(model);
+            myModel.Add(model2);
+            return View(myModel);
         }
     }
 }

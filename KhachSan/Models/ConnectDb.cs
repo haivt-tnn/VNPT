@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -9,21 +10,19 @@ namespace Models
 {
     public class ConnectDb
     {
+        public string str = "data source=123.30.182.15;initial catalog=qlks_db;persist security info=True;user id=account_website;password=pR&i2s57";
         public SqlConnection conn = null;
         public ConnectDb()
         {
-            string strconnect = "Data Source=123.30.182.15;Initial Catalog=qlks_db;Persist Security Info=True;User ID=account_website;Password=pR&i2s57";
-            conn = new SqlConnection(strconnect);
+            conn = new SqlConnection(str);
             conn.Open();
         }
         public void DisConnect()
         {
-            if (conn!=null)
+            if (conn!=null && conn.State==ConnectionState.Open)
             {
                 conn.Close();
-                //conn.Dispose();
             }
         }
-
     }
 }

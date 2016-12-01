@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{089FA34B-7B2F-480C-AD35-E3763E8464CD}</ProjectGuid>
+    <ProjectGuid>{A807183A-F9EF-42B6-877F-46C329543C5E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Models</RootNamespace>
@@ -67,12 +67,17 @@
     <Compile Include="Framework\DANH_MUC_NGUOI_DUNG.cs" />
     <Compile Include="Framework\DANH_MUC_PHONG.cs" />
     <Compile Include="Framework\DANH_MUC_TIEN_NGHI.cs" />
+    <Compile Include="Framework\DANH_MUC_TINH_TRANG_PHONG.cs" />
+    <Compile Include="Framework\DICH_VU_TIEN_ICH.cs" />
     <Compile Include="Framework\GIOITHIEU.cs" />
     <Compile Include="Framework\KhachSanDbContext.cs" />
+    <Compile Include="Framework\KHUYEN_MAI.cs" />
     <Compile Include="Framework\PHAN_QUYEN_NGUOI_DUNG.cs" />
     <Compile Include="Framework\PHIEU_DAT_PHONG.cs" />
     <Compile Include="Framework\PHIEU_NHAN_PHONG.cs" />
     <Compile Include="Framework\PHIEU_THANH_TOAN.cs" />
+    <Compile Include="Framework\SU_KIEN.cs" />
+    <Compile Include="Framework\TIN_TUC_KHAC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

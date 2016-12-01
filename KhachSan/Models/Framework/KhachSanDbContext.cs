@@ -12,6 +12,10 @@ namespace Models.Framework
         {
         }
 
+        public virtual DbSet<DANH_MUC_TINH_TRANG_PHONG> DANH_MUC_TINH_TRANG_PHONG { get; set; }
+        public virtual DbSet<DICH_VU_TIEN_ICH> DICH_VU_TIEN_ICH { get; set; }
+        public virtual DbSet<KHUYEN_MAI> KHUYEN_MAI { get; set; }
+        public virtual DbSet<SU_KIEN> SU_KIEN { get; set; }
         public virtual DbSet<CHI_TIET_NHAN_PHONG> CHI_TIET_NHAN_PHONG { get; set; }
         public virtual DbSet<CHI_TIET_PHI_DICH_VU> CHI_TIET_PHI_DICH_VU { get; set; }
         public virtual DbSet<CHI_TIET_PHI_THUE_PHONG> CHI_TIET_PHI_THUE_PHONG { get; set; }
@@ -31,10 +35,15 @@ namespace Models.Framework
         public virtual DbSet<PHIEU_DAT_PHONG> PHIEU_DAT_PHONG { get; set; }
         public virtual DbSet<PHIEU_NHAN_PHONG> PHIEU_NHAN_PHONG { get; set; }
         public virtual DbSet<PHIEU_THANH_TOAN> PHIEU_THANH_TOAN { get; set; }
-        public virtual DbSet<GIOITHIEU> GIOITHIEU { get; set; }
+        public virtual DbSet<GIOITHIEU> GIOITHIEUx { get; set; }
+        public virtual DbSet<TIN_TUC_KHAC> TIN_TUC_KHAC { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<DICH_VU_TIEN_ICH>()
+                .Property(e => e.MADV)
+                .IsFixedLength();
+
             modelBuilder.Entity<DANH_MUC_CHUC_NANG>()
                 .HasMany(e => e.PHAN_QUYEN_NGUOI_DUNG)
                 .WithRequired(e => e.DANH_MUC_CHUC_NANG)
