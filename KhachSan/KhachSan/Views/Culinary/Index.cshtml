@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<KhachSan.Models.DICH_VU_TIEN_ICH_selectallvi_Result>
 @{
     ViewBag.Title = "Ẩm thực";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,31 +7,33 @@
     <div class="col-md-12">
         <h2 class="lined-heading bounceInRight appear animated" data-start="800"><span style="text-transform:uppercase">Ẩm thực</span></h2>
         <div class="container">
-            <div class="row">
-                <!-- dv1 -->
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="~/Culinary/Details">
-                            <img src="~/Image/Intro/intro.jpg" alt="Lights" style="width:100%">
-                            <div class="caption">
-                                <p>Buffet – Ăn sáng</p>
+            @foreach (var item in Model)
+            {
+                using (Html.BeginForm("Details", "Culinary", new { id = item.ID }))
+                {
+                    <div class="col-md-4">
+                        <div class="room-thumb">
+                            <img src="@item.URL" alt="Lights" class="img-responsive" style="width:100%; padding-bottom:10px">
+                            <div class="mask">
+                                <a href="~/Culinary/Details/@item.ID">
+                                    <div class="main">
+                                        <h5>@item.TENDV_VI</h5>
+                                    </div>
+                                    <div class="content">
+                                        @{
+                                            @Html.HiddenFor(model => item.ID)
+                                            var a = item.TENDV_VI;
+                                            var content = item.ID;
+                                            <p>@item.MOTANGAN_VI</p>
+                                                <input class="btn btn-danger btn-md btn-group-justified btn-block" id="@content" type="submit" value="Chi Tiết" />
+                                        }
+                                    </div>
+                                </a>
                             </div>
-                        </a>
+                        </div>
                     </div>
-                </div>
-                <!-- dv1 -->
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="~/Culinary/Details">
-                            <img src="~/Image/Intro/intro.jpg" alt="Lights" style="width:100%">
-                            <div class="caption">
-                                <p>Nhà hàng</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
+                                                }
+                                            }
         </div>
     </div>
 </section>
