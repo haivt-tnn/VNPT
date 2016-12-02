@@ -11,11 +11,14 @@ namespace KhachSan.Areas.Admin.Controllers
         // GET: Admin/Nhanvien
         public ActionResult Index()
         {
+            
+
             return View();
         }
         public ActionResult DSnhanvien()
         {
-            return View();
+            var dsnv = new Models.NhanVienModel().getAllNhanVien();
+            return View(dsnv);
         }
     }
 }
