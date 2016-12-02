@@ -1,4 +1,4 @@
-﻿
+﻿@model List<Models.Framework.TIN_TUC_KHAC>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,28 +9,19 @@
         <div class="container">
             <div class="row">
                 <!-- dv1 -->
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="~/OtherEvent/Details">
-                            <img src="~/Image/Intro/intro.jpg" alt="Lights" style="width:100%">
-                            <div class="caption">
-                                <p>Nhiều tour du lịch độc đáo đón Tết</p>
-                            </div>
-                        </a>
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a href="~/OtherEvent/Details?Id=@item.MATINTUC">
+                                <img src=@item.URLANH alt="Lights" style="width:100%">
+                                <div class="caption">
+                                    <p><h4>@item.TIEUDETINTUC</h4></p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <!-- dv1 -->
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="~/OtherEvent/Details">
-                            <img src="~/Image/Intro/intro.jpg" alt="Lights" style="width:100%">
-                            <div class="caption">
-                                <p>Nhiều tour du lịch độc đáo đón Tết</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
+                }
             </div>
         </div>
     </div>

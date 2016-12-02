@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A807183A-F9EF-42B6-877F-46C329543C5E}</ProjectGuid>
+    <ProjectGuid>{260EFE41-4AA1-4CA1-B908-A2099A067869}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Models</RootNamespace>
@@ -66,6 +66,7 @@
     <Compile Include="Framework\DANH_MUC_LOAI_TIEN.cs" />
     <Compile Include="Framework\DANH_MUC_NGUOI_DUNG.cs" />
     <Compile Include="Framework\DANH_MUC_PHONG.cs" />
+    <Compile Include="Framework\DANH_MUC_TIEN_ICH.cs" />
     <Compile Include="Framework\DANH_MUC_TIEN_NGHI.cs" />
     <Compile Include="Framework\DANH_MUC_TINH_TRANG_PHONG.cs" />
     <Compile Include="Framework\DICH_VU_TIEN_ICH.cs" />

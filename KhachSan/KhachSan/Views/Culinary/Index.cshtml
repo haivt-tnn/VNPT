@@ -1,4 +1,4 @@
-﻿
+﻿@model List<Models.Framework.DANH_MUC_TIEN_ICH>
 @{
     ViewBag.Title = "Ẩm thực";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,29 +8,20 @@
         <h2 class="lined-heading bounceInRight appear animated" data-start="800"><span style="text-transform:uppercase">Ẩm thực</span></h2>
         <div class="container">
             <div class="row">
-                <!-- dv1 -->
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="~/Culinary/Details">
-                            <img src="~/Image/Intro/intro.jpg" alt="Lights" style="width:100%">
-                            <div class="caption">
-                                <p>Buffet – Ăn sáng</p>
-                            </div>
-                        </a>
+                @foreach (var item in Model)
+                {
+                    <!-- dv1 -->
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a href="~/Culinary/Details/?Id=@item.ID">
+                                <img src="@item.URL" alt="Lights" style="width:100%">
+                                <div class="caption">
+                                    <p><h4>@item.TENDV</h4></p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <!-- dv1 -->
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="~/Culinary/Details">
-                            <img src="~/Image/Intro/intro.jpg" alt="Lights" style="width:100%">
-                            <div class="caption">
-                                <p>Nhà hàng</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
+                }
             </div>
         </div>
     </div>

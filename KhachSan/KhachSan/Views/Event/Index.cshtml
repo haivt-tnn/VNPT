@@ -1,4 +1,4 @@
-﻿
+﻿@model List<Models.Framework.SU_KIEN> 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,28 +9,19 @@
         <div class="container">
             <div class="row">
                 <!-- dv1 -->
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="~/Event/Details">
-                            <img src="~/Image/Intro/intro.jpg" alt="Lights" style="width:100%">
-                            <div class="caption">
-                                <p>Khai trương Trung tâm giải trí phức hợp Helio</p>
-                            </div>
-                        </a>
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a href="~/Event/Details?Id=@item.MASUKIEN">
+                                <img src=@item.URLANH alt="Lights" style="width:100%">
+                                <div class="caption">
+                                    <p><h4>@item.TIEUDESUKIEN</h4></p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <!-- dv1 -->
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="~/Event/Details">
-                            <img src="~/Image/Intro/intro.jpg" alt="Lights" style="width:100%">
-                            <div class="caption">
-                                <p>Khai trương Trung tâm giải trí phức hợp Helio</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
+                }
             </div>
         </div>
     </div>

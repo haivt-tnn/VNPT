@@ -9,15 +9,21 @@ namespace KhachSan.Controllers
 {
     public class EventsController : Controller
     {
-        qlks_dbEntities db = new qlks_dbEntities();
         // GET: Events
         public ActionResult Index()
         {
-            return View(db.GetAllDichVu("TCSK"));
+            var t = new Models.DICHVU_MODEL();
+            var model = t.get1TienIch();
+            return View(model);
         }
-        public ActionResult Details(int id)
+        [HttpGet]
+        public ActionResult Details()
         {
-            return View(db.GetOneDichVu(id));
+            string str = Request.QueryString["Id"];
+            int id = Convert.ToInt32(str);
+            var t = new Models.DICHVU_MODEL();
+            var model = t.getDetailTienIch(id);
+            return View(model);
         }
     }
 }

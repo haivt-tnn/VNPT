@@ -1,7 +1,8 @@
-﻿
+﻿@model List<Models.Framework.KHUYEN_MAI>
 @{
     ViewBag.Title = "Thông tin khuyến mại";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 <section class="about mt50">
     <div class="col-md-12">
@@ -9,28 +10,20 @@
         <div class="container">
             <div class="row">
                 <!-- dv1 -->
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="~/Sale/Details">
-                            <img src="~/Image/Intro/intro.jpg" alt="Lights" style="width:100%">
-                            <div class="caption">
-                                <p>Giảm giá 50%</p>
-                            </div>
-                        </a>
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a href="~/Sale/Details/?Id=@item.MAKHUYENMAI">
+                                <img src=@item.URLANH alt="Lights" style="width:100%">
+                                <div class="caption">
+                                    <p><h4>@item.TIEUDEKHUYENMAI</h4></p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
+                }       
                 <!-- dv1 -->
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="~/Sale/Details">
-                            <img src="~/Image/Intro/intro.jpg" alt="Lights" style="width:100%">
-                            <div class="caption">
-                                <p>Ưu đãi phòng hội nghị cuối nắm</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>

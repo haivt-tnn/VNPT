@@ -11,9 +11,18 @@ namespace KhachSan.Controllers
         // GET: Event
         public ActionResult Index()
         {
-            return View();
+            var sk = new Models.EventModel().getAllSuKien();
+
+            return View(sk);
         }
+
+        [HttpGet]
         public ActionResult Details()
-        { return View(); }
+        {
+            string str = Request.QueryString["Id"];
+            int id = Convert.ToInt32(str);
+            var sk = new Models.EventModel().getAllSuKien1(id);
+            return View(sk);
+        }
     }
 }

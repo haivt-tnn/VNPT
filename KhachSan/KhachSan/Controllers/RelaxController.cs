@@ -9,15 +9,22 @@ namespace KhachSan.Controllers
 {
     public class RelaxController : Controller
     {
-        qlks_dbEntities db = new qlks_dbEntities();
+       
         // GET: Events
         public ActionResult Index()
         {
-            return View(db.GetAllDichVu("TG"));
+            var t = new Models.GIAITRI_MODEL();
+            var model = t.getTypeTienIch(3);
+            return View(model);
         }
-        public ActionResult Details(int id)
+        [HttpGet]
+        public ActionResult Details()
         {
-            return View(db.GetOneDichVu(id));
+            string str = Request.QueryString["Id"];
+            int id = Convert.ToInt32(str);
+            var t = new Models.GIAITRI_MODEL();
+            var model = t.getDetailTienIch(3, id);
+            return View(model);
         }
     }
 }

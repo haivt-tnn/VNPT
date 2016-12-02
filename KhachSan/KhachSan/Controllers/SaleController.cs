@@ -9,11 +9,20 @@ namespace KhachSan.Controllers
     public class SaleController : Controller
     {
         // GET: Sale
+        
         public ActionResult Index()
         {
-            return View();
+            var km = new Models.SaleModel().getAllKhuyenMai();          
+            return View(km);
         }
+
+        [HttpGet]
         public ActionResult Details()
-        { return View(); }
+        {
+            string str = Request.QueryString["Id"];
+            int id = Convert.ToInt32(str);
+            var km = new Models.SaleModel().getAllKhuyenMai1(id);
+            return View(km);
+        }
     }
 }

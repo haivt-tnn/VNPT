@@ -35,7 +35,8 @@ namespace Models.Framework
         public virtual DbSet<PHIEU_DAT_PHONG> PHIEU_DAT_PHONG { get; set; }
         public virtual DbSet<PHIEU_NHAN_PHONG> PHIEU_NHAN_PHONG { get; set; }
         public virtual DbSet<PHIEU_THANH_TOAN> PHIEU_THANH_TOAN { get; set; }
-        public virtual DbSet<GIOITHIEU> GIOITHIEUx { get; set; }
+        public virtual DbSet<DANH_MUC_TIEN_ICH> DANH_MUC_TIEN_ICH { get; set; }
+        public virtual DbSet<GIOITHIEU> GIOITHIEU { get; set; }
         public virtual DbSet<TIN_TUC_KHAC> TIN_TUC_KHAC { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

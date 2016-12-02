@@ -1,7 +1,14 @@
 ﻿@model IEnumerable<object>
 @{
-    List<Models.Framework.GIOITHIEU> lstGioiThieu = Model.ToList()[0] as List<Models.Framework.GIOITHIEU>;
-    List<Models.Framework.DANH_MUC_LOAI_PHONG> lstLoaiPhong = Model.ToList()[1] as List<Models.Framework.DANH_MUC_LOAI_PHONG>;
+    List<Models.Framework.GIOITHIEU>
+        lstGioiThieu = Model.ToList()[0] as List<Models.Framework.GIOITHIEU>
+            ;
+    List<Models.Framework.DANH_MUC_LOAI_PHONG>
+        lstLoaiPhong = Model.ToList()[1] as List<Models.Framework.DANH_MUC_LOAI_PHONG>
+            ;
+    List<Models.Framework.DANH_MUC_TIEN_ICH>
+        lstTienIch = Model.ToList()[2] as List<Models.Framework.DANH_MUC_TIEN_ICH>
+            ;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <!--Slider -->
@@ -191,47 +198,59 @@
                         <div class="col-sm-2">
                             <div class="form-group">
                                 <label for="room">Họ và Tên</label>
-                                <input class="form-control" type="text" name="txthovaten" />
+                                @Html.TextBox("txthoten", null, new { @class = "form-control", @type = "text", @id = "hoten" })
                             </div>
                         </div>
                         <div class="col-sm-2">
                             <div class="form-group">
                                 <label for="room">Loại phòng</label>
-                                <select class="form-control" name="txtloaiphong" id="room">
-                                    <option selected="selected" value="0" disabled="disabled">Chọn phòng</option>
-                                    @foreach (var item3 in lstLoaiPhong)
+                                @{
+                                    List<SelectListItem>
+                                        myList = new List<SelectListItem>();
+                                    foreach (var item3 in lstLoaiPhong)
                                     {
-                                        <option value="@item3.MALOAIPHONG">@item3.TENLOAIPHONG</option>
+                                        SelectListItem it = new SelectListItem { Text = item3.TENLOAIPHONG, Value = item3.MALOAIPHONG.ToString() };
+                                        myList.Add(it);
                                     }
-                                </select>
+                                }
+                                @Html.DropDownList("loaiphong", (IEnumerable<SelectListItem>)(myList), new { @class = "form-control" })
                             </div>
                         </div>
                         <div class="col-sm-2">
                             <div class="form-group">
                                 <label for="checkin">Ngày đến</label>
                                 <i class="fa fa-calendar infield"></i>
-                                <input name="txtngayden" type="date" id="checkin" value="" class="form-control hasDatepicker" placeholder="Ngày đến">
+                                @Html.TextBox("txtngayden", null, new { @type = "date", @class = "form-control hasDatepicker", @id = "ngayden" })
                             </div>
                         </div>
                         <div class="col-sm-2">
                             <div class="form-group">
                                 <label for="checkout">Ngày đi</label>
                                 <i class="fa fa-calendar infield"></i>
-                                <input name="txtngaydi" type="date" id="checkout" value="" class="form-control hasDatepicker" placeholder="Ngày đi">
+                                @Html.TextBox("txtngaydi", null, new { @type = "date", @class = "form-control hasDatepicker", @id = "ngaydi" })
                             </div>
                         </div>
 
                         <div class="col-sm-2">
                             <div class="form-group">
                                 <label for="room">Số điện thoại</label>
-                                <input class="form-control" type="text" name="txtdienthoai" />
+                                @Html.TextBox("txtdt", null, new { @class = "form-control", @type = "text", @id="sodienthoai"})
                             </div>
                         </div>
                         <div class="col-sm-2">
-                            <button type="submit" class="btn btn-primary btn-block">Đặt ngay</button>
+                            <button type="submit" class="btn btn-primary btn-block" 
+                                    onclick="if (document.getElementById('hoten').value!=''
+                                                 && document.getElementById('sodienthoai').value != ''
+                                                 && document.getElementById('ngayden').value != ''
+                                                 && document.getElementById('ngaydi').value != '')
+                                                 { alert('Đặt phòng thành công.\nChúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất. \nChân thành cảm ơn!'); }
+                                            else { alert('Lỗi!\nKhông được để trống.'); }" >
+                                Đặt ngay
+                            </button>
                         </div>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>
@@ -250,7 +269,7 @@
                         <div style="text-align: justify;">
                             @foreach (var item in lstGioiThieu)
                             {
-                                @item.MOTA
+                                <p class="fontawesome-icon-list">@item.MOTA</p>
                             }
                             <a class="fusion-button button-flat button-square button-large button-default button-2" target="_self" href="~/About"><span class="fusion-button-text fusion-button-text-right">TÌM HIỂU THÊM</span></a>
                         </div>
@@ -311,84 +330,25 @@
 <!--service-->
 <section class="about mt50">
     <div class="col-md-12">
-        <h2 class="lined-heading bounceInRight appear animated" data-start="800"><span style="text-transform:uppercase">Dịch vụ</span></h2>
+        <h2 class="lined-heading bounceInRight appear animated" data-start="800"><span style="text-transform:uppercase">Dịch vụ và tiện ích</span></h2>
         <div class="container">
             <div class="row">
                 <!-- dv1 -->
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="/#">
-                            <img src="~/Image/Intro/intro.jpg" alt="Lights" style="width:100%">
-                            <div class="caption">
-                                <p>DỊCH VỤ SPA</p>
-                            </div>
-                        </a>
-                        <p>Dịch vụ Spa của Đông Á giúp bạn giải tỏa bớt những căng thẳng mệt mỏi của cuộc sống thường nhật. Hãy trải nghiệm giây phút thư giãn với bạn bè, người thân tại phòng Spa cho gia đình.</p>
-                    </div>
-                </div>
-                <!-- dv2 -->
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="/#">
-                            <img src="~/Image/Intro/intro.jpg" alt="Lights" style="width:100%">
-                            <div class="caption">
-                                <p>DỊCH VỤ SPA</p>
-                            </div>
-                        </a>
-                        <p>Dịch vụ Spa của Đông Á giúp bạn giải tỏa bớt những căng thẳng mệt mỏi của cuộc sống thường nhật. Hãy trải nghiệm giây phút thư giãn với bạn bè, người thân tại phòng Spa cho gia đình.</p>
-                    </div>
-                </div>
-                <!-- dv3 -->
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="/#">
-                            <img src="~/Image/Intro/intro.jpg" alt="Lights" style="width:100%">
-                            <div class="caption">
-                                <p>DỊCH VỤ SPA</p>
-                            </div>
-                        </a>
-                        <p>Dịch vụ Spa của Đông Á giúp bạn giải tỏa bớt những căng thẳng mệt mỏi của cuộc sống thường nhật. Hãy trải nghiệm giây phút thư giãn với bạn bè, người thân tại phòng Spa cho gia đình.</p>
-                    </div>
-                </div>
-                <!-- dv3 -->
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="/#">
-                            <img src="~/Image/Intro/intro.jpg" alt="Lights" style="width:100%">
-                            <div class="caption">
-                                <p>DỊCH VỤ SPA</p>
-                            </div>
-                        </a>
-                        <p>Dịch vụ Spa của Đông Á giúp bạn giải tỏa bớt những căng thẳng mệt mỏi của cuộc sống thường nhật. Hãy trải nghiệm giây phút thư giãn với bạn bè, người thân tại phòng Spa cho gia đình.</p>
-                    </div>
-                </div>
-                <!-- dv3 -->
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="/#">
-                            <img src="~/Image/Intro/intro.jpg" alt="Lights" style="width:100%">
-                            <div class="caption">
-                                <p>DỊCH VỤ SPA</p>
-                            </div>
-                        </a>
-                        <p>Dịch vụ Spa của Đông Á giúp bạn giải tỏa bớt những căng thẳng mệt mỏi của cuộc sống thường nhật. Hãy trải nghiệm giây phút thư giãn với bạn bè, người thân tại phòng Spa cho gia đình.</p>
-                    </div>
-                </div>
-                <!-- dv3 -->
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="/#">
-                            <img src="~/Image/Intro/intro.jpg" alt="Lights" style="width:100%">
-                            <div class="caption">
-                                <p>DỊCH VỤ SPA</p>
-                            </div>
-                        </a>
-                        <p>Dịch vụ Spa của Đông Á giúp bạn giải tỏa bớt những căng thẳng mệt mỏi của cuộc sống thường nhật. Hãy trải nghiệm giây phút thư giãn với bạn bè, người thân tại phòng Spa cho gia đình.</p>
-                    </div>
-                </div>
+                @foreach (var item4 in lstTienIch)
+                {
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a href="~/Events/Details/?Id=@item4.ID">
+                                <img src="@item4.URL" alt="Lights" style="width:100%">
+                                <div class="caption">
+                                    <p><h4>@item4.TENDV</h4></p>
+                                </div>
+                            </a>
 
+                        </div>
+                    </div>
+                }
             </div>
-
         </div>
     </div>
 </section>

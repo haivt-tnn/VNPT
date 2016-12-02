@@ -11,9 +11,15 @@ namespace KhachSan.Controllers
         // GET: OtherEvent
         public ActionResult Index()
         {
-            return View();
+            var tt = new Models.OtherEventModel().getAllTinTuc();
+            return View(tt);
         }
+        [HttpGet]
         public ActionResult Details()
-        { return View(); }
+        {
+            int id = Convert.ToInt32(Request.QueryString["Id"]);
+            var tt = new Models.OtherEventModel().getAllTinTuc1(id);
+            return View(tt);
+        }
     }
 }

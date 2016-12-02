@@ -142,9 +142,15 @@
     <Content Include="Image\Events\Temp.png" />
     <Content Include="Image\Events\Wind.png" />
     <Content Include="Image\Event\1.jpg" />
+    <Content Include="Image\Event\danang.jpg" />
+    <Content Include="Image\Event\helilo.jpg" />
+    <Content Include="Image\Event\hoian.jpg" />
     <Content Include="Image\Gioithieu\gt.jpg" />
     <Content Include="Image\Intro\intro.jpg" />
     <Content Include="Image\OtherEvent\1.jpg" />
+    <Content Include="Image\OtherEvent\dacsanque.jpg" />
+    <Content Include="Image\OtherEvent\dontet.jpg" />
+    <Content Include="Image\OtherEvent\maybay.jpg" />
     <Content Include="Image\Room\DOUBLE\1.jpg" />
     <Content Include="Image\Room\TWIN\1.jpg" />
     <Content Include="Image\Room\TWIN\image_206.jpg" />
@@ -153,23 +159,16 @@
     <Content Include="Image\Room\TWIN\image_209.jpg" />
     <Content Include="Image\Room\TWIN\image_210.jpg" />
     <Content Include="Image\Room\VIP\1.jpg" />
+    <Content Include="Image\Sale\connecting_room.jpg" />
+    <Content Include="Image\Sale\double_room.jpg" />
     <Content Include="Image\Sale\image_190.jpg" />
     <Content Include="Image\Sale\image_191.jpg" />
     <Content Include="Image\Sale\image_192.jpg" />
+    <Content Include="Image\Sale\standar_room.jpg" />
     <Content Include="Image\Slide\loading.gif" />
     <Content Include="Image\Slide\slide1.jpg" />
     <Content Include="Image\Slide\slide2.jpg" />
     <Content Include="Image\Slide\slide3.jpg" />
-    <Content Include="Models\Events.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Events.edmx</DependentUpon>
-      <LastGenOutput>Events.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Events.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Events.edmx</DependentUpon>
-      <LastGenOutput>Events.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
@@ -187,13 +186,6 @@
     <Content Include="Areas\Admin\Views\Khachhang\KHdatphong.cshtml" />
     <Content Include="Areas\Admin\Views\Nhanvien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Nhanvien\DSnhanvien.cshtml" />
-    <EntityDeploy Include="Models\Events.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Events.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Events.edmx.diagram">
-      <DependentUpon>Events.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -204,7 +196,6 @@
     </Content>
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
-    <Content Include="Views\Sale\Index.cshtml" />
     <Content Include="Views\Event\Index.cshtml" />
     <Content Include="Views\OtherEvent\Index.cshtml" />
     <Content Include="Views\Events\Index.cshtml" />
@@ -233,32 +224,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DICH_VU_TIEN_ICH.cs">
-      <DependentUpon>Events.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DICH_VU_TIEN_ICH_selectallvi_Result.cs">
-      <DependentUpon>Events.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DICH_VU_TIEN_ICH_selectonevi_Result.cs">
-      <DependentUpon>Events.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Events.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Events.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Events.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Events.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Events.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Events.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Models\AlertModel.cs" />
+    <Compile Include="Models\DICHVU_MODEL.cs" />
+    <Compile Include="Models\EventModel.cs" />
+    <Compile Include="Models\GIAITRI_MODEL.cs" />
     <Compile Include="Models\Gioithieu.cs" />
     <Compile Include="Models\LoaiPhongModel.cs" />
+    <Compile Include="Models\OrderRoomModel.cs" />
+    <Compile Include="Models\OtherEventModel.cs" />
+    <Compile Include="Models\SaleModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -276,16 +250,17 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\ViewRoom\Index.cshtml" />
     <Content Include="Views\Entertaiment\Index.cshtml" />
-    <Content Include="Views\Relax\Index.cshtml" />
     <Content Include="Views\Culinary\Index.cshtml" />
     <Content Include="Views\Events\Details.cshtml" />
     <Content Include="Views\Event\Details.cshtml" />
     <Content Include="Views\OtherEvent\Details.cshtml" />
-    <Content Include="Views\Relax\Details.cshtml" />
-    <Content Include="Views\Sale\Details.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Culinary\Details.cshtml" />
     <Content Include="Views\Entertaiment\Details.cshtml" />
+    <Content Include="Views\Relax\Index.cshtml" />
+    <Content Include="Views\Relax\Details.cshtml" />
+    <Content Include="Views\Sale\Details.cshtml" />
+    <Content Include="Views\Sale\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -304,13 +279,13 @@
     <Folder Include="Areas\Admin\Scripts\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Models\Models.csproj">
-      <Project>{a807183a-f9ef-42b6-877f-46c329543c5e}</Project>
-      <Name>Models</Name>
-    </ProjectReference>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{260efe41-4aa1-4ca1-b908-a2099a067869}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,6 +1,6 @@
-﻿@model IEnumerable<KhachSan.Models.DICH_VU_TIEN_ICH_selectallvi_Result>
+﻿@model List<Models.Framework.DANH_MUC_TIEN_ICH>
 @{
-    ViewBag.Title = "Hoạt động giải trí";
+    ViewBag.Title = "Thông tin khuyến mại";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <section class="about mt50">
@@ -10,25 +10,20 @@
             <div class="row">
                 @foreach (var item in Model)
                 {
-                    using (Html.BeginForm("Details", "Entertaiment", new { id = item.ID }))
-                    {
-                        <div class="col-md-4">
-                            <div class="thumbnail">
-                                <a href="~/Entertaiment/Details/@item.ID">
-                                    <img src="@item.URL" alt="Lights" class="img-rounded" style="width:100%; padding-bottom:10px">
-                                    @{
-                                        //<p>@Html.DisplayFor(model => item.ID)</p>
-                                        @Html.HiddenFor(model => item.ID)
-                                        var a = item.TENDV_VI;
-                                        var content = item.ID;
-                                        <input class="btn btn-danger btn-md btn-group-justified btn-block" id="@content" type="submit" value="@a" />
-                                    }
-                                </a>
-                            </div>
+                    <!-- dv1 -->
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a href="~/Entertaiment/Details/?Id=@item.ID">
+                                <img src="@item.URL" alt="Lights" style="width:100%">
+                                <div class="caption">
+                                    <p><h4>@item.TENDV</h4></p>
+                                </div>
+                            </a>
                         </div>
-                                            }
-                                        }
+                    </div>
+                }
             </div>
         </div>
     </div>
 </section>
+
