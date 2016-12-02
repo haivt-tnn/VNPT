@@ -1,48 +1,82 @@
-﻿
-@{
-    ViewBag.Title = "DSnhanvien";
-    Layout = "~/Areas/Admin/Views/Shared/_layout_admin.cshtml";
-}
-<section>
+﻿ @model List<KhachSan.Areas.Admin.Models.DanhSachNhanVien1>
 
-    <div id="wrapper">
-        <div id="page-wrapper">
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <p>Danh sách nhận viên<input type="button" name="btnthem" value="Thêm" /></p>
 
+
+
+    @{
+        ViewBag.Title = "DSnhanvien";
+        Layout = "~/Areas/Admin/Views/Shared/_layout_admin.cshtml";
+        @*
+            List<KhachSan.Areas.Admin.Models.DanhSachNhanVien1> listDanhSachNhanVien = Model.ToList()[0] as List<KhachSan.Areas.Admin.Models.DanhSachNhanVien1>;
+              List<Models.Framework.DANH_MUC_NGUOI_DUNG> listDanhMucNguoiDung = Model.ToList()[0] as List<Models.Framework.DANH_MUC_NGUOI_DUNG>;
+                List<Models.Framework.DANH_MUC_GIOI_TINH> listDanhMucGioiTinh = Model.ToList()[1] as List<Models.Framework.DANH_MUC_GIOI_TINH>;
+                List<Models.Framework.DANH_MUC_DIA_CHI> listDanhMucDiaChi = Model.ToList()[2] as List<Models.Framework.DANH_MUC_DIA_CHI>;*@
+    }
+    <section>
+
+        <div id="wrapper">
+            <div id="page-wrapper">
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <p>Danh sách nhận viên<input type="button" name="btnthem" value="Thêm" /></p>
+
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>STT</th>
+                                            <th>Tài khoản</th>
+                                            <th>Họ Tên</th>
+                                            <th>Mật Khẩu</th>
+                                            <th>Giới Tính</th>
+                                            <th>Ngày Sinh</th>
+                                            <th>Số Điện Thoại</th>
+                                            <th>Email</th>
+                                            <th>Địa Chỉ</th>
+                                            <th>Trạng thái</th>
+                                            <th>Thao tác</th>
+                                        </tr>
+                                        @{
+                                            int i = 0;
+                                        }
+
+
+                                        @foreach (var item in Model)
+                                        {
+                                            i++;
+                                            <tr>
+                                                <td>@i</td>
+                                                <td>@item.TaiKhoan</td>
+                                                <td>@item.HoTen</td>
+                                                <td>@item.MatKhau</td>
+                                                <td>@item.GioiTinh</td>
+                                                <td>@item.NgaySinh</td>
+                                                <td>@item.SoDienThoai</td>
+                                                <td>@item.Email</td>
+                                                <td>@item.ChiTietDiaChi @item.TenDiaChi</td>
+                                                <td>@item.TrangThai</td>
+                                            </tr>
+
+                                        }
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                                <!-- /.table-responsive -->
+
+                            </div>
+                            <!-- /.panel-body -->
                         </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                <thead>
-                                    <tr>
-                                        <th>STT</th>
-                                        <th>Tên tài khoản</th>
-                                        <th>Họ và Tên</th>
-                                        <th>Phân quyền</th>
-                                        <th>Trạng thái</th>
-                                        <th>Thao tác</th>
-                                    </tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
-                            <!-- /.table-responsive -->
-
-                        </div>
-                        <!-- /.panel-body -->
+                        <!-- /.panel -->
                     </div>
-                    <!-- /.panel -->
+                    <!-- /.col-lg-12 -->
                 </div>
-                <!-- /.col-lg-12 -->
             </div>
         </div>
-    </div>
 
 
-</section>
-
-
+    </section>

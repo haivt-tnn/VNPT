@@ -212,9 +212,14 @@
     <Compile Include="Areas\Admin\Controllers\NhanvienController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhongController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThongkeController.cs" />
+<<<<<<< HEAD
     <Compile Include="Areas\Admin\Models\KieuPhongModel.cs" />
     <Compile Include="Areas\Admin\Models\PhongModel.cs" />
     <Compile Include="Areas\Admin\Models\UpdateKhacSanModel.cs" />
+=======
+    <Compile Include="Areas\Admin\Models\DanhSachNhanVien1.cs" />
+    <Compile Include="Areas\Admin\Models\NhanVienModel.cs" />
+>>>>>>> dd60c5e5948de0d889b05299360ff15b68dbb807
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\CulinaryController.cs" />
