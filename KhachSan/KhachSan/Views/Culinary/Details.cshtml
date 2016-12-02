@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<KhachSan.Models.DICH_VU_TIEN_ICH_selectonevi_Result>
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <section class="about mt50">
+                <div class="col-md-12">
+                    <h2 class="lined-heading bounceInRight appear animated" data-start="800"><span style="text-transform:uppercase">Chi tiết</span></h2>
+                </div>
+                <div class="col-md-5">
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="tab_1">
+
+                            <div style="text-align: justify;">
+                                @{
+                                    var a = item.TENDV_VI;
+                                    var content = item.MOTA_VI;
+                                }
+                                <div style="text-align:center">
+                                    <p style="letter-spacing: 4px; font-size: 14px; text-align: center; margin-bottom: 0px;"><h2>@a</h2></p>
+                                </div>
+                                <div class="text-info">
+                                    <p style="padding: 0 50px; font-size: 11px; font-family:Arial; text-align: center;">
+                                        <h4>@content</h4>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <!-- image intro -->
+                                    <section class="testimonials mt50">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="thumbnail">
+                                                    <a href="~/Culinary">
+                                                        <img src="@item.URL" alt="Lights" style="width:100%">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    }
+    </div>
+</div>
+
