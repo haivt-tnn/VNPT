@@ -1,0 +1,762 @@
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/_layout_admin.cshtml";
+}
+<!--form popup-->
+<section>
+    <div class="modal fade" id="myModal" role="dialog" style="width: auto; padding: 15px; height: auto; min-height: 0px">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Sơ đồ phòng</h4>
+                    <div class="btn-group">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="modal" href="#setting1">Cài đặt tính tiền</button>
+                        </div>
+                        <span class="btn-success">52</span>
+                        <label>Trống</label>
+                        <span class="btn-danger">0</span>
+                        <label>Đang ở</label>
+                        <span class="btn-warning">0</span>
+                        <label>Chờ khách</label>
+                        <span class="btn-info">52</span>
+                        <label>Đang sửa</label>
+                        <span class="btn-default">52</span>
+                        <label>Đang dọn</label>
+
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">HT & Đặt phòng</button>
+                        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="modal" data-target="#dscheckin">DS Checkin</button>
+                        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="modal" data-target="#dscheckout">DS Checkout</button>
+                        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="modal" data-target="#dskhachhang">DS Khách hàng</button>
+                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="modal" data-target="#them">Tạo HD/Phiếu</button>
+                    </div>
+                </div>
+                <div class="modal-body">
+
+                    <!--1 phòng-->
+                    <div class="btn-group ">
+                        <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">201</button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a data-toggle="modal" href="#nhanphong">Nhận phòng</a></li>
+                            <li><a data-toggle="modal" href="#nhanphong">Đặt phòng trước</a></li>
+                            <li><a data-toggle="modal" href="#trangthai">Cập nhật trạng thái</a></li>
+                            <li><a data-toggle="modal" href="#chinhsua">Chỉnh sửa</a></li>
+                            <li><a data-toggle="modal" href="#xoa">Xóa phòng</a></li>
+                        </ul>
+                    </div>
+                    <!--1 phòng-->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">202</button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Nhận phòng</a></li>
+                            <li><a href="#">Đặt phòng trước</a></li>
+                            <li><a href="#">Cập nhật trạng thái</a></li>
+                            <li><a href="#">Chỉnh sửa</a></li>
+                            <li><a href="#">Xóa phòng</a></li>
+                        </ul>
+                    </div>
+                    <!--1 phòng-->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">203</button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Nhận phòng</a></li>
+                            <li><a href="#">Đặt phòng trước</a></li>
+                            <li><a href="#">Cập nhật trạng thái</a></li>
+                            <li><a href="#">Chỉnh sửa</a></li>
+                            <li><a href="#">Xóa phòng</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">204</button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Nhận phòng</a></li>
+                            <li><a href="#">Đặt phòng trước</a></li>
+                            <li><a href="#">Cập nhật trạng thái</a></li>
+                            <li><a href="#">Chỉnh sửa</a></li>
+                            <li><a href="#">Xóa phòng</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">205</button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Nhận phòng</a></li>
+                            <li><a href="#">Đặt phòng trước</a></li>
+                            <li><a href="#">Cập nhật trạng thái</a></li>
+                            <li><a href="#">Chỉnh sửa</a></li>
+                            <li><a href="#">Xóa phòng</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">206</button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Nhận phòng</a></li>
+                            <li><a href="#">Đặt phòng trước</a></li>
+                            <li><a href="#">Cập nhật trạng thái</a></li>
+                            <li><a href="#">Chỉnh sửa</a></li>
+                            <li><a href="#">Xóa phòng</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">207</button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Nhận phòng</a></li>
+                            <li><a href="#">Đặt phòng trước</a></li>
+                            <li><a href="#">Cập nhật trạng thái</a></li>
+                            <li><a href="#">Chỉnh sửa</a></li>
+                            <li><a href="#">Xóa phòng</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">208</button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Nhận phòng</a></li>
+                            <li><a href="#">Đặt phòng trước</a></li>
+                            <li><a href="#">Cập nhật trạng thái</a></li>
+                            <li><a href="#">Chỉnh sửa</a></li>
+                            <li><a href="#">Xóa phòng</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">209</button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Nhận phòng</a></li>
+                            <li><a href="#">Đặt phòng trước</a></li>
+                            <li><a href="#">Cập nhật trạng thái</a></li>
+                            <li><a href="#">Chỉnh sửa</a></li>
+                            <li><a href="#">Xóa phòng</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">210</button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Nhận phòng</a></li>
+                            <li><a href="#">Đặt phòng trước</a></li>
+                            <li><a href="#">Cập nhật trạng thái</a></li>
+                            <li><a href="#">Chỉnh sửa</a></li>
+                            <li><a href="#">Xóa phòng</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">211</button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Nhận phòng</a></li>
+                            <li><a href="#">Đặt phòng trước</a></li>
+                            <li><a href="#">Cập nhật trạng thái</a></li>
+                            <li><a href="#">Chỉnh sửa</a></li>
+                            <li><a href="#">Xóa phòng</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">212</button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Nhận phòng</a></li>
+                            <li><a href="#">Đặt phòng trước</a></li>
+                            <li><a href="#">Cập nhật trạng thái</a></li>
+                            <li><a href="#">Chỉnh sửa</a></li>
+                            <li><a href="#">Xóa phòng</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--form setting-->
+<section>
+    <div class="modal fade" id="setting1" role="dialog" style="width: auto; padding: 15px; height: auto; min-height: 0px">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Cài đặt khách sạn</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-group">
+                        <div class="panel-group">
+                            <label>Giờ trả phòng</label>
+                            <select>
+                                <option>12h</option>
+                            </select>
+                        </div>
+                        <div class="panel-group">
+                            <label>Đơn vị tiền tệ mặc định trên hóa đơn</label>
+                            <select>
+                                <option>VND</option>
+                                <option>USD</option>
+                            </select>
+                            <a data-toggle="modal" href="#listmoney">Danh sách tiền tệ</a>
+                        </div>
+                        <div class="panel-group">
+                            <input type="checkbox" name="chbgiamgia" />
+                            <label>Giảm giá % chỉ tính trên tiền phòng</label>
+                        </div>
+                        <div class="panel-group">
+                            <input type="submit" name="btnsave" value="Lưu" />
+                            <input type="submit" name="btnsave" value="Hủy" />
+
+
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!--danh sach don vi tien te-->
+<section>
+    <div class="modal fade" id="listmoney" role="dialog" style="width: auto; padding: 15px; height: auto; min-height: 0px">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Dánh sách đơn vị tiền tệ</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- /.row -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+                                <!-- /.panel-heading -->
+                                <div class="panel-body">
+                                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                        <thead>
+                                            <tr>
+                                                <th>Chọn</th>
+                                                <th>STT</th>
+                                                <th>Mã DV$</th>
+                                                <th>Tỷ giá</th>
+                                                <th>Diễn giải DV</th>
+                                                <th>Ghi chú</th>
+                                                <th>Thao tác</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="odd gradeX">
+                                                <td><input type="radio" name="radchon" /></td>
+                                                <td>1</td>
+                                                <td>VND</td>
+                                                <td class="center">1</td>
+                                                <td class="center">Việt Nam đồng</td>
+                                                <td class="center"></td>
+                                                <td class="center"><a data-toggle="modal" href="#sua">sửa</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- /.table-responsive -->
+
+                                </div>
+                                <!-- /.panel-body -->
+                            </div>
+                            <!-- /.panel -->
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- chinh sua ty gia-->
+<section>
+    <div class="modal fade" id="sua" role="dialog" style="width: auto; padding: 15px; height: auto; min-height: 0px">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Chỉnh sửa tý giá</h4>
+                </div>
+                <div class="modal-body">
+                    <table>
+                        <tr>
+                            <th>Mã tiền tệ:</th>
+                            <th><input type="text" name="txtmatt" /></th>
+                        </tr>
+                        <tr>
+                            <th>Tỷ giá:</th>
+                            <th><input type="text" name="txttygia" /></th>
+                        </tr>
+                        <tr>
+                            <th>Mô tả:</th>
+                            <th><input type="text" name="txtmaota" /></th>
+                        </tr>
+                        <tr>
+                            <th>Ghi chú:</th>
+                            <th><input type="text" name="txtmatt" /></th>
+                        </tr>
+                        <tr>
+                            <th><input type="submit" name="btnsave" value="Lưu" /></th>
+                            <th><input type="submit" name="btnsave" value="Hủy" /></th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--thêm -->
+<section>
+    <div class="modal fade" id="them" role="dialog" style="width: auto; padding: 15px; height: auto; min-height: 0px">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Thêm tiền tệ</h4>
+                </div>
+                <div class="modal-body">
+                    <table>
+                        <tr>
+                            <th>Mã tiền tệ:</th>
+                            <th><input type="text" name="txtmatt" /></th>
+                        </tr>
+                        <tr>
+                            <th>Tỷ giá:</th>
+                            <th><input type="text" name="txttygia" /></th>
+                        </tr>
+                        <tr>
+                            <th>Mô tả:</th>
+                            <th><input type="text" name="txtmaota" /></th>
+                        </tr>
+                        <tr>
+                            <th>Ghi chú:</th>
+                            <th><input type="text" name="txtmatt" /></th>
+                        </tr>
+                        <tr>
+                            <th><input type="submit" name="btnsave" value="Lưu" /></th>
+                            <th><input type="submit" name="btnsave" value="Hủy" /></th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--checkin-->
+<section>
+    <div class="modal fade" id="dscheckin" role="dialog" style="width: auto; padding: 15px; height: auto; min-height: 0px">
+        <div class="modal-open">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Danh sách khách đặt phòng</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <thead>
+                                <tr>
+                                    <th>Chọn</th>
+                                    <th>STT</th>
+                                    <th>Code book</th>
+                                    <th>Khách hàng</th>
+                                    <th>CMND/Passport</th>
+                                    <th>Checkin</th>
+                                    <th>Checkout</th>
+                                    <th>Phòng</th>
+                                    <th>Loại phòng</th>
+                                    <th>Nguồn</th>
+                                    <th>Group/Cty</th>
+                                    <th>Status</th>
+                                    <th>Ghi chú</th>
+                                    <th>Đặt cọc</th>
+                                    <th>Modified</th>
+                                    <th>Ngày tạo</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="odd gradeX">
+                                    <td><input type="radio" name="radchon" /></td>
+                                    <td>1</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="center"><a data-toggle="modal" href="#sua">sửa</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <input type="button" name="btnnhanphong" value="Nhận phòng" />
+                        <input type="button" name="btnhuy" value="Hủy" />
+
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+        </div>
+    </div>
+</section>
+<!--Checkout-->
+<section>
+    <div class="modal fade" id="dscheckout" role="dialog" style="width: auto; padding: 15px; height: auto; min-height: 0px">
+        <div class="modal-open">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Danh sách khách đặt phòng</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <thead>
+                                <tr>
+                                    <th>Chọn</th>
+                                    <th>STT</th>
+                                    <th>Trạng thái</th>
+                                    <th>Khách hàng</th>
+                                    <th>CMND/Passport</th>
+                                    <th>Checkin</th>
+                                    <th>Checkout</th>
+                                    <th>Created</th>
+                                    <th>Ký gửi</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="odd gradeX">
+                                    <td><input type="radio" name="radchon" /></td>
+                                    <td>1</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="center"><a data-toggle="modal" href="#sua">sửa</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <input type="button" name="btnTraphong" value="Trả Phòng" />
+                        <input type="button" name="btnhuy" value="Hủy" />
+
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+        </div>
+    </div>
+</section>
+<!--nhân phòng-->
+<section>
+    <div class="modal fade" id="nhanphong" role="dialog" style="width: auto; padding: 15px; height: auto; min-height: 0px">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Nhận phòng</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <fieldset style="border:1px">
+                            <legend>
+                                Thông tin đăng ký phòng
+                            </legend>
+                            <div class="panel-group">
+                                <table>
+                                    <tr>
+                                        <th>Giá:</th>
+                                        <th><input type="text" name="txtgia" /></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Ngày vào:</th>
+                                        <th><input type="date" name="txtngayvao" />Lúc <input type="time" name="txttimevao" /></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Ngày dự kiến:</th>
+                                        <th><input type="date" name="txtngayra" />Lúc <input type="time" name="txttimera" /></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Trả trước:</th>
+                                        <th><input type="text" name="txttratruoc" />Giảm giá <input type="text" name="txtgiamgia" /></th>
+                                    </tr>
+
+                                </table>
+                            </div>
+
+                        </fieldset>
+                        <fieldset style="border:1px">
+                            <legend>
+                                Thông tin khác hàng
+                            </legend>
+                            <div class="panel-group">
+                                <table>
+                                    <tr>
+                                        <th>Số giấy tờ</th>
+                                        <th><input type="text" name="txtsogiaito" /></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Loại giấy tờ</th>
+                                        <th>
+                                            <select>
+                                                <option>CMND</option>
+                                                <option>GP lái xe</option>
+                                            </select>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>Địa chỉ:</th>
+                                        <th><input type="text" name="txtdiachi" /></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Đơn vị:</th>
+                                        <th>
+                                            <select>
+                                                <option>Thái nguyên</option>
+                                            </select>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>Ngày sinh:</th>
+                                        <th><input type="date" name="txtngaysinh" /></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Email:</th>
+                                        <th><input type="text" name="txtEmail" /></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Điện Thoại:</th>
+                                        <th><input type="text" name="txtdienthoai" /></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Giới tính:</th>
+                                        <th>
+                                            <select>
+                                                <option>Nam</option>
+                                                <option>Nữ</option>
+                                            </select>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>Quốc tịch:</th>
+                                        <th>
+                                            <select>
+                                                <option>Việt Nam</option>
+                                            </select>
+                                        </th>
+                                    </tr>
+
+                                </table>
+                            </div>
+
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>
+                                Danh sách khách hàng đăng ký hiện tại
+                            </legend>
+                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>KH chính</th>
+                                        <th>Họ tên</th>
+                                        <th>CMND/Passpoit</th>
+                                        <th>Địa chỉ</th>
+                                        <th>Quốc tịch</th>
+                                        <th>Sửa</th>
+                                        <th>Xóa</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="odd gradeX">
+                                        <td>1</td>
+                                        <td><input type="radio" name="radchon" /></td>
+                                        <td>Hai</td>
+                                        <td class="center">13222</td>
+                                        <td class="center">Phú thọ</td>
+                                        <td class="center">Việt Nam</td>
+                                        <td class="center"><a data-toggle="modal" href="#sua">sửa</a></td>
+                                        <td class="center"><a data-toggle="modal" href="#xoa">Xóa</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </fieldset>
+                    </form>
+                    <input type="submit" name="btncapnhat" value="Cập nhật" /><input type="submit" name="btnhuy" value="Hủy" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--cap nhat trang thai-->
+<div class="modal fade" id="trangthai" role="dialog" style="width: auto; padding: 15px; height: auto; min-height: 0px">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Cập nhật trạng thái</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div>
+                        Trạng thái <input type="checkbox" name="chkdangsua" />Đang sửa <input type="checkbox" name="chkchuadon" />Chưa dọn
+                    </div>
+                    <div>
+                        Ghi chú:<textarea name="txtghichu"></textarea>
+                    </div>
+                    <div>
+                        <input type="submit" name="btnok" value="ok" />
+                        <input type="button" name="btnok" value="Hủy" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Chỉnh sửa-->
+
+<section>
+    <div class="modal fade" id="chinhsua" role="dialog" style="width: auto; padding: 15px; height: auto; min-height: 0px">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Sửa phòng</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div>
+                            Phòng:<input type="text" name="txtphong" />
+                        </div>
+                        <div>
+                            Loại Phòng:<select><option>Phòng đơn</option></select>
+                        </div>
+                        <div>
+                            Ghi chú:<textarea name="txtghichu"></textarea>
+                        </div>
+                        <div>
+                            <input type="submit" name="btnsuaphong" value="Sửa" />
+                            <input type="button" name="btnhuy" value="Hủy" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--xoa-->
+<section>
+    <div class="modal fade" id="xoa" role="dialog" style="width: auto; padding: 15px; height: auto; min-height: 0px">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Xác nhận</h4>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <input type="checkbox" name="chkxacnhan" />Bạn có muốn xóa không ?
+                    </div>
+                    <div>
+                        <input type="submit" name="btnxoa" value="Xóa" />
+                        <input type="button" name="btnhuy" value="Hủy" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Danh sach khach hang-->
+<section>
+    <div class="modal fade" id="dskhachhang" role="dialog" style="width: auto; padding: 15px; height: auto; min-height: 0px">
+        <div class="modal-open">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Danh sách khách hàng</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- /.row -->
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Chọn</th>
+                                <th>STT</th>
+                                <th>Khách hàng</th>
+                                <th>CMND/Passport</th>
+                                <th>Địa chỉ</th>
+                                <th>số điện thoại</th>
+                                <th>Quốc tịch</th>
+                                <th>Ngày sinh</th>
+                                <th>Create</th>
+                                <th>Ghi chú</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="odd gradeX">
+                                <td><input type="radio" name="radchon" /></td>
+                                <td>1</td>
+                                <td>ABC</td>
+                               
+                                
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- /.table-responsive -->
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    
+</section>

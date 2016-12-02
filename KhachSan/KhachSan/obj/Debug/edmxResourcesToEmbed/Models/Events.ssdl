@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="qlks_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DICH_VU_TIEN_ICH">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MADV" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="TENDV_VI" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TENDV_EN" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="MOTANGAN_VI" Type="nvarchar" MaxLength="1000" />
+    <Property Name="MOTANGAN_EN" Type="nvarchar" MaxLength="1000" />
+    <Property Name="MOTA_VI" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MOTA_EN" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="URL" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="NGAYTAO" Type="datetime" />
+  </EntityType>
+  <Function Name="DICH_VU_TIEN_ICH_selectallvi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="account_website">
+    <Parameter Name="MaDV" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="DICH_VU_TIEN_ICH_selectonevi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="account_website">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="qlks_dbModelStoreContainer">
+    <EntitySet Name="DICH_VU_TIEN_ICH" EntityType="Self.DICH_VU_TIEN_ICH" Schema="account_website" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
