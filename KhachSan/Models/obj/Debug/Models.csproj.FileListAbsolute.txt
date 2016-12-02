@@ -8,6 +8,7 @@ C:\Users\vietd\Desktop\ThucTap\VNPT\KhachSan\Models\bin\Debug\EntityFramework.Sq
 C:\Users\vietd\Desktop\ThucTap\VNPT\KhachSan\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
 C:\Users\vietd\Desktop\ThucTap\VNPT\KhachSan\Models\obj\Debug\Models.dll
 C:\Users\vietd\Desktop\ThucTap\VNPT\KhachSan\Models\obj\Debug\Models.pdb
+<<<<<<< HEAD
 G:\Google Drive\TT_VNPT\VNPT\KhachSan\Models\bin\Debug\Models.dll.config
 G:\Google Drive\TT_VNPT\VNPT\KhachSan\Models\bin\Debug\Models.dll
 G:\Google Drive\TT_VNPT\VNPT\KhachSan\Models\bin\Debug\Models.pdb
@@ -18,3 +19,15 @@ G:\Google Drive\TT_VNPT\VNPT\KhachSan\Models\bin\Debug\EntityFramework.SqlServer
 G:\Google Drive\TT_VNPT\VNPT\KhachSan\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
 G:\Google Drive\TT_VNPT\VNPT\KhachSan\Models\obj\Debug\Models.dll
 G:\Google Drive\TT_VNPT\VNPT\KhachSan\Models\obj\Debug\Models.pdb
+=======
+C:\Users\kienc\Desktop\VNPT\KhachSan\Models\bin\Debug\Models.dll.config
+C:\Users\kienc\Desktop\VNPT\KhachSan\Models\bin\Debug\Models.dll
+C:\Users\kienc\Desktop\VNPT\KhachSan\Models\bin\Debug\Models.pdb
+C:\Users\kienc\Desktop\VNPT\KhachSan\Models\bin\Debug\EntityFramework.dll
+C:\Users\kienc\Desktop\VNPT\KhachSan\Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kienc\Desktop\VNPT\KhachSan\Models\bin\Debug\EntityFramework.xml
+C:\Users\kienc\Desktop\VNPT\KhachSan\Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kienc\Desktop\VNPT\KhachSan\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+C:\Users\kienc\Desktop\VNPT\KhachSan\Models\obj\Debug\Models.dll
+C:\Users\kienc\Desktop\VNPT\KhachSan\Models\obj\Debug\Models.pdb
+>>>>>>> a55e4586d98416df633295993851bb798363ecee
