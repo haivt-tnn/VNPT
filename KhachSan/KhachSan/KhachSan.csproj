@@ -176,7 +176,7 @@
     <Content Include="Areas\Admin\Views\HomeAdmin\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_table.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\Popup.cshtml" />
-    <Content Include="Areas\Admin\Views\Phong\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Phong\LoaiPhong.cshtml" />
     <Content Include="Areas\Admin\Views\DichVu\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DichVu\Thongke.cshtml" />
     <Content Include="Areas\Admin\Views\Thongke\Index.cshtml" />
@@ -186,6 +186,8 @@
     <Content Include="Areas\Admin\Views\Khachhang\KHdatphong.cshtml" />
     <Content Include="Areas\Admin\Views\Nhanvien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Nhanvien\DSnhanvien.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachSan\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Phong\KieuPhong.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -195,7 +197,6 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Event\Index.cshtml" />
     <Content Include="Views\OtherEvent\Index.cshtml" />
     <Content Include="Views\Events\Index.cshtml" />
@@ -206,10 +207,14 @@
     <Compile Include="Areas\Admin\Controllers\DichVuController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\KhachhangController.cs" />
+    <Compile Include="Areas\Admin\Controllers\KhachSanController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\NhanvienController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhongController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThongkeController.cs" />
+    <Compile Include="Areas\Admin\Models\KieuPhongModel.cs" />
+    <Compile Include="Areas\Admin\Models\PhongModel.cs" />
+    <Compile Include="Areas\Admin\Models\UpdateKhacSanModel.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\CulinaryController.cs" />
@@ -225,11 +230,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AlertModel.cs" />
+    <Compile Include="Models\ContactModel.cs" />
     <Compile Include="Models\DICHVU_MODEL.cs" />
     <Compile Include="Models\EventModel.cs" />
     <Compile Include="Models\GIAITRI_MODEL.cs" />
     <Compile Include="Models\Gioithieu.cs" />
     <Compile Include="Models\LoaiPhongModel.cs" />
+    <Compile Include="Models\MailService.cs" />
     <Compile Include="Models\OrderRoomModel.cs" />
     <Compile Include="Models\OtherEventModel.cs" />
     <Compile Include="Models\SaleModel.cs" />
@@ -261,6 +268,7 @@
     <Content Include="Views\Relax\Details.cshtml" />
     <Content Include="Views\Sale\Details.cshtml" />
     <Content Include="Views\Sale\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -275,7 +283,6 @@
     <Folder Include="Areas\Admin\Content\js\" />
     <Folder Include="Areas\Admin\Content\less\" />
     <Folder Include="Areas\Admin\Content\vendor\" />
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Scripts\" />
   </ItemGroup>
   <ItemGroup>

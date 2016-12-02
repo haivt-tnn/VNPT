@@ -1,4 +1,4 @@
-﻿
+﻿@model KhachSan.Models.ContactModel
 @{
     ViewBag.Title = "Liên hệ";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,32 +9,63 @@
         <section id="contact-form" class="mt50">
             <div class="col-md-8">
                 <h2 class="lined-heading"><span style="text-transform:uppercase">Gửi mail cho chúng tôi</span></h2>
-                <form class="clearfix mt50" role="form" onsubmit="return send_lienhe(this)" method="post" action="#" name="frmContact" id="frmContact">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary()
+                    @*@Html.EditorForModel();*@
                     <input type="hidden" name="ks" value="1">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="name" accesskey="U"><span class="required">*</span> Họ và tên</label>
-                                <input name="name" type="text" id="name" class="form-control" value="">
+                                @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="email" accesskey="E"><span class="required">*</span> E-mail</label>
-                                <input name="email" type="text" id="email" value="" class="form-control">
+                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="subject" accesskey="S">Tiêu đề</label>
-                        <input name="title" type="text" id="title" value="" class="form-control">
+                        @Html.TextBoxFor(model => model.Subject, new { @class = "form-control" })
                     </div>
                     <div class="form-group">
                         <label for="comments" accesskey="C"><span class="required">*</span> Nội dung</label>
-                        <textarea name="message" rows="9" id="message" class="form-control"></textarea>
+                        @Html.TextAreaFor(model => model.Message, new { @class = "form-control" })
                     </div>
+                    <button type="submit" class="btn  btn-lg btn-primary">Gửi</button>
+                }
+
+                @*<form class="clearfix mt50" role="form" onsubmit="return send_lienhe(this)" method="post" action="#" name="frmContact" id="frmContact">
+                        <input type="hidden" name="ks" value="1">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name" accesskey="U"><span class="required">*</span> Họ và tên</label>
+                                    <input name="name" type="text" id="name" class="form-control" value="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email" accesskey="E"><span class="required">*</span> E-mail</label>
+                                    <input name="email" type="text" id="email" value="" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" accesskey="S">Tiêu đề</label>
+                            <input name="title" type="text" id="title" value="" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="comments" accesskey="C"><span class="required">*</span> Nội dung</label>
+                            <textarea name="message" rows="9" id="message" class="form-control"></textarea>
+                        </div>
                         <button type="submit" class="btn  btn-lg btn-primary">Gửi</button>
-                </form>
+                    </form>*@
             </div>
         </section>
 
@@ -50,4 +81,3 @@
         </section>
     </div>
 </div>
-
