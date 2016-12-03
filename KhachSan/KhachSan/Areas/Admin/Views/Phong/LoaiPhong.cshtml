@@ -3,13 +3,23 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_layout_admin.cshtml";
 }
-<section>
 <script>
-    $(document).on("click", ".add-id", function () {
-        var myBookId = $(this).data('id');
-        $(".modal-body #bookId").val(myBookId);
-    });
+        function setData(id) {
+            var ten = "tenphong-" + id;
+            var mota = "motaphong-" + id;
+            var ulr = "ulrimage-" + id;
+            document.getElementById('map').value = id;
+            document.getElementById('tenp').value = document.getElementById(ten).value;
+            document.getElementById('motap').value = document.getElementById(mota).value;
+            document.getElementById('ulri1').value = document.getElementById(ulr).value;
+
+        }
+        function deleteItem(tid) {
+            document.getElementById('idphong').value = tid;
+        }
 </script>
+
+<section>
     <div id="wrapper">
         <div id="page-wrapper">
             <!-- /.row -->
@@ -17,8 +27,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <p>Danh sách loại phòng<input type="button" name="btnthem" value="Thêm loại phòng" data-toggle="modal" data-target="#them" /></p>
-
+                            <p style="padding:0px; margin:0px;"><b style="font-size:20px;">DANH SÁCH LOẠI PHÒNG</b><input style="margin-left:500px;" type="button" class="btn btn-primary" name="btnthem" value="Thêm mới loại phòng" data-toggle="modal" data-target="#them" /></p>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -26,35 +35,32 @@
                                 <thead>
                                     <tr>
                                         <th>STT</th>
-                                        <th>Tên loại phòng</th>
-                                        <th>Mô tả</th>
-                                        <th>Ảnh phòng</th>
-                                        <th>Thao tác</th>
+                                        <th>TÊN</th>
+                                        <th>MÔ TẢ</th>
+                                        <th>ẢNH</th>
+                                        <th>THAO TÁC</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @{
                                         int i = 1;
-                                        int id = 0;
                                     }
                                     @foreach (var item in Model)
                                     {
                                     <tr>
-                                        <td>@i</td>
-                                        <td>@item.TENLOAIPHONG</td>
-                                        <td>@item.MOTA</td>
-                                        <td><img src="@item.URLIMAGE" style="width:150px; height:80px;"></img></td>
+                                        <td>@i<input type="hidden" value="@item.MALOAIPHONG" id="maphong-@item.MALOAIPHONG" /></td>
+                                        <td>@item.TENLOAIPHONG<input type="hidden" value="@item.TENLOAIPHONG" id="tenphong-@item.MALOAIPHONG" /></td>
+                                        <td>@item.MOTA<input type="hidden" value="@item.MOTA" id="motaphong-@item.MALOAIPHONG" /></td>
+                                        <td><img src="@item.URLIMAGE" style="width:150px; height:80px;"></img><input type="hidden" value="@item.URLIMAGE" id="ulrimage-@item.MALOAIPHONG" /></td>
                                         <td>
-                                            <a data-toggle="modal" href="#sua" onclick="document.getElementById('map').value = @item.MALOAIPHONG; document.getElementById('tenp').value =@item.TENLOAIPHONG" class="add-id glyphicon glyphicon-pencil"></a> 
-                                            <a data-toggle="modal" href="#xoa" class="glyphicon glyphicon-remove"></a>
+                                            <a title="Sửa" data-toggle="modal" href="#sua" onclick="setData(@item.MALOAIPHONG)" class="glyphicon glyphicon-pencil"></a>
+                                            <a title="Xóa" data-toggle="modal" href="#xoa" onclick="deleteItem(@item.MALOAIPHONG)" class="glyphicon glyphicon-remove"></a>
                                         </td>
                                     </tr>
                                         i++;
                                     }
-
                                 </tbody>
                             </table>
-
                         </div>
                     </div>
                 </div>
@@ -82,7 +88,7 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
 
                                     @using (Html.BeginForm("them", "Phong", FormMethod.Post))
                                     {
@@ -120,7 +126,7 @@
                 <div class="col-lg-12">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Sửa loại phòng</h4>
+                        <h4 class="modal-title">Sửa thông tin loại phòng</h4>
                     </div>
                 </div>
                 <!-- /.col-lg-12 -->
@@ -131,28 +137,29 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="modal-body"
-                                    <form role="form" method="post">
-                                        <div class="form-group">
-                                            @Html.TextBox("txttieude", null, new { @class = "form-control", @type = "hidden", @id = "map" })
+                                <div class="col-lg-12">
+                                    <div class="modal-body">
+                                        @using (Html.BeginForm("capnhat", "Phong", FormMethod.Post))
+                                        {  <div class="form-group">
                                             <label>Tên loại phòng</label>
-                                            @Html.TextBox("txttieude",null, new { @class = "form-control", @type = "text", @id = "tenp" })
+                                            @Html.TextBox("txtmap", null, new { @class = "form-control", @type = "hidden", @id = "map" })
+                                            @Html.TextBox("txttenp", null, new { @class = "form-control", @type = "text", @id = "tenp" })
                                         </div>
 
                                         <div class="form-group">
                                             <label>Thông tin mô tả</label>
-                                            @Html.TextArea("txtnoidung", null, new { @class = "form-control", @rows = "3" })
+                                            @Html.TextArea("txtmotap", null, new { @class = "form-control", @rows = "3", @id = "motap" })
                                         </div>
                                         <div class="form-group">
                                             <label>Ảnh Loại phòng</label>
-                                            @Html.TextBox("txtulr", null, new { @class = "form-control", type = "file" })
+                                            @Html.TextBox("txtulrp1", null, new { @class = "form-control", @type = "hidden", @id = "ulri1" })
+                                            @Html.TextBox("txtulrp", null, new { @class = "form-control", @type = "file", @id = "ulri" })
                                         </div>
                                         <div>
                                             <button type="submit" class="btn btn-primary">Cập nhật</button>
-                                            <button type="reset" class="btn btn-primary">Nhập lại</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Hủy</button>
                                         </div>
-                                    </form>
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -172,7 +179,7 @@
                     <div class="col-lg-12">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Xóa loại phòng</h4>
+                            <h4 class="modal-title">Bạn có chắc chắn muốn xóa không ?</h4>
                         </div>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -183,13 +190,18 @@
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="panel-body">
-                                            <input type="checkbox" />Bạn chắc chắn muốn xóa không ?
-                                        </div>
-                                        <div>
-                                            <button type="submit" class="btn btn-primary">Yes</button>
-                                            <button type="reset" class="btn btn-primary">No</button>
+                                    <div class="col-lg-12">
+                                        <div class="modal-body">
+                                            @using (Html.BeginForm("xoaphong", "Phong", FormMethod.Post))
+                                            {
+                                            <div class="form-group">
+                                                @Html.TextBox("txtidp", null, new { @class = "form-control", @type = "hidden", @id = "idphong" })
+                                            </div>
+                                            <div align="center">
+                                                <button type="submit" style="margin-right:400px;" class="btn btn-primary">Yes</button>
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+                                            </div>
+                                            }
                                         </div>
                                     </div>
                                 </div>

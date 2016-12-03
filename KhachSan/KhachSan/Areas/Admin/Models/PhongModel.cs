@@ -42,5 +42,26 @@ namespace KhachSan.Areas.Admin.Models
             cmd.ExecuteNonQuery();
             return true;
         }
+        public bool updateLoaiPhong(int id,string tenphong, string mota, string ulr)
+        {
+            c = new ConnectDb();
+            SqlCommand cmd = new SqlCommand("updateLoaiPhong", c.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@MALOAIPHONG", id));
+            cmd.Parameters.Add(new SqlParameter("@TENLOAIPHONG", tenphong));
+            cmd.Parameters.Add(new SqlParameter("@MOTA", mota));
+            cmd.Parameters.Add(new SqlParameter("@ULRIMAGE", ulr));
+            cmd.ExecuteNonQuery();
+            return true;
+        }
+        public bool deleteLoaiPhong(int id)
+        {
+            c = new ConnectDb();
+            SqlCommand cmd = new SqlCommand("deleteLoaiPhong", c.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@MALOAIPHONG", id));
+            cmd.ExecuteNonQuery();
+            return true;
+        }
     }
 }

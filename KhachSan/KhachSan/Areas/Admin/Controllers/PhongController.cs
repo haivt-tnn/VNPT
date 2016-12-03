@@ -41,6 +41,46 @@ namespace KhachSan.Areas.Admin.Controllers
                 return RedirectToAction("LoaiPhong", "Phong");
             }
         }
+        [HttpPost]
+        public ActionResult capnhat(DANH_MUC_LOAI_PHONG model)
+        {
+            model.MALOAIPHONG = Convert.ToInt32(Request["txtmap"].ToString());
+            model.TENLOAIPHONG = Request["txttenp"].ToString();
+            model.MOTA = Request["txtmotap"].ToString();
+            if (Request["txtulrp"].ToString() != "")
+            {
+                model.URLIMAGE = Request["txtulrp"].ToString();
+            }
+            else
+            {
+                model.URLIMAGE = Request["txtulrp1"].ToString();
+            }          
+            var t = new Models.PhongModel();
+            var result = t.updateLoaiPhong(model.MALOAIPHONG,model.TENLOAIPHONG, model.MOTA, model.URLIMAGE);
+            if (result)
+            {
+                return RedirectToAction("LoaiPhong", "Phong");
+            }
+            else
+            {
+                return RedirectToAction("LoaiPhong", "Phong");
+            }
+        }
+        [HttpPost]
+        public ActionResult xoaphong(DANH_MUC_LOAI_PHONG model)
+        {
+            model.MALOAIPHONG = Convert.ToInt32(Request["txtidp"].ToString());
+            var t = new Models.PhongModel();
+            var result = t.deleteLoaiPhong(model.MALOAIPHONG);
+            if (result)
+            {
+                return RedirectToAction("LoaiPhong", "Phong");
+            }
+            else
+            {
+                return RedirectToAction("LoaiPhong", "Phong");
+            }
+        }
     }
 
 }
