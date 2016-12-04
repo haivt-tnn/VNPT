@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace Models
 {
-   public class ConnectDb
+    public class ConnectDb
     {
         public SqlConnection conn = null;
         public ConnectDb()

@@ -231,14 +231,14 @@
                         </a>
                         <ul class="dropdown-menu dropdown-user">
                             <li>
-                                <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                                @Html.ActionLink("   Tài khoản", "Logout", "HomeAdmin", new { @class = "fa fa-user fa-fw" })
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                                @Html.ActionLink("   Cài đặt", "Logout", "HomeAdmin", new { @class = "fa fa-gear fa-fw" })
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                                @Html.ActionLink("   Đăng xuất", "Logout", "HomeAdmin", new {@class = "fa fa-sign-out fa-fw"})
                             </li>
                         </ul>
                         <!-- /.dropdown-user -->

@@ -213,7 +213,9 @@
     <Compile Include="Areas\Admin\Controllers\PhongController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThongkeController.cs" />
     <Compile Include="Areas\Admin\Models\KieuPhongModel.cs" />
+    <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Areas\Admin\Models\PhongModel.cs" />
+    <Compile Include="Areas\Admin\Models\TaiKhoanModel.cs" />
     <Compile Include="Areas\Admin\Models\UpdateKhacSanModel.cs" />
     <Compile Include="Areas\Admin\Models\DanhSachNhanVien1.cs" />
     <Compile Include="Areas\Admin\Models\NhanVienModel.cs" />
@@ -292,7 +294,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj">
-      <Project>{260efe41-4aa1-4ca1-b908-a2099a067869}</Project>
+      <Project>{68a02ec3-1962-4c5c-9846-c39631cc5821}</Project>
       <Name>Models</Name>
     </ProjectReference>
   </ItemGroup>

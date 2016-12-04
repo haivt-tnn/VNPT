@@ -17,7 +17,7 @@ namespace KhachSan.Areas.Admin
             context.MapRoute(
                 "Admin",
                 "Admin/{controller}/{action}/{id}",
-                new { Controller = "HomeAdmin",action = "Index",id = UrlParameter.Optional }
+                new { Controller = "HomeAdmin", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

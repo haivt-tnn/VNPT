@@ -13,12 +13,12 @@ namespace Models.Framework
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MASUKIEN { get; set; }
 
-        [StringLength(50)]
+        [StringLength(500)]
         public string TIEUDESUKIEN { get; set; }
 
         public string NOIDUNGSUKIEN { get; set; }
 
-        [StringLength(50)]
+        [StringLength(500)]
         public string URLANH { get; set; }
 
         public DateTime? NGAYTAO { get; set; }

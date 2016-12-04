@@ -5,12 +5,14 @@ using System.Web;
 using System.Web.Mvc;
 using Models.Framework;
 using KhachSan.Areas.Admin.Models;
+using System.Web.Security;
 
 namespace KhachSan.Areas.Admin.Controllers
 {
     public class KhachSanController : Controller
     {
         // GET: Admin/KhachSan
+        [Authorize]
         [HttpGet]
         public ActionResult Index()
         {
@@ -18,6 +20,7 @@ namespace KhachSan.Areas.Admin.Controllers
             var model = up.getAllGioiThieu();
             return View(model);
         }
+        [Authorize]
         [HttpPost]
         public ActionResult Index(GIOITHIEU model)
         {
@@ -33,6 +36,11 @@ namespace KhachSan.Areas.Admin.Controllers
             }
             var result = new UpdateKhacSanModel().updateGioiThieu(model.IDGIOITHIEU, model.TENGIOITHIEU, model.MOTA, model.URLIMAGE);
             return RedirectToAction("Index", "KhachSan");
+        }
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "HomeAdmin");
         }
     }
 }

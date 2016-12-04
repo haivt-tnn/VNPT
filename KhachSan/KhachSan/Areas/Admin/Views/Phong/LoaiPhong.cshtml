@@ -4,19 +4,38 @@
     Layout = "~/Areas/Admin/Views/Shared/_layout_admin.cshtml";
 }
 <script>
-        function setData(id) {
-            var ten = "tenphong-" + id;
-            var mota = "motaphong-" + id;
-            var ulr = "ulrimage-" + id;
-            document.getElementById('map').value = id;
-            document.getElementById('tenp').value = document.getElementById(ten).value;
-            document.getElementById('motap').value = document.getElementById(mota).value;
-            document.getElementById('ulri1').value = document.getElementById(ulr).value;
+    function setData(id) {
+        var ten = "tenphong-" + id;
+        var mota = "motaphong-" + id;
+        var ulr = "ulrimage-" + id;
+        document.getElementById('map').value = id;
+        document.getElementById('tenp').value = document.getElementById(ten).value;
+        document.getElementById('motap').value = document.getElementById(mota).value;
+        document.getElementById('ulri1').value = document.getElementById(ulr).value;
 
+    };
+
+    function deleteItem(tid) {
+        document.getElementById('idphong').value = tid;
+        var ulr = "ulrimage-" + tid;
+        document.getElementById('image').value = document.getElementById(ulr).value;
+    };
+
+    function check() {
+        var ten = document.getElementById('itenp').value;
+        if (ten == "") {
+            alert("Không được để trống tên loại phòng!");
+            document.getElementById("itenp").focus();
         }
-        function deleteItem(tid) {
-            document.getElementById('idphong').value = tid;
+    };
+
+    function checkup() {
+        var ten = document.getElementById('tenp').value;
+        if (ten == "") {
+            alert("Không được để trống tên loại phòng!");
+            document.getElementById("tenp").focus();
         }
+    };
 </script>
 
 <section>
@@ -89,23 +108,22 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-
-                                    @using (Html.BeginForm("them", "Phong", FormMethod.Post))
+                                    @using (Html.BeginForm("them", "Phong", FormMethod.Post, new { @enctype = "multipart/form-data" }))
                                     {
                                         <div class="form-group">
                                             <label>Tên loại phòng</label>
-                                            @Html.TextBox("txttenloaiphong", null, new { @class = "form-control", @type = "text" })
+                                            @Html.TextBox("txttenloaiphong", null, new { @class = "form-control", @type = "text", @id = "itenp" })
                                         </div>
                                         <div class="form-group">
                                             <label>Thông tin mô tả</label>
-                                            @Html.TextArea("txtmotaphong", null, new { @class = "form-control", @rows = "3" })
+                                            @Html.TextArea("txtmotaphong", null, new { @class = "form-control", @rows = "3", @id = "imota" })
                                         </div>
                                         <div class="form-group">
                                             <label>Ảnh Loại phòng</label>
                                             @Html.TextBox("txturlphong", null, new { @class = "form-control", type = "file" })
                                         </div>
                                         <div>
-                                            <button type="submit" class="btn btn-primary">Thêm</button>
+                                            <button type="submit" class="btn btn-primary" onclick="check()">Thêm</button>
                                             <button type="reset" class="btn btn-primary">Nhập lại</button>
                                         </div>
                                     }
@@ -139,7 +157,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="modal-body">
-                                        @using (Html.BeginForm("capnhat", "Phong", FormMethod.Post))
+                                        @using (Html.BeginForm("capnhat", "Phong", FormMethod.Post, new { @enctype = "multipart/form-data" }))
                                         {  <div class="form-group">
                                             <label>Tên loại phòng</label>
                                             @Html.TextBox("txtmap", null, new { @class = "form-control", @type = "hidden", @id = "map" })
@@ -156,7 +174,7 @@
                                             @Html.TextBox("txtulrp", null, new { @class = "form-control", @type = "file", @id = "ulri" })
                                         </div>
                                         <div>
-                                            <button type="submit" class="btn btn-primary">Cập nhật</button>
+                                            <button type="submit" class="btn btn-primary" onclick="checkup()">Cập nhật</button>
                                             <button type="button" class="btn btn-primary" data-dismiss="modal">Hủy</button>
                                         </div>
                                         }
@@ -196,6 +214,9 @@
                                             {
                                             <div class="form-group">
                                                 @Html.TextBox("txtidp", null, new { @class = "form-control", @type = "hidden", @id = "idphong" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.TextBox("txtip", null, new { @class = "form-control", @type = "hidden", @id = "image" })
                                             </div>
                                             <div align="center">
                                                 <button type="submit" style="margin-right:400px;" class="btn btn-primary">Yes</button>

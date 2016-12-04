@@ -16,7 +16,7 @@
                         <div style="text-align: justify;">
                             @foreach (var item in Model)
                             {
-                                <p class="fontawesome-icon-list">@item.MOTA</p>                            
+                                <p class="fontawesome-icon-list">@item.MOTA</p>
                             }
                             <!--Mota-->
                         </div>
@@ -41,15 +41,12 @@
             </div>
             @for (var i = 1; i < 5; i++)
             {
-                <div class="row">
+                <div class="row" style="margin-top:10px;">
                     <div class="col-md-12">
                         <div class="thumbnail">
-                            @foreach (var item in Model)
-                            {
-                                <a href="@item.URLIMAGE">
-                                    <img src="@item.URLIMAGE@i .jpg" alt="Lights" style="width:100%">
-                                </a>
-                            }
+                            <a href="">
+                                <img src="Image/Gioithieu/@i .jpg" alt="Lights" style="width:100%">
+                            </a>
                         </div>
                     </div>
                 </div>

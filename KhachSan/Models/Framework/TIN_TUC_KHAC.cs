@@ -13,12 +13,12 @@ namespace Models.Framework
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MATINTUC { get; set; }
 
-        [StringLength(50)]
+        [StringLength(500)]
         public string TIEUDETINTUC { get; set; }
 
         public string NOIDUNGTINTUC { get; set; }
 
-        [StringLength(50)]
+        [StringLength(500)]
         public string URLANH { get; set; }
 
         public DateTime? NGAYTAO { get; set; }
