@@ -1,0 +1,199 @@
+﻿@model List<Models.Framework.PHIEU_DAT_PHONG1>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_layout_admin.cshtml";
+}
+<section>
+    <div id="wrapper">
+        <div id="page-wrapper">
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <p style="padding:0px; margin:0px; width:100%;"><b style="font-size:20px;">DANH SÁCH PHIẾU ĐẶT PHÒNG CHỜ XỬ LÝ</b></p>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-example" style="font-size:10px;">
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>HỌ VÀ TÊN</th>
+                                        <th>ĐIỆN THOẠI</th>
+                                        <th>NGÀY DỰ KIẾN ĐẾN</th>
+                                        <th>NGÀY DỰ KIẾN TRẢ</th>
+                                        <th>NGÀY TẠO</th>
+                                        <th>LOẠI PHÒNG</th>
+                                        <th>SỐ LƯỢNG PHÒNG</th>
+                                        <th>THAO TÁC</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        int i = 1;
+                                    }
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td style="text-align:center;">@i</td>
+                                            <td style="width:100px;">@item.HOTENKHACHHANG</td>
+                                            <td>@item.DIENTHOAI</td>
+                                            <td>
+                                                @{
+                                                    string foo = item.NGAYDUKIENDEN.ToString();
+                                                    DateTime bar = DateTime.Parse(foo);
+                                                    string output = bar.ToString("dd/MM/yyyy");
+                                                }
+                                                @output
+                                            </td>
+                                            <td>
+                                                @{
+                                                    string foo1 = item.NGAYDUKIENTRA.ToString();
+                                                    DateTime bar1 = DateTime.Parse(foo1);
+                                                    string output1 = bar1.ToString("dd/MM/yyyy");
+                                                }
+                                                @output1
+                                            </td>
+                                            <td>
+                                                @{
+                                                    string foo2 = item.NGAYTAOPHIEU.ToString();
+                                                    DateTime bar2 = DateTime.Parse(foo2);
+                                                    string output2 = bar2.ToString("dd/MM/yyyy");
+                                                }
+                                                @output2
+                                            </td>
+                                            <td>@item.TENLOAIPHONG</td>
+                                            <td style="text-align:center;">@item.SOLUONGPHONG</td>
+                                            <td style="text-align:center;"><a data-toggle="modal" href="#xuly" style="font-weight:bold;"> XỬ LÝ</a></td>
+                                        </tr>
+                                                        i++;
+                                                    }
+                                </tbody>
+                            </table>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--xuly-->
+<div id="xuly" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Xử lý phiếu đặt phòng</h4>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                @using (Html.BeginForm("xacnhanphieu", "DSPhieuCho", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                                {
+
+                                    <fieldset class="form-group" style="float:left; width:49%; padding-left:10px;">
+                                        <legend class="h4">Thông tin khách hàng</legend>
+
+                                        <div class="form-group">
+                                            <label>Số giấy tờ</label>
+                                            <table style="border:none; width:100%;">
+                                                <tr>
+                                                    <td width="">
+                                                        @Html.TextBox("txttenkh", null, new { @class = "form-control", @type = "text", @id = "tenkh" })
+                                                    </td>
+                                                    <td style="text-align:center;">
+                                                        <a title="Tìm khách hàng" data-toggle="modal" href="#dskh" class="glyphicon glyphicon-search"></a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Loại giấy tờ</label>
+                                            @{
+                                                List<SelectListItem>
+                                                    myList = new List<SelectListItem>();
+                                                //foreach (var item3 in lstLoaiPhong)
+                                                //{
+                                                SelectListItem it = new SelectListItem { Text = "CMND", Value = "1"};
+                                                myList.Add(it);
+                                                SelectListItem it1 = new SelectListItem { Text = "PASSPORT", Value = "2" };
+                                                myList.Add(it1);
+                                                //}
+                                            }
+                                            @Html.DropDownList("loaiphong", (IEnumerable<SelectListItem>)(myList), new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Thông tin mô tả</label>
+                                            @Html.TextArea("txtmotakieup", null, new { @class = "form-control", @rows = "3", @id = "motakieu" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Số người lớn</label>
+                                            @Html.TextBox("txttsonguoilonp", null, new { @class = "form-control", @type = "number", @id = "nguoilon" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Số trẻ em</label>
+                                            @Html.TextBox("txttsotreemp", null, new { @class = "form-control", @type = "number", @id = "treem" })
+                                        </div>
+                                    </fieldset>
+
+                                    <fieldset class="form-group" style="float:right; width:49%; padding-right:10px;">
+                                        <legend class="h4">Thông tin đặt phòng</legend>
+
+                                        <div class="form-group">
+                                            <label>Tên kiểu phòng</label>
+                                            @Html.TextBox("txtmakieup", null, new { @class = "form-control", @type = "hidden", @id = "makieu" })
+                                            @Html.TextBox("txttenkieup", null, new { @class = "form-control", @type = "text", @id = "tenkieu" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Thông tin mô tả</label>
+                                            @Html.TextArea("txtmotakieup", null, new { @class = "form-control", @rows = "3", @id = "motakieu" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Số người lớn</label>
+                                            @Html.TextBox("txttsonguoilonp", null, new { @class = "form-control", @type = "number", @id = "nguoilon" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Số trẻ em</label>
+                                            @Html.TextBox("txttsotreemp", null, new { @class = "form-control", @type = "number", @id = "treem" })
+                                        </div>
+                                    </fieldset>
+                                    <div style="text-align:center">
+                                        <button type="submit" class="btn btn-primary" onclick="checkUpdate()">Xác nhận</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Hủy</button>
+                                    </div>
+                                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--DS khach hang-->
+<div id="dskh" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>

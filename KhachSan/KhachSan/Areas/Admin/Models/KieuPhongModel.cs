@@ -32,5 +32,63 @@ namespace KhachSan.Areas.Admin.Models
             }
             return list;
         }
+
+        public bool updateKieuPhong(int? makieuphong, string tenkieuphong, string mota, int? songuoilon, int? sotreem)
+        {
+            c = new ConnectDb();
+            SqlCommand cmd = new SqlCommand("updateKieuPhong", c.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@MAKIEUPHONG", makieuphong));
+            cmd.Parameters.Add(new SqlParameter("@TENKIEUPHONG", tenkieuphong));
+            cmd.Parameters.Add(new SqlParameter("@MOTA", mota));
+            cmd.Parameters.Add(new SqlParameter("@SONGUOILON", songuoilon));
+            cmd.Parameters.Add(new SqlParameter("@SOTREEM", sotreem));
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool themKieuPhong(string tenkieuphong, string mota, int? songuoilon, int? sotreem)
+        {
+            c = new ConnectDb();
+            SqlCommand cmd = new SqlCommand("insertKieuPhong", c.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@TENKIEUPHONG", tenkieuphong));
+            cmd.Parameters.Add(new SqlParameter("@MOTA", mota));
+            cmd.Parameters.Add(new SqlParameter("@SONGUOILON", songuoilon));
+            cmd.Parameters.Add(new SqlParameter("@SOTREEM", sotreem));
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool deleteKieuPhong(int? makieuphong)
+        {
+            c = new ConnectDb();
+            SqlCommand cmd = new SqlCommand("deleteKieuPhong", c.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@MAKIEUPHONG", makieuphong));
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

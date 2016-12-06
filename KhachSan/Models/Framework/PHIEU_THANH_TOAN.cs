@@ -50,7 +50,7 @@ namespace Models.Framework
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHI_TIET_PHI_THUE_PHONG> CHI_TIET_PHI_THUE_PHONG { get; set; }
 
-        public virtual DANH_MUC_KHACH_HANG DANH_MUC_KHACH_HANG { get; set; }
+        public virtual DANH_SACH_KHACH_HANG DANH_MUC_KHACH_HANG { get; set; }
 
         public virtual DANH_MUC_LOAI_TIEN DANH_MUC_LOAI_TIEN { get; set; }
 

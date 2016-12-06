@@ -12,6 +12,7 @@ namespace KhachSan.Areas.Admin.Controllers
     public class PhongController : Controller
     {
         // GET: Admin/Phong
+        //Loai Phong--------------------------------------------------------------------------------------------------
         [Authorize]
         [HttpGet]
         public ActionResult LoaiPhong()
@@ -20,14 +21,7 @@ namespace KhachSan.Areas.Admin.Controllers
             var model = t.getAllLoaiPhong();
             return View(model);
         }
-        [Authorize]
-        [HttpGet]
-        public ActionResult KieuPhong()
-        {
-            var t = new Models.KieuPhongModel();
-            var model = t.getAllKieuPhong();
-            return View(model);
-        }
+
         [Authorize]
         [HttpPost]
         public ActionResult them(DANH_MUC_LOAI_PHONG model)
@@ -68,6 +62,7 @@ namespace KhachSan.Areas.Admin.Controllers
             }
 
         }
+
         [Authorize]
         [HttpPost]
         public ActionResult capnhat(DANH_MUC_LOAI_PHONG model)
@@ -109,6 +104,7 @@ namespace KhachSan.Areas.Admin.Controllers
             }
 
         }
+
         [Authorize]
         [HttpPost]
         public ActionResult xoaphong(DANH_MUC_LOAI_PHONG model)
@@ -134,6 +130,95 @@ namespace KhachSan.Areas.Admin.Controllers
                 return RedirectToAction("LoaiPhong", "Phong");
             }
         }
+
+        //Kieu phong--------------------------------------------------------------------------------------------------
+        [Authorize]
+        [HttpGet]
+        public ActionResult KieuPhong()
+        {
+            var t = new Models.KieuPhongModel();
+            var model = t.getAllKieuPhong();
+            return View(model);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult themkieu(DANH_MUC_KIEU_PHONG model)
+        {
+            model.TENKIEUPHONG = Request["txttenkieu"].ToString();
+            model.MOTA = Request["txtmotakieu"].ToString();
+            model.SONGUOILON = Convert.ToInt32(Request["txttsonguoilon"].ToString());
+            model.SOTREEM = Convert.ToInt32(Request["txttsotreem"].ToString());
+
+            if (model.TENKIEUPHONG != "" && model.MOTA != "" && model.SONGUOILON != null && model.SOTREEM != null)
+            {
+                var t = new Models.KieuPhongModel();
+                var result = t.themKieuPhong(model.TENKIEUPHONG, model.MOTA, model.SONGUOILON, model.SOTREEM);
+                if (result)
+                {
+                    return RedirectToAction("KieuPhong", "Phong");
+                }
+                else
+                {
+                    return RedirectToAction("KieuPhong", "Phong");
+                }
+            }
+            else
+            {
+                return RedirectToAction("KieuPhong", "Phong");
+            }
+
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult capnhatkieu(DANH_MUC_KIEU_PHONG model)
+        {
+            model.MAKIEUPHONG = int.Parse(Request["txtmakieup"].ToString());
+            model.TENKIEUPHONG = Request["txttenkieup"].ToString();
+            model.MOTA = Request["txtmotakieup"].ToString();
+            model.SONGUOILON = Convert.ToInt32(Request["txttsonguoilonp"].ToString());
+            model.SOTREEM = Convert.ToInt32(Request["txttsotreemp"].ToString());
+
+            if (model.TENKIEUPHONG != "" && model.MOTA != "" && model.SONGUOILON != null && model.SOTREEM != null)
+            {
+                var t = new Models.KieuPhongModel();
+                var result = t.updateKieuPhong(model.MAKIEUPHONG, model.TENKIEUPHONG, model.MOTA, model.SONGUOILON, model.SOTREEM);
+                if (result)
+                {
+                    return RedirectToAction("KieuPhong", "Phong");
+                }
+                else
+                {
+                    return RedirectToAction("KieuPhong", "Phong");
+                }
+            }
+            else
+            {
+                return RedirectToAction("KieuPhong", "Phong");
+            }
+
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult xoakieu(DANH_MUC_KIEU_PHONG model)
+        {
+            model.MAKIEUPHONG = int.Parse(Request["txtidk"].ToString());
+            var t = new Models.KieuPhongModel();
+            var result = t.deleteKieuPhong(model.MAKIEUPHONG);
+            if (result)
+            {
+                return RedirectToAction("KieuPhong", "Phong");
+            }
+            else
+            {
+                return RedirectToAction("KieuPhong", "Phong");
+            }
+        }
+
+        //Logout-----------------------------------------------------------------------------------------------------
+        [AllowAnonymous]
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();

@@ -15,10 +15,10 @@ namespace KhachSan.Areas.Admin.Models
         ConnectDb db;
         SqlDataReader sdr;
 
-        public List<DanhSachNhanVien1> getAllNhanVien()
+        public List<DANH_SACH_NHAN_VIEN_1> getAllNhanVien()
         {
             db = new ConnectDb();
-            List<DanhSachNhanVien1> list = new List<DanhSachNhanVien1>();
+            List<DANH_SACH_NHAN_VIEN_1> list = new List<DANH_SACH_NHAN_VIEN_1>();
             SqlCommand cmd = new SqlCommand("SELECT_DANH_SACH_NHAN_VIEN", db.conn);
             cmd.CommandType = CommandType.StoredProcedure;
             sdr = cmd.ExecuteReader();
@@ -38,7 +38,7 @@ namespace KhachSan.Areas.Admin.Models
                 item_danh_muc_nguoi_dung.CHITIETDIACHI = (string)sdr["CHITIETDIACHI"];
                 item_danh_muc_nguoi_dung.TRANGTHAI = (int)sdr["TRANGTHAI"];
 
-                list.Add(new DanhSachNhanVien1(item_danh_muc_nguoi_dung.TAIKHOAN,
+                list.Add(new DANH_SACH_NHAN_VIEN_1(item_danh_muc_nguoi_dung.TAIKHOAN,
                                                   item_danh_muc_nguoi_dung.HOTEN,
                                                   item_danh_muc_nguoi_dung.MATKHAU,
                                                   item_danh_muc_gioi_tinh.CHITIET,
@@ -53,5 +53,122 @@ namespace KhachSan.Areas.Admin.Models
             return list;
         }
 
+        public List<DANH_MUC_GIOI_TINH> getAllGioiTinh()
+        {
+            db = new ConnectDb();
+            List<DANH_MUC_GIOI_TINH> list = new List<DANH_MUC_GIOI_TINH>();
+            SqlCommand cmd = new SqlCommand("getAllGioiTinh", db.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            sdr = cmd.ExecuteReader();
+            while (sdr.Read())
+            {
+                DANH_MUC_GIOI_TINH gt = new DANH_MUC_GIOI_TINH();
+                gt.GIOITINH = (int)sdr["GIOITINH"];
+                gt.CHITIET = (string)sdr["CHITIET"];
+
+                list.Add(gt);
+            }
+            return list;
+        }
+
+        public List<DANH_MUC_DIA_CHI> getDiaChiTinh()
+        {
+            db = new ConnectDb();
+            List<DANH_MUC_DIA_CHI> list = new List<DANH_MUC_DIA_CHI>();
+            SqlCommand cmd = new SqlCommand("SELECT_DIA_CHI_TINH", db.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            sdr = cmd.ExecuteReader();
+            while (sdr.Read())
+            {
+                DANH_MUC_DIA_CHI dc = new DANH_MUC_DIA_CHI();
+                dc.MADIACHI= (int)sdr["MADIACHI"];
+                dc.MADIACHICHA = (int)sdr["MADIACHICHA"];
+                dc.TENDIACHI = (string)sdr["TENDIACHI"];
+
+                list.Add(dc);
+            }
+            return list;
+        }
+        public List<DANH_MUC_DIA_CHI> getDiaChiCon(int dccha)
+        {
+            db = new ConnectDb();
+            List<DANH_MUC_DIA_CHI> list = new List<DANH_MUC_DIA_CHI>();
+            SqlCommand cmd = new SqlCommand("SELECT_DIA_CHI_CON", db.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@MADIACHICHA", dccha));
+            sdr = cmd.ExecuteReader();
+            while (sdr.Read())
+            {
+                DANH_MUC_DIA_CHI dc = new DANH_MUC_DIA_CHI();
+                dc.MADIACHI = (int)sdr["MADIACHI"];
+                dc.MADIACHICHA = (int)sdr["MADIACHICHA"];
+                dc.TENDIACHI = (string)sdr["TENDIACHI"];
+
+                list.Add(dc);
+            }
+            return list;
+        }
+        public List<DANH_MUC_VI_TRI_CONG_TAC> getAllViTriCongTac()
+        {
+            db = new ConnectDb();
+            List<DANH_MUC_VI_TRI_CONG_TAC> list = new List<DANH_MUC_VI_TRI_CONG_TAC>();
+            SqlCommand cmd = new SqlCommand("SELECT_DANH_MUC_VI_TRI_CONG_TAC", db.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            sdr = cmd.ExecuteReader();
+            while (sdr.Read())
+            {
+                DANH_MUC_VI_TRI_CONG_TAC dmvtct = new DANH_MUC_VI_TRI_CONG_TAC();
+                dmvtct.MAVITRICONGTAC = (int)sdr["MAVITRICONGTAC"];
+                dmvtct.VITRICONGTAC = (string)sdr["VITRICONGTAC"];
+
+                list.Add(dmvtct);
+            }
+            return list;
+        }
+
+
+        public bool themNhanVien(DANH_MUC_NGUOI_DUNG dmnd)
+        {
+            db = new ConnectDb();
+            SqlCommand cmd = new SqlCommand("INSERT_DANH_MUC_NGUOI_DUNG", db.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@TAIKHOAN", dmnd.TAIKHOAN));
+            cmd.Parameters.Add(new SqlParameter("@MATKHAU", dmnd.MATKHAU));
+            cmd.Parameters.Add(new SqlParameter("@NHOMQUYEN", dmnd.NHOMQUYEN));
+            cmd.Parameters.Add(new SqlParameter("@HOTEN", dmnd.HOTEN));
+            cmd.Parameters.Add(new SqlParameter("@GIOITINH", dmnd.GIOITINH));
+            cmd.Parameters.Add(new SqlParameter("@NGAYSINH", dmnd.NGAYSINH));
+            cmd.Parameters.Add(new SqlParameter("@SODIENTHOAI", dmnd.SODIENTHOAI));
+            cmd.Parameters.Add(new SqlParameter("@EMAIL", dmnd.EMAIL));
+            cmd.Parameters.Add(new SqlParameter("@MADIACHI", dmnd.MADIACHI));
+            cmd.Parameters.Add(new SqlParameter("@CHITIETDIACHI", dmnd.CHITIETDIACHI));
+            cmd.Parameters.Add(new SqlParameter("@MAVITRICONGTAC", dmnd.VITRICONGTAC));
+            cmd.Parameters.Add(new SqlParameter("@TRANGTHAI", dmnd.TRANGTHAI));
+
+            cmd.ExecuteNonQuery();
+            return true;
+        }
+        public bool suaNhanVien(DANH_MUC_NGUOI_DUNG dmnd)
+        {
+            db = new ConnectDb();
+            SqlCommand cmd = new SqlCommand("UPDATE_DANH_MUC_NGUOI_DUNG", db.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@TAIKHOAN", dmnd.TAIKHOAN));
+            cmd.Parameters.Add(new SqlParameter("@MATKHAU", dmnd.MATKHAU));
+            cmd.Parameters.Add(new SqlParameter("@NHOMQUYEN", dmnd.NHOMQUYEN));
+            cmd.Parameters.Add(new SqlParameter("@HOTEN", dmnd.HOTEN));
+            cmd.Parameters.Add(new SqlParameter("@GIOITINH", dmnd.GIOITINH));
+            cmd.Parameters.Add(new SqlParameter("@NGAYSINH", dmnd.NGAYSINH));
+            cmd.Parameters.Add(new SqlParameter("@SODIENTHOAI", dmnd.SODIENTHOAI));
+            cmd.Parameters.Add(new SqlParameter("@EMAIL", dmnd.EMAIL));
+            cmd.Parameters.Add(new SqlParameter("@MADIACHI", dmnd.MADIACHI));
+            cmd.Parameters.Add(new SqlParameter("@CHITIETDIACHI", dmnd.CHITIETDIACHI));
+            cmd.Parameters.Add(new SqlParameter("@MAVITRICONGTAC", dmnd.VITRICONGTAC));
+            cmd.Parameters.Add(new SqlParameter("@TRANGTHAI", dmnd.TRANGTHAI));
+
+            cmd.ExecuteNonQuery();
+            return true;
+        }
     }
 }
+

@@ -28,6 +28,7 @@ namespace KhachSan.Models
             cmd.Parameters.Add(new SqlParameter("@LOAITIEN", 1));
             cmd.Parameters.Add(new SqlParameter("@NGUOIXACNHAN", null));
             cmd.Parameters.Add(new SqlParameter("@NGAYXACNHAN", null));
+            cmd.Parameters.Add(new SqlParameter("@SOLUONGPHONG", null));
             cmd.ExecuteNonQuery();
             return true;
         }

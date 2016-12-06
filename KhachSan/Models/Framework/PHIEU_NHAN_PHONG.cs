@@ -42,7 +42,7 @@ namespace Models.Framework
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHI_TIET_NHAN_PHONG> CHI_TIET_NHAN_PHONG { get; set; }
 
-        public virtual DANH_MUC_KHACH_HANG DANH_MUC_KHACH_HANG { get; set; }
+        public virtual DANH_SACH_KHACH_HANG DANH_MUC_KHACH_HANG { get; set; }
 
         public virtual PHIEU_DAT_PHONG PHIEU_DAT_PHONG { get; set; }
 

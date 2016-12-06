@@ -11,7 +11,7 @@ namespace Models.Framework
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DANH_MUC_GIOI_TINH()
         {
-            DANH_MUC_KHACH_HANG = new HashSet<DANH_MUC_KHACH_HANG>();
+            DANH_MUC_KHACH_HANG = new HashSet<DANH_SACH_KHACH_HANG>();
         }
 
         [Key]
@@ -22,6 +22,6 @@ namespace Models.Framework
         public string CHITIET { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DANH_MUC_KHACH_HANG> DANH_MUC_KHACH_HANG { get; set; }
+        public virtual ICollection<DANH_SACH_KHACH_HANG> DANH_MUC_KHACH_HANG { get; set; }
     }
 }
