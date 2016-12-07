@@ -195,6 +195,7 @@
     <Content Include="Areas\Admin\Views\Phong\KieuPhong.cshtml" />
     <Content Include="Areas\Admin\Views\Nhanvien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DSPhieuCho\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QuangCao\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -219,7 +220,9 @@
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\NhanvienController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhongController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QuangCaoController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThongkeController.cs" />
+    <Compile Include="Areas\Admin\Models\AdsModel.cs" />
     <Compile Include="Areas\Admin\Models\KhachHangModel.cs" />
     <Compile Include="Areas\Admin\Models\KieuPhongModel.cs" />
     <Compile Include="Areas\Admin\Models\PhongModel.cs" />
