@@ -136,6 +136,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Image\Ads\banner_728x90.gif" />
+    <Content Include="Image\Ads\GitHub.png" />
+    <Content Include="Image\Ads\ShakeOut.gif" />
+    <Content Include="Image\Ads\traica.png" />
     <Content Include="Image\Events\1.jpg" />
     <Content Include="Image\Events\Ancient.png" />
     <Content Include="Image\Events\Crystal.png" />
@@ -149,6 +152,7 @@
     <Content Include="Image\Gioithieu\gt.jpg" />
     <Content Include="Image\Intro\intro.jpg" />
     <Content Include="Image\logo2.png" />
+    <Content Include="Image\logoadmin.png" />
     <Content Include="Image\OtherEvent\1.jpg" />
     <Content Include="Image\OtherEvent\dacsanque.jpg" />
     <Content Include="Image\OtherEvent\dontet.jpg" />
@@ -237,6 +241,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AdsModel.cs" />
     <Compile Include="Models\AlertModel.cs" />
     <Compile Include="Models\ContactModel.cs" />
     <Compile Include="Models\DICHVU_MODEL.cs" />

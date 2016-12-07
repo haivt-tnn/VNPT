@@ -9,6 +9,9 @@
     List<Models.Framework.DANH_MUC_TIEN_ICH>
         lstTienIch = Model.ToList()[2] as List<Models.Framework.DANH_MUC_TIEN_ICH>
             ;
+    List<Models.Framework.QUANG_CAO>
+        lstQuangCao = Model.ToList()[3] as List<Models.Framework.QUANG_CAO>
+            ;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <!--Slider -->
@@ -327,35 +330,38 @@
         </div>
     </div>
 </section>
-<div class="col-md-12">
-    <a href="http://designerstoolbox.com/designresources/banners/">
-        <div class="bannercontainer text-center">
-                <img src="~/Image/Ads/banner_728x90.gif" />
-        </div>
-    </a>
+@foreach (var itemqc in lstQuangCao)
+{
+    <div class="col-md-12">
+        <a href="@itemqc.LINK">
+            <div class="bannercontainer text-center">
+                <img src="@itemqc.HINH" alt="Lights" />
+            </div>
+        </a>
     </div>
-    <!--service-->
-    <section class="about mt50">
-        <div class="col-md-12">
-            <h2 class="lined-heading bounceInRight appear animated" data-start="800"><span style="text-transform:uppercase">Dịch vụ và tiện ích</span></h2>
-            <div class="container">
-                <div class="row">
-                    <!-- dv1 -->
-                    @foreach (var item4 in lstTienIch)
-                    {
-                        <div class="col-md-4" style="margin-top:10px;">
-                            <div class="thumbnail">
-                                <a href="~/Events/Details/?Id=@item4.ID">
-                                    <img src="@item4.URL" alt="Lights" style="width:100%">
-                                    <div class="caption">
-                                        <p><h4>@item4.TENDV</h4></p>
-                                    </div>
-                                </a>
-                            </div>
+}
+<!--service-->
+<section class="about mt50">
+    <div class="col-md-12">
+        <h2 class="lined-heading bounceInRight appear animated" data-start="800"><span style="text-transform:uppercase">Dịch vụ và tiện ích</span></h2>
+        <div class="container">
+            <div class="row">
+                <!-- dv1 -->
+                @foreach (var item4 in lstTienIch)
+                {
+                    <div class="col-md-4" style="margin-top:10px;">
+                        <div class="thumbnail">
+                            <a href="~/Events/Details/?Id=@item4.ID">
+                                <img src="@item4.URL" alt="Lights" style="width:100%">
+                                <div class="caption">
+                                    <p><h4>@item4.TENDV</h4></p>
+                                </div>
+                            </a>
                         </div>
-                    }
-                </div>
+                    </div>
+                }
             </div>
         </div>
-    </section>
+    </div>
+</section>
 

@@ -83,6 +83,7 @@
     <Compile Include="Framework\PHIEU_DAT_PHONG.cs" />
     <Compile Include="Framework\PHIEU_NHAN_PHONG.cs" />
     <Compile Include="Framework\PHIEU_THANH_TOAN.cs" />
+    <Compile Include="Framework\QUANG_CAO.cs" />
     <Compile Include="Framework\SU_KIEN.cs" />
     <Compile Include="Framework\TIN_TUC_KHAC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

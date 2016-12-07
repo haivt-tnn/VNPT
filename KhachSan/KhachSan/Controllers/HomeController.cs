@@ -23,10 +23,13 @@ namespace KhachSan.Controllers
             var model2 = ttt.getAllLoaiPhong();
             var tttt = new Models.DICHVU_MODEL();
             var model3 = tttt.getTienIch();
+            var tenqc = new Models.AdsModel();
+            var model4 = tenqc.getOneQC("Shake");
 
             myModel.Add(model);
             myModel.Add(model2);
             myModel.Add(model3);
+            myModel.Add(model4);
 
             return View(myModel);
         }
