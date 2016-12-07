@@ -234,17 +234,17 @@
                         <div class="col-sm-2">
                             <div class="form-group">
                                 <label for="room">Số điện thoại</label>
-                                @Html.TextBox("txtdt", null, new { @class = "form-control", @type = "text", @id="sodienthoai"})
+                                @Html.TextBox("txtdt", null, new { @class = "form-control", @type = "text", @id = "sodienthoai" })
                             </div>
                         </div>
                         <div class="col-sm-2">
-                            <button type="submit" class="btn btn-primary btn-block" 
+                            <button type="submit" class="btn btn-primary btn-block"
                                     onclick="if (document.getElementById('hoten').value!=''
                                                  && document.getElementById('sodienthoai').value != ''
                                                  && document.getElementById('ngayden').value != ''
                                                  && document.getElementById('ngaydi').value != '')
                                                  { alert('Đặt phòng thành công.\nChúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất. \nChân thành cảm ơn!'); }
-                                            else { alert('Lỗi!\nKhông được để trống.'); }" >
+                                            else { alert('Lỗi!\nKhông được để trống.'); }">
                                 Đặt ngay
                             </button>
                         </div>
@@ -327,28 +327,35 @@
         </div>
     </div>
 </section>
-<!--service-->
-<section class="about mt50">
-    <div class="col-md-12">
-        <h2 class="lined-heading bounceInRight appear animated" data-start="800"><span style="text-transform:uppercase">Dịch vụ và tiện ích</span></h2>
-        <div class="container">
-            <div class="row">
-                <!-- dv1 -->
-                @foreach (var item4 in lstTienIch)
-                {
-                    <div class="col-md-4" style="margin-top:10px;">
-                        <div class="thumbnail">
-                            <a href="~/Events/Details/?Id=@item4.ID">
-                                <img src="@item4.URL" alt="Lights" style="width:100%">
-                                <div class="caption">
-                                    <p><h4>@item4.TENDV</h4></p>
-                                </div>
-                            </a>
+<div class="col-md-12">
+    <a href="http://designerstoolbox.com/designresources/banners/">
+        <div class="bannercontainer text-center">
+                <img src="~/Image/Ads/banner_728x90.gif" />
+        </div>
+    </a>
+    </div>
+    <!--service-->
+    <section class="about mt50">
+        <div class="col-md-12">
+            <h2 class="lined-heading bounceInRight appear animated" data-start="800"><span style="text-transform:uppercase">Dịch vụ và tiện ích</span></h2>
+            <div class="container">
+                <div class="row">
+                    <!-- dv1 -->
+                    @foreach (var item4 in lstTienIch)
+                    {
+                        <div class="col-md-4" style="margin-top:10px;">
+                            <div class="thumbnail">
+                                <a href="~/Events/Details/?Id=@item4.ID">
+                                    <img src="@item4.URL" alt="Lights" style="width:100%">
+                                    <div class="caption">
+                                        <p><h4>@item4.TENDV</h4></p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                }
+                    }
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 

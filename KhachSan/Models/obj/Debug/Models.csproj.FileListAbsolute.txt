@@ -7,3 +7,4 @@ C:\Users\kienc\Desktop\VNPT\KhachSan\Models\bin\Debug\EntityFramework.xml
 C:\Users\kienc\Desktop\VNPT\KhachSan\Models\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\kienc\Desktop\VNPT\KhachSan\Models\obj\Debug\Models.dll
 C:\Users\kienc\Desktop\VNPT\KhachSan\Models\obj\Debug\Models.pdb
+C:\Users\kienc\Desktop\VNPT\KhachSan\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache

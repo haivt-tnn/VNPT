@@ -14,7 +14,8 @@ namespace Models
         public ConnectDb()
         {
             //conn = new SqlConnection("data source=123.30.182.15;initial catalog=qlks_db;user id=account_website;password=pR&i2s57;multipleactiveresultsets=True;application name=EntityFramework");
-            conn = new SqlConnection("data source=10.23.31.4;initial catalog=qlks_db;user id=sa;password=123456;multipleactiveresultsets=True;application name=EntityFramework");
+            //conn = new SqlConnection("data source=10.23.31.4;initial catalog=qlks_db;user id=sa;password=123456;multipleactiveresultsets=True;application name=EntityFramework");
+            conn = new SqlConnection("data source=192.168.0.112;initial catalog=qlks_db;user id=sa;password=123456;multipleactiveresultsets=True;application name=EntityFramework");
             conn.Open();
         }
         public void DisConnect()

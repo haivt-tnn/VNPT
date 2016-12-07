@@ -135,6 +135,7 @@
     <Content Include="Content\turquoise.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Image\Ads\banner_728x90.gif" />
     <Content Include="Image\Events\1.jpg" />
     <Content Include="Image\Events\Ancient.png" />
     <Content Include="Image\Events\Crystal.png" />
