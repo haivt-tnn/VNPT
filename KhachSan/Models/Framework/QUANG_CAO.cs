@@ -12,5 +12,6 @@ namespace Models.Framework
         public string TENQC { get; set; }
         public string HINH { get; set; }
         public string LINK { get; set; }
+        public int TT { get; set; }
     }
 }

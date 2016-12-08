@@ -27,6 +27,7 @@ namespace KhachSan.Areas.Admin.Models
                 item.TENQC = (string)rdr["TENQC"];
                 item.HINH = (string)rdr["HINH"];
                 item.LINK = (string)rdr["LINK"];
+                item.TT = (int)rdr["TT"];
                 list.Add(item);
             }
             return list;
@@ -46,9 +47,44 @@ namespace KhachSan.Areas.Admin.Models
                 item.TENQC = (string)rdr["TENQC"];
                 item.HINH = (string)rdr["HINH"];
                 item.LINK = (string)rdr["LINK"];
+                item.TT = (int)rdr["TT"];
                 list.Add(item);
             }
             return list;
+        }
+        public bool insertOneQC(string tenqc, string hinhqc, string uriqc, int ttqc)
+        {
+            c = new ConnectDb();
+            SqlCommand cmd = new SqlCommand("InsertOneQC", c.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@TENQC", tenqc));
+            cmd.Parameters.Add(new SqlParameter("@HINH", hinhqc));
+            cmd.Parameters.Add(new SqlParameter("@LINK", uriqc));
+            cmd.Parameters.Add(new SqlParameter("@TT", ttqc));
+            cmd.ExecuteNonQuery();
+            return true;
+        }
+        public bool UpdateOneQC(int id, string tenqc, string hinh, string uri, int ttqc)
+        {
+            c = new ConnectDb();
+            SqlCommand cmd = new SqlCommand("UpdateOneQC", c.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@ID", id));
+            cmd.Parameters.Add(new SqlParameter("@TENQC", tenqc));
+            cmd.Parameters.Add(new SqlParameter("@HINH", hinh));
+            cmd.Parameters.Add(new SqlParameter("@LINK", uri));
+            cmd.Parameters.Add(new SqlParameter("@TT", ttqc));
+            cmd.ExecuteNonQuery();
+            return true;
+        }
+        public bool delOneQC(int id)
+        {
+            c = new ConnectDb();
+            SqlCommand cmd = new SqlCommand("DelOneQC", c.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@ID", id));
+            cmd.ExecuteNonQuery();
+            return true;
         }
     }
 }

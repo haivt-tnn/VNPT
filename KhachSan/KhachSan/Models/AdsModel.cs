@@ -27,17 +27,18 @@ namespace KhachSan.Models
                 item.TENQC = (string)rdr["TENQC"];
                 item.HINH = (string)rdr["HINH"];
                 item.LINK = (string)rdr["LINK"];
+                item.TT = (int)rdr["TT"];
                 list.Add(item);
             }
             return list;
         }
-        public List<QUANG_CAO> getOneQC(string tenq)
+        public List<QUANG_CAO> getOneQC(int tenq)
         {
             c = new ConnectDb();
             List<QUANG_CAO> list = new List<QUANG_CAO>();
             SqlCommand cmd = new SqlCommand("getOneQC", c.conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add(new SqlParameter("@TENQC", tenq));
+            cmd.Parameters.Add(new SqlParameter("@TT", tenq));
             rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
@@ -46,6 +47,7 @@ namespace KhachSan.Models
                 item.TENQC = (string)rdr["TENQC"];
                 item.HINH = (string)rdr["HINH"];
                 item.LINK = (string)rdr["LINK"];
+                item.TT = (int)rdr["TT"];
                 list.Add(item);
             }
             return list;

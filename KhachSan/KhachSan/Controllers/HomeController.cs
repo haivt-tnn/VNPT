@@ -24,7 +24,7 @@ namespace KhachSan.Controllers
             var tttt = new Models.DICHVU_MODEL();
             var model3 = tttt.getTienIch();
             var tenqc = new Models.AdsModel();
-            var model4 = tenqc.getOneQC("Shake");
+            var model4 = tenqc.getOneQC(1);
 
             myModel.Add(model);
             myModel.Add(model2);
