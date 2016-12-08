@@ -1,0 +1,276 @@
+﻿@model List<Models.Framework.QUANG_CAO>
+@{
+    ViewBag.Title = "Quảng Cáo";
+    Layout = "~/Areas/Admin/Views/Shared/_layout_admin.cshtml";
+}
+<script>
+    function setData(id) {
+        var ten = "tenqc-" + id;
+        var link = "linkqc-" + id;
+        var ulr = "uriqc1up-" + id;
+        var tt = "tt" + id
+        document.getElementById('maqcup').value = id;
+        document.getElementById('tenqcup').value = document.getElementById(ten).value;
+        document.getElementById('linkqcup').value = document.getElementById(link).value;
+        document.getElementById('uriqc1up').value = document.getElementById(ulr).value;
+        document.getElementById('tttrangthaiup') = document.getElementById(tt);
+
+    };
+
+    function deleteItem(tid) {
+        document.getElementById('idqcd').value = tid;
+        var ulr = "uriqc1up-" + tid;
+        document.getElementById('imageqcd').value = document.getElementById(ulr).value;
+    };
+
+    function check() {
+        var ten = document.getElementById('itenadd').value;
+        if (ten == "") {
+            alert("Không được để trống tên Quảng Cáo!");
+            document.getElementById("itenadd").focus();
+        }
+    };
+
+    function checkup() {
+        var ten = document.getElementById('tenqcup').value;
+        if (ten == "") {
+            alert("Không được để trống tên Quảng Cáo!");
+            document.getElementById("tenqcup").focus();
+        }
+    };
+</script>
+<section>
+    <div id="wrapper">
+        <div id="page-wrapper">
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <p style="padding:0px; margin:0px; width:100%;"><b style="font-size:20px;">DANH SÁCH QUẢNG CÁO</b><input style="float:right;" type="button" class="btn btn-primary" name="btnthem" value="Thêm mới Quảng cáo" data-toggle="modal" data-target="#them" /></p>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-example" style="font-size:12px;">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>TÊN</th>
+                                        <th>LINK</th>
+                                        <th>HÌNH ẢNH</th>
+                                        <th>TRẠNG THÁI</th>
+                                        <th>THAO TÁC</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        int i = 1;
+                                    }
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@i<input type="hidden" value="@item.ID" id="maphong-@item.ID" /></td>
+                                            <td>@item.TENQC<input type="hidden" value="@item.TENQC" id="tenphong-@item.ID" /></td>
+                                            <td>@item.LINK<input type="hidden" value="@item.LINK" id="motaphong-@item.ID" /></td>
+                                            <td><img src="@item.HINH" style="width:250px; height:40px;"><input type="hidden" value="@item.HINH" id="ulrimage-@item.ID" /></td>
+                                            <td>
+                                                @{string trangthai = null;
+                                                    if (item.TT == 0)
+                                                    {
+                                                        trangthai = "Không Hoạt Động";
+                                                    }
+                                                    else
+                                                    {
+                                                        trangthai = "Hoạt Động";
+                                                    }
+                                                }
+                                                @trangthai<input type="hidden" value="@trangthai" id="motaqc-@item.ID" />
+                                            </td>
+                                            <td>
+                                                <a title="Sửa" data-toggle="modal" href="#sua" onclick="setData(@item.ID)" class="glyphicon glyphicon-pencil"></a>
+                                                <a title="Xóa" data-toggle="modal" href="#xoa" onclick="deleteItem(@item.ID)" class="glyphicon glyphicon-remove"></a>
+                                            </td>
+                                        </tr>
+                                                        i++;
+                                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!--Them-->
+<div id="them" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Thêm Quảng cáo</h4>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    @using (Html.BeginForm("Them", "QuangCao", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                                    {
+                                        <div class="form-group">
+                                            <label>Tên Quảng Cáo</label>
+                                            @Html.TextBox("txttenQuangCao", null, new { @class = "form-control", @type = "text", @id = "itenadd" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Link Web</label>
+                                            @Html.TextBox("txtLink", null, new { @class = "form-control", @type = "text", @id = "ilinkadd" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Ảnh Quảng Cáo</label>
+                                            @Html.TextBox("txturlqca1", null, new { @class = "form-control", @type = "hidden", @id = "uriqc1add" })
+                                            @Html.TextBox("txturlqca", null, new { @class = "form-control", @type = "file", @id = "uriqcadd" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Trạng Thái</label>
+                                            @{
+                                                List<SelectListItem>
+                                                    myList = new List<SelectListItem>();
+                                                SelectListItem it = new SelectListItem { Text = "Hoạt Động", Value = "1" };
+                                                SelectListItem it2 = new SelectListItem { Text = "Không Hoạt Động", Value = "0" };
+                                                myList.Add(it);
+                                                myList.Add(it2);
+                                            }
+                                            @Html.DropDownList("tttrangthaiadd", (IEnumerable<SelectListItem>)(myList), new { @class = "form-control" })
+                                        </div>
+                                        <div>
+                                            <button type="submit" class="btn btn-primary" onclick="check()">Thêm</button>
+                                            <button type="reset" class="btn btn-primary">Nhập lại</button>
+                                        </div>
+                                                }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--sua-->
+<div id="sua" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Sửa thông tin Quảng Cáo</h4>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="modal-body">
+                                        @using (Html.BeginForm("Capnhat", "QuangCao", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                                        {  <div class="form-group">
+                                            <label>Tên Quảng Cáo</label>
+                                            @Html.TextBox("txtmaqc", null, new { @class = "form-control", @type = "hidden", @id = "maqcup" })
+                                            @Html.TextBox("txttenqc", null, new { @class = "form-control", @type = "text", @id = "tenqcup" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Link Web</label>
+                                            @Html.TextBox("txtlinkqc", null, new { @class = "form-control", @type = "text", @id = "linkqcup" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Ảnh Quảng Cáo</label>
+                                            @Html.TextBox("txturlqc1", null, new { @class = "form-control", @type = "hidden", @id = "uriqc1up" })
+                                            @Html.TextBox("txturlqc", null, new { @class = "form-control", @type = "file", @id = "uriqcup" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Trạng Thái</label>
+                                            @{
+                                                List<SelectListItem>
+                                                    myList = new List<SelectListItem>();
+                                                SelectListItem it = new SelectListItem { Text = "Hoạt Động", Value = "1" };
+                                                SelectListItem it2 = new SelectListItem { Text = "Không Hoạt Động", Value = "0" };
+                                                myList.Add(it);
+                                                myList.Add(it2);
+                                            }
+                                            @Html.DropDownList("tttrangthaiup", (IEnumerable<SelectListItem>)(myList), new { @class = "form-control" })
+                                        </div>
+                                        <div>
+                                            <button type="submit" class="btn btn-primary" onclick="checkup()">Cập nhật</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Hủy</button>
+                                        </div>
+                                                }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--xoa-->
+<section>
+    <div id="xoa" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Bạn có chắc chắn muốn xóa không ?</h4>
+                        </div>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="modal-body">
+                                            @using (Html.BeginForm("Xoa", "QuangCao", FormMethod.Post))
+                                            {
+                                                <div class="form-group">
+                                                    @Html.TextBox("txtiads", null, new { @class = "form-control", @type = "hidden", @id = "idqcd" })
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.TextBox("txtiad", null, new { @class = "form-control", @type = "hidden", @id = "imageqcd" })
+                                                </div>
+                                                <div align="center">
+                                                    <button type="submit" style="float:left" class="btn btn-primary">Yes</button>
+                                                    <button type="button" style="float:right" class="btn btn-primary" data-dismiss="modal">No</button>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

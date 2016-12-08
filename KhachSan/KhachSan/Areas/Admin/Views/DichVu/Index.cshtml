@@ -1,8 +1,38 @@
-﻿
+﻿@model IEnumerable<object>
 @{
+    List<Models.Framework.DichVu>
+         danhmucdichvu = Model.ToList()[0] as List<Models.Framework.DichVu>;
+
+    List<Models.Framework.DANH_MUC_LOAI_TIEN>
+        danhmucloaitien = Model.ToList()[1] as List<Models.Framework.DANH_MUC_LOAI_TIEN>;
+
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_layout_admin.cshtml";
 }
+<script>
+
+    function checkempty() {
+        var tendichvu = document.getElementById("txttendichvu").value;
+        var donvitinh = document.getElementById("txttendichvu").value;
+        var dongia = document.getElementById("txttendichvu").value;
+        if (tendichvu == "" || donvitinh == "" || dongia == "") {
+            alert("Ban nhap chua day du !");
+        }
+
+    }
+    function setdata(id) {
+        var ten = "ten-" + id;
+        var mota = "donvi-" + id;
+        var ulr = "dongia-" + id;
+        document.getElementById('madichvu').value = id;
+        document.getElementById('txttendichvu1').value = document.getElementById(ten).value;
+        document.getElementById('txtdonvitinh1').value = document.getElementById(mota).value;
+        document.getElementById('txtdongia1').value = document.getElementById(ulr).value;
+
+    }
+
+    
+</script>
 <section>
 
     <div id="wrapper">
@@ -12,42 +42,224 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <p>Danh sách ABC<input type="button" name="btnthem" value="Thêm" /></p>
+                            <p>Danh sách dịch vụ<input type="button" name="btnthem" value="Thêm dịch vụ" data-toggle="modal" data-target="#them" /></p>
 
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
                                         <th>STT</th>
-                                        <th>Tên dịch vụ</th>
-                                        <th>Giá bán</th>
-                                        <th>Sl tồn Đầu kỳ(1)</th>
-                                        <th>Đã nhập trong kỳ(2)</th>
-                                        <th>Đã bán trong kỳ(3)</th>
-                                        <th>Doanh thu trong kỳ</th>
-                                        <th>Số lượng tồn cuối kỳ(1+2+3)</th>
-                                        <th>Ghi chú</th>
+                                        <th>Tên Dịch Vụ</th>
+                                        <th>ĐƠn vị tính</th>
+                                        <th>Đơn giá</th>
+                                        <th>Loại tiền</th>
                                         <th>Thao tác</th>
                                     </tr>
                                 </thead>
-                                <tbody></tbody>
+                                <tbody>
+
+                                    @{
+                                        int i = 1;
+                                    }
+                                    @foreach (var item in danhmucdichvu)
+                                    {
+                                        <tr>
+                                            <td>@i<input type="hidden" value="@item.MADICHVU" id="id-@item.MADICHVU" /></td>
+                                            
+                                            <td>@item.TENDICHVU<input type="hidden" value="@item.TENDICHVU" id="ten-@item.MADICHVU"></td>
+                                            <td>@item.DONVITINH<input type="hidden" value="@item.DONVITINH" id="donvi-@item.MADICHVU"></td>
+                                            <td>@item.DONGIA<input type="hidden" value="@item.DONGIA" id="dongia-@item.MADICHVU"></td>
+                                            <td>@item.TENLOAITIEN</td>
+                                            <td>
+                                                <a data-toggle="modal" href="#sua" class="glyphicon glyphicon-pencil" onclick="setdata(@item.MADICHVU)"></a> 
+                                                <a data-toggle="modal" href="#xoa" class="glyphicon glyphicon-remove"></a>
+                                            </td>
+                                        </tr>
+                                        i++;
+                                    }
+
+
+                                </tbody>
                             </table>
-                            <!-- /.table-responsive -->
 
                         </div>
-                        <!-- /.panel-body -->
                     </div>
-                    <!-- /.panel -->
                 </div>
-                <!-- /.col-lg-12 -->
             </div>
         </div>
     </div>
 
 
+
 </section>
+<!--Them-->
+<div id="them" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Thêm kiểu dịch vụ</h4>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
 
+                                    @using (Html.BeginForm("insertdanhmucdichvu", "DichVu", FormMethod.Post))
+                                    {
+                                        <div class="form-group">
+                                            <label>Tên dịch vụ</label>
+                                            @Html.TextBox("txttendichvu", null, new { @class = "form-control", @type = "text", @id = "txttendichvu" })
+                                        </div>
 
+                                        <div class="form-group">
+                                            <label>Đơn vị tính</label>
+                                            @Html.TextBox("txtdonvitinh", null, new { @class = "form-control", @rows = "3", @id = "txtdonvitinh" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Đơn giá</label>
+                                            @Html.TextBox("txtdongia", null, new { @class = "form-control", @type = "number", @id = "txtdongia" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Loại tiền</label>
+                                            @{
+                                                List<SelectListItem>
+                                                    myList = new List<SelectListItem>();
+                                                foreach (var item3 in danhmucloaitien)
+                                                {
+                                                    SelectListItem it = new SelectListItem { Text = item3.TENLOAITIEN, Value = item3.MALOAITIEN.ToString() };
+                                                    myList.Add(it);
+                                                }
+                                            }
+                                            @Html.DropDownList("loaitien", (IEnumerable<SelectListItem>)(myList), new { @class = "form-control" })
+                                        </div>
+                                        <div>
+                                            <button type="submit" class="btn btn-primary" onclick="checkempty()">Thêm</button>
+                                            <button type="reset" class="btn btn-primary">Nhập lại</button>
+                                        </div>
+                                                }
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--sua-->
+<div id="sua" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Sửa dịch vụ</h4>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+
+                                    @using (Html.BeginForm("updatedanhmucdichvu", "DichVu", FormMethod.Post))
+                                    {
+
+                                        <div class="form-group">
+                                            <label>Tên dịch vụ</label>
+                                            @Html.TextBox("madichvu", null, new { @class = "form-control", @type = "hidden", @id = "madichvu" })
+                                            @Html.TextBox("txttendichvu", null, new { @class = "form-control", @type = "text", @id = "txttendichvu1" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Đơn vị tính</label>
+                                            @Html.TextBox("txtdonvitinh", null, new { @class = "form-control", @rows = "3", @id = "txtdonvitinh1" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Đơn giá</label>
+                                            @Html.TextBox("txtdongia", null, new { @class = "form-control", @type = "number", @id = "txtdongia1" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Loại tiền</label>
+                                            @{
+                                                List<SelectListItem>
+                                                    myList = new List<SelectListItem>();
+                                                foreach (var item3 in danhmucloaitien)
+                                                {
+                                                    SelectListItem it = new SelectListItem { Text = item3.TENLOAITIEN, Value = item3.MALOAITIEN.ToString() };
+                                                    myList.Add(it);
+                                                }
+                                            }
+                                            @Html.DropDownList("loaitien", (IEnumerable<SelectListItem>)(myList), new { @class = "form-control" })
+                                        </div>
+                                        <div>
+                                            <button type="submit" class="btn btn-primary">Thêm</button>
+                                            <button type="reset" class="btn btn-primary">Nhập lại</button>
+                                        </div>
+                                                }
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--xoa-->
+<section>
+    <div id="xoa" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Xóa kiểu phòng</h4>
+                        </div>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="panel-body">
+                                            <input type="checkbox" />Bạn chắc chắn muốn xóa không ?
+                                        </div>
+                                        <div>
+                                            <button type="submit" class="btn btn-primary">Yes</button>
+                                            <button type="reset" class="btn btn-primary">No</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 

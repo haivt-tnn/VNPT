@@ -1,82 +1,377 @@
-﻿ @model List<KhachSan.Areas.Admin.Models.DanhSachNhanVien1>
+﻿@model IEnumerable<object>
 
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_layout_admin.cshtml";
+    List<Models.Framework.DANH_SACH_NHAN_VIEN_1> listNhanVien = Model.ToList()[0] as List<Models.Framework.DANH_SACH_NHAN_VIEN_1>;
+    List<Models.Framework.DANH_MUC_GIOI_TINH> listGioiTinh = Model.ToList()[1] as List<Models.Framework.DANH_MUC_GIOI_TINH>;
+    List<Models.Framework.DANH_MUC_DIA_CHI> listDiaChiTinh = Model.ToList()[2] as List<Models.Framework.DANH_MUC_DIA_CHI>;
+    List<Models.Framework.DANH_MUC_DIA_CHI> listDiaChiCon = Model.ToList()[3] as List<Models.Framework.DANH_MUC_DIA_CHI>;
+    List<Models.Framework.DANH_MUC_VI_TRI_CONG_TAC> listViTriCongTac = Model.ToList()[4] as List<Models.Framework.DANH_MUC_VI_TRI_CONG_TAC>;
 
+}
+<script>
+    function set(id) {
+        alert(id);
+    };
 
+    function Check() {
+        var tk = document.getElementById("txttaikhoan").value;
+        var mk = document.getElementById("txtmatkhau").value;
+        var ht = document.getElementById("txthoten").value;
+        var nq = document.getElementById("txtnhomquyen").value;
+        var gt = document.getElementById("txtgioitinh").value;
+        var ns = document.getElementById("txtngaysinh").value;
+        var sdt = document.getElementById("txtsodienthoai").value;
+        var email = document.getElementById("txtemail").value;
+        var dc = document.getElementById("txtdiachitinhthanhpho").value;
+        var vtct = document.getElementById("txtvitricongtac").value;
+        var tt = document.getElementById("txttrangthai").value;
 
-    @{
-        ViewBag.Title = "DSnhanvien";
-        Layout = "~/Areas/Admin/Views/Shared/_layout_admin.cshtml";
-        @*
-            List<KhachSan.Areas.Admin.Models.DanhSachNhanVien1> listDanhSachNhanVien = Model.ToList()[0] as List<KhachSan.Areas.Admin.Models.DanhSachNhanVien1>;
-              List<Models.Framework.DANH_MUC_NGUOI_DUNG> listDanhMucNguoiDung = Model.ToList()[0] as List<Models.Framework.DANH_MUC_NGUOI_DUNG>;
-                List<Models.Framework.DANH_MUC_GIOI_TINH> listDanhMucGioiTinh = Model.ToList()[1] as List<Models.Framework.DANH_MUC_GIOI_TINH>;
-                List<Models.Framework.DANH_MUC_DIA_CHI> listDanhMucDiaChi = Model.ToList()[2] as List<Models.Framework.DANH_MUC_DIA_CHI>;*@
-    }
-    <section>
+        if (tk == "" || mk == "" || ht == "" || nq == "" || gt == "" || ns == "" || sdt == "" || email == "" || dc == "" || vtct == "" || tt == "") {
+            alert("Hay Nhap Day Du Thong Tin");
+            document.getElementById("txttaikhoan").focus();
+        }
+    };
 
-        <div id="wrapper">
-            <div id="page-wrapper">
-                <!-- /.row -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <p>Danh sách nhận viên<input type="button" name="btnthem" value="Thêm" /></p>
-
-                            </div>
-                            <!-- /.panel-heading -->
-                            <div class="panel-body">
-                                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-                                            <th>STT</th>
-                                            <th>Tài khoản</th>
-                                            <th>Họ Tên</th>
-                                            <th>Mật Khẩu</th>
-                                            <th>Giới Tính</th>
-                                            <th>Ngày Sinh</th>
-                                            <th>Số Điện Thoại</th>
-                                            <th>Email</th>
-                                            <th>Địa Chỉ</th>
-                                            <th>Trạng thái</th>
-                                            <th>Thao tác</th>
-                                        </tr>
-                                        @{
-                                            int i = 0;
-                                        }
-
-
-                                        @foreach (var item in Model)
-                                        {
-                                            i++;
+    function setData(taikhoan) {
+        document.getElementById("txttaikhoan1").value = document.getElementById("id-" + taikhoan).value;
+        var mk = "MatKhau-" + taikhoan;
+        document.getElementById("txtmatkhau1").value = document.getElementById(mk).value;
+        document.getElementById("txthoten1").value = document.getElementById("HoTen-" + taikhoan).value;
+        document.getElementById("txtngaysinh1").value = document.getElementById("NgaySinh-" + taikhoan).value;
+        document.getElementById("txtsodienthoai1").value = document.getElementById("SoDienThoai-" + taikhoan).value;
+        document.getElementById("txtemail1").value = document.getElementById("Email-" + taikhoan).value;
+        document.getElementById("txttrangthai1").value = document.getElementById("TrangThai-" + taikhoan).value;
+    };
+</script>
+<!-- Hien Thi DS NhanVien -->
+<section>
+    <div id="wrapper">
+        <div id="page-wrapper">
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <p>Danh sách nhân viên<input type="button" name="btnthem" value="Thêm nhân viên" data-toggle="modal" data-target="#them" /></p>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-example" style="font-size:12px">
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Tài khoản</th>
+                                        <th>Họ Tên</th>
+                                        <th>Mật Khẩu</th>
+                                        <th>Giới Tính</th>
+                                        <th>Ngày Sinh</th>
+                                        <th>Số Điện Thoại</th>
+                                        <th>Email</th>
+                                        <th>Địa Chỉ</th>
+                                        <th>Trạng thái</th>
+                                        <th>Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        int i = 1;
+                                    }
+                                    @foreach (var item1 in listNhanVien)
+                                    {
+                                       
+                                            string foo = item1.NgaySinh.ToString();
+                                            DateTime bar = DateTime.Parse(foo);
+                                            string output = bar.ToString("dd/MM/yyyy");
+                                       
                                             <tr>
                                                 <td>@i</td>
-                                                <td>@item.TaiKhoan</td>
-                                                <td>@item.HoTen</td>
-                                                <td>@item.MatKhau</td>
-                                                <td>@item.GioiTinh</td>
-                                                <td>@item.NgaySinh</td>
-                                                <td>@item.SoDienThoai</td>
-                                                <td>@item.Email</td>
-                                                <td>@item.ChiTietDiaChi @item.TenDiaChi</td>
-                                                <td>@item.TrangThai</td>
+                                                <td>@item1.TaiKhoan <input type="hidden" value="@item1.TaiKhoan" id="id-@i"></td>
+                                                <td>@item1.HoTen <input type="hidden" value="@item1.HoTen" id="HoTen-@i"></td>
+                                                <td>@item1.MatKhau <input type="hidden" value="@item1.MatKhau" id="MatKhau-@i"></td>
+                                                <td>@item1.GioiTinh </td>
+                                                <td>
+                                                    <input type="hidden" value="@item1.NgaySinh" id="NgaySinh-@i">
+                                                    @output
+                                                </td>
+                                                <td>@item1.SoDienThoai <input type="hidden" value="@item1.SoDienThoai" id="SoDienThoai-@i"></td>
+                                                <td>@item1.Email <input type="hidden" value="@item1.Email" id="@item1.Email-TaiKhoan"></td>
+                                                <td>@item1.ChiTietDiaChi @item1.TenDiaChi <input type="hidden" value="@item1.TenDiaChi" id="TenDiaChi-@i"></td>
+                                                <td>@item1.TrangThai <input type="hidden" value="@item1.TrangThai" id="TrangThai-@i"></td>
+                                                <td>
+                                                    <a title="Sửa" data-toggle="modal" href="#sua" onclick="setData(@i)" class="glyphicon glyphicon-pencil"></a>
+                                                    <a title="Xóa" data-toggle="modal" href="#xoa" onclick="deleteItem(@i)" class="glyphicon glyphicon-remove"></a>
+                                                </td>
                                             </tr>
-
-                                        }
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
-                                <!-- /.table-responsive -->
-
-                            </div>
-                            <!-- /.panel-body -->
+                                                i++;
+                                            }
+                                </tbody>
+                            </table>
                         </div>
-                        <!-- /.panel -->
                     </div>
-                    <!-- /.col-lg-12 -->
                 </div>
             </div>
         </div>
+    </div>
 
 
-    </section>
+</section>
+<!--Them-->
+<div id="them" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Thêm nhân viên</h4>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+
+                                    @using (Html.BeginForm("themNhanVien", "Nhanvien", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                                    {
+                                    <div class="form-group">
+                                        <label>Tài khoản</label>
+                                        @Html.TextBox("txttaikhoan", null, new { @class = "form-control", @type = "text", @id = "txttaikhoan" })
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Họ tên</label>
+                                        @Html.TextBox("txthoten", null, new { @class = "form-control", @rows = "3", @id = "txthoten" })
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Mật khẩu</label>
+                                        @Html.TextBox("txtmatkhau", null, new { @class = "form-control", @type = "password", @id = "txtmatkhau" })
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Nhóm Quyền</label>
+                                        @Html.TextBox("txtnhomquyen", null, new { @class = "form-control", @type = "text", @id = "txtnhomquyen" })
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Giới tính</label>
+                                        @{
+
+                                                List<SelectListItem> list = new List<SelectListItem>();
+                                                foreach (var item in listGioiTinh)
+                                                {
+                                                    SelectListItem it = new SelectListItem { Text = item.CHITIET.ToString(), Value = item.GIOITINH.ToString() };
+                                                    list.Add(it);
+                                                }
+                                        }
+                                        @Html.DropDownList("txtgioitinh", (IEnumerable<SelectListItem>)(list), new { @class = "form-control", @type = "text", @id = "txtgioitinh", @value = ""})
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Ngày sinh</label>
+                                        @Html.TextBox("txtngaysinh", null, new { @class = "form-control", @type = "date", @id = "txtngaysinh" })
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Số điện thoại</label>
+                                        @Html.TextBox("txtsodienthoai", null, new { @class = "form-control", @type = "number", @id = "txtsodienthoai" })
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        @Html.TextBox("txtemail", null, new { @class = "form-control", @type = "text", @id = "txtemail" })
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tỉnh / Thành Phố</label>
+                                        @{
+                                            list = new List<SelectListItem>();
+                                            SelectListItem it1 = new SelectListItem { Text = "----------Chọn tỉnh------------", Value ="0"};
+                                            list.Add(it1);
+                                            foreach (var item in listDiaChiTinh)
+                                            {
+                                                SelectListItem it = new SelectListItem { Text = item.TENDIACHI.ToString(), Value = item.MADIACHI.ToString() };
+                                                list.Add(it);
+                                            }
+                                        }
+                                        @Html.DropDownList("txtdiachitinhthanhpho", (IEnumerable<SelectListItem>)(list), new { @class = "form-control", @type = "text", @id = "txtdiachitinhthanhpho" })
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Quận / Huyện</label>
+                                        @Html.TextBox("txtdiachiquanhuyen", null, new { @class = "form-control", @type = "text", @id = "txtdiachiquanhuyen" })
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Xã / Phường</label>
+                                        @Html.TextBox("txtdiachixa", null, new { @class = "form-control", @type = "text", @id = "txtdiachixa" })
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Số Nhà</label>
+                                        @Html.TextBox("txtdiachisonha", null, new { @class = "form-control", @type = "text", @id = "txtdiachisonha" })
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Vị Trí Công Tác</label>
+                                        @{
+                                                list = new List<SelectListItem>();
+                                                foreach (var item in listViTriCongTac)
+                                                {
+                                                    SelectListItem it = new SelectListItem { Text = item.VITRICONGTAC.ToString(), Value = item.MAVITRICONGTAC.ToString() };
+                                                    list.Add(it);
+                                                }
+                                        }
+                                        @Html.DropDownList("txtvitricongtac", (IEnumerable<SelectListItem>)(list), new { @class = "form-control", @type = "text", @id = "txtvitricongtac" })
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Trạng thái</label>
+                                        @Html.TextBox("txttrangthai", null, new { @class = "form-control", @type = "text", @id = "txttrangthai" })
+                                    </div>
+
+                                    <div>
+                                        <button type="submit" class="btn btn-primary" onclick="Check()">Thêm</button>
+                                        <button type="reset" class="btn btn-primary">Nhập lại</button>
+                                    </div>
+                                                }
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--sua-->
+<div id="sua" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Thêm nhân viên</h4>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+
+                                    @using (Html.BeginForm("suaNhanVien", "Nhanvien", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                                    {
+                                        <div class="form-group">
+                                            <label>Tài khoản</label>
+                                            @Html.TextBox("txttaikhoan", null, new { @class = "form-control", @type = "text", @id = "txttaikhoan1" })
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Họ tên</label>
+                                            @Html.TextBox("txthoten", null, new { @class = "form-control", @id = "txthoten1" })
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Mật khẩu</label>
+                                            @Html.TextBox("txtmatkhau", null, new { @class = "form-control", @type = "text", @id = "txtmatkhau1" })
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nhóm Quyền</label>
+                                            @Html.TextBox("txtnhomquyen", null, new { @class = "form-control", @type = "text", @id = "txtnhomquyen1" })
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Giới tính</label>
+                                            @{
+
+                                                List<SelectListItem> list = new List<SelectListItem>();
+                                                foreach (var item in listGioiTinh)
+                                                {
+                                                    SelectListItem it = new SelectListItem { Text = item.CHITIET.ToString(), Value = item.GIOITINH.ToString() };
+                                                    list.Add(it);
+                                                }
+                                            }
+                                            @Html.DropDownList("txtgioitinh", (IEnumerable<SelectListItem>)(list), new { @class = "form-control", @type = "text", @id = "txtgioitinh1", value = "" })
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Ngày sinh</label>
+                                            @Html.TextBox("txtngaysinh", null, new { @class = "form-control", @type = "date", @id = "txtngaysinh1" })
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Số điện thoại</label>
+                                            @Html.TextBox("txtsodienthoai", null, new { @class = "form-control", @type = "number", @id = "txtsodienthoai1" })
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            @Html.TextBox("txtemail", null, new { @class = "form-control", @type = "text", @id = "txtemail1" })
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Tỉnh / Thành Phố</label>
+                                            @{
+                                                list = new List<SelectListItem>();
+                                                foreach (var item in listDiaChiTinh)
+                                                {
+                                                    SelectListItem it = new SelectListItem { Text = item.TENDIACHI.ToString(), Value = item.MADIACHI.ToString() };
+                                                    list.Add(it);
+                                                }
+                                            }
+                                            @Html.DropDownList("txtdiachitinhthanhpho", (IEnumerable<SelectListItem>)(list), new { @class = "form-control", @type = "text", @id = "txtdiachitinhthanhpho1" })
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Quận / Huyện</label>
+                                            @Html.TextBox("txtdiachiquanhuyen", null, new { @class = "form-control", @type = "text", @id = "txtdiachiquanhuyen1" })
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Xã / Phường</label>
+                                            @Html.TextBox("txtdiachixa", null, new { @class = "form-control", @type = "text", @id = "txtdiachixa1" })
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Số Nhà</label>
+                                            @Html.TextBox("txtdiachisonha", null, new { @class = "form-control", @type = "text", @id = "txtdiachisonha1" })
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Vị Trí Công Tác</label>
+                                            @{
+                                                list = new List<SelectListItem>();
+                                                foreach (var item in listViTriCongTac)
+                                                {
+                                                    SelectListItem it = new SelectListItem { Text = item.VITRICONGTAC.ToString(), Value = item.MAVITRICONGTAC.ToString() };
+                                                    list.Add(it);
+                                                }
+                                            }
+                                            @Html.DropDownList("txtvitricongtac", (IEnumerable<SelectListItem>)(list), new { @class = "form-control", @type = "text", @id = "txtvitricongtac1" })
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Trạng thái</label>
+                                            @Html.TextBox("txttrangthai", null, new { @class = "form-control", @type = "text", @id = "txttrangthai1" })
+
+                                        </div>
+
+                                        <div>
+                                            <button type="submit" class="btn btn-primary" onclick="Check()">Sửa</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Hủy</button>
+                                        </div>
+                                                }
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,384 @@
+﻿@model IEnumerable<object>
+@{
+    List<Models.Framework.PHIEU_DAT_PHONG1>
+        lstPhieuDatPhong = Model.ToList()[0] as List<Models.Framework.PHIEU_DAT_PHONG1>
+            ;
+    List<Models.Framework.DANH_MUC_LOAI_GIAY_TO>
+        lstGiayTo = Model.ToList()[1] as List<Models.Framework.DANH_MUC_LOAI_GIAY_TO>
+            ;
+    List<Models.Framework.DANH_MUC_LOAI_TIEN>
+        lstLoaiTien = Model.ToList()[2] as List<Models.Framework.DANH_MUC_LOAI_TIEN>
+            ;
+    List<Models.Framework.DANH_MUC_GIOI_TINH>
+       lstGioiTinh = Model.ToList()[3] as List<Models.Framework.DANH_MUC_GIOI_TINH>
+           ;
+    List<Models.Framework.DANH_MUC_LOAI_PHONG>
+      lstLoaiPhong = Model.ToList()[4] as List<Models.Framework.DANH_MUC_LOAI_PHONG>
+          ;
+    List<Models.Framework.DANH_MUC_KIEU_PHONG>
+      lstKieuPhong = Model.ToList()[5] as List<Models.Framework.DANH_MUC_KIEU_PHONG>
+          ;
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_layout_admin.cshtml";
+}
+
+
+<script>
+    var model = @Html.Raw(Json.Encode(lstGioiTinh));
+    var citiesByState = {
+        1: [],
+        2: [],
+        3: [],
+        4: [],
+    }
+    for (var i = 0, len = model.length; i < len; i++) {
+        citiesByState[1].push(model[i].CHITIET);
+    }
+    function makeSubmenu(value) {
+        if (value.length == 0) document.getElementById("citySelect").innerHTML = "<option></option>";
+        else {
+            var citiesOptions = "";
+            for (cityId in citiesByState[value]) {
+                citiesOptions += "<option>" + citiesByState[value][cityId] + "</option>";
+            }
+            document.getElementById("citySelect").innerHTML = citiesOptions;
+        }
+    }
+</script>
+<section>
+    <div id="wrapper">
+        <div id="page-wrapper">
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <p style="padding:0px; margin:0px; width:100%;"><b style="font-size:20px;">DANH SÁCH PHIẾU ĐẶT PHÒNG CHỜ XỬ LÝ</b></p>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-example" style="font-size:10px;">
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>HỌ VÀ TÊN</th>
+                                        <th>ĐIỆN THOẠI</th>
+                                        <th>NGÀY DỰ KIẾN ĐẾN</th>
+                                        <th>NGÀY DỰ KIẾN TRẢ</th>
+                                        <th>NGÀY TẠO</th>
+                                        <th>LOẠI PHÒNG</th>
+                                        <th>SỐ LƯỢNG PHÒNG</th>
+                                        <th>THAO TÁC</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        int i = 1;
+                                    }
+                                    @foreach (var item in lstPhieuDatPhong)
+                                    {
+                                        <tr>
+                                            <td style="text-align:center;">@i</td>
+                                            <td style="width:100px;">@item.HOTENKHACHHANG<input type="hidden" value="@item.HOTENKHACHHANG" id="txtHoTenKH" /></td>
+                                            <td>@item.DIENTHOAI<input type="hidden" value="@item.DIENTHOAI" id="txtHoDienThoai" /></td>
+                                            <td>
+                                                @{
+                                                    string foo = item.NGAYDUKIENDEN.ToString();
+                                                    DateTime bar = DateTime.Parse(foo);
+                                                    string output = bar.ToString("dd/MM/yyyy");
+                                                }
+                                                @output
+                                                <input type="hidden" value="@output" id="txtNgayDen" />
+                                            </td>
+                                            <td>
+                                                @{
+                                                    string foo1 = item.NGAYDUKIENTRA.ToString();
+                                                    DateTime bar1 = DateTime.Parse(foo1);
+                                                    string output1 = bar1.ToString("dd/MM/yyyy");
+                                                }
+                                                @output1
+                                                <input type="hidden" value="@output1" id="txtNgayDi" />
+                                            </td>
+                                            <td>
+                                                @{
+                                                    string foo2 = item.NGAYTAOPHIEU.ToString();
+                                                    DateTime bar2 = DateTime.Parse(foo2);
+                                                    string output2 = bar2.ToString("dd/MM/yyyy");
+                                                }
+                                                @output2
+                                                <input type="hidden" value="@output2" id="txtNgayTao" />
+                                            </td>
+                                            <td>@item.TENLOAIPHONG <input type="hidden" value="@item.TENLOAIPHONG" id="txtLoaiPhong" /></td>
+                                            <td style="text-align:center;">@item.SOLUONGPHONG</td>
+                                            <td style="text-align:center;"><a data-toggle="modal" href="#xuly" onclick="link()" style="font-weight:bold;"> XỬ LÝ</a></td>
+                                        </tr>
+                                                        i++;
+                                                    }
+                                </tbody>
+                            </table>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--xuly-->
+<div id="xuly" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Xử lý phiếu đặt phòng</h4>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                @using (Html.BeginForm("xacnhanphieu", "DSPhieuCho", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                                {
+
+                                    <fieldset class="form-group" style="float:left; width:49%; padding-left:10px;">
+                                        <legend class="h4">Thông tin khách hàng</legend>
+
+                                        <div class="form-group">
+                                            <table style="border:none; width:100%;">
+                                                <tr>
+                                                    <td width="70%">
+                                                        <label>Số giấy tờ</label>
+                                                        @Html.TextBox("txttenkh", null, new { @class = "form-control", @type = "text", @id = "tenkh" })
+                                                    </td>
+                                                    <td style="padding-left:5px;">
+                                                        <label>Loại giấy tờ</label>
+                                                        @{
+                                                            List<SelectListItem>
+                                                                myList = new List<SelectListItem>();
+                                                            foreach (var item3 in lstGiayTo)
+                                                            {
+                                                                SelectListItem it = new SelectListItem { Text = item3.TENLOAIGIAYTO, Value = item3.MALOAIGIAYTO.ToString() };
+                                                                myList.Add(it);
+                                                            }
+                                                        }
+                                                        @Html.DropDownList("txtloaigiayto", (IEnumerable<SelectListItem>)(myList), new { @class = "form-control" })
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <table style="border:none; width:100%;">
+                                                <tr>
+                                                    <td width="70%">
+                                                        <label>Họ và tên</label>
+                                                        @Html.TextBox("txtmotakieup", null, new { @class = "form-control", @id = "motakieu" })
+                                                    </td>
+                                                    <td style="padding-left:5px;">
+                                                        <label>Giới tính</label>
+                                                        @{
+                                                            List<SelectListItem>
+                                                                myList1 = new List<SelectListItem>();
+                                                            foreach (var item3 in lstGioiTinh)
+                                                            {
+                                                                SelectListItem it11 = new SelectListItem { Text = item3.CHITIET, Value = item3.GIOITINH.ToString() };
+                                                                myList1.Add(it11);
+                                                            }
+                                                        }
+                                                        @Html.DropDownList("txtgioitinh", (IEnumerable<SelectListItem>)(myList1), new { @class = "form-control" })
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Ngày sinh</label>
+                                            @Html.TextBox("txttsotreemp", null, new { @class = "form-control", @type = "date", @id = "treem" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Số điện thoại</label>
+                                            @Html.TextBox("txttsotreemp", null, new { @class = "form-control", @type = "text", @id = "treem" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            @Html.TextBox("txttsotreemp", null, new { @class = "form-control", @type = "email", @id = "treem" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.TextBox("txttsotreemp", null, new { @class = "form-control", @type = "hidden", @id = "treem" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.TextBox("txttsotreemp", null, new { @class = "form-control", @type = "hidden", @id = "treem" })
+                                        </div>
+                                    </fieldset>
+
+                                    <fieldset class="form-group" style="float:right; width:49%; padding-right:10px;">
+                                        <legend class="h4">Thông tin đặt phòng</legend>
+
+                                        <div class="form-group">
+                                            <label>Loại phòng</label>
+                                            @{
+                                                List<SelectListItem>
+                                                    loaiphong = new List<SelectListItem>();
+                                                foreach (var item3 in lstLoaiPhong)
+                                                {
+                                                    SelectListItem item = new SelectListItem { Text = item3.TENLOAIPHONG, Value = item3.MALOAIPHONG.ToString() };
+                                                    loaiphong.Add(item);
+                                                }
+                                            }
+                                            @Html.DropDownList("loaiphong", (IEnumerable<SelectListItem>)(loaiphong), new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Kiểu phòng</label>
+                                            @{
+                                                List<SelectListItem>
+                                                    kieuphong = new List<SelectListItem>();
+                                                foreach (var item3 in lstKieuPhong)
+                                                {
+                                                    SelectListItem itemkieu = new SelectListItem { Text = item3.TENKIEUPHONG, Value = item3.MAKIEUPHONG.ToString() };
+                                                    kieuphong.Add(itemkieu);
+                                                }
+                                            }
+                                            @Html.DropDownList("kieuphong", (IEnumerable<SelectListItem>)(kieuphong), new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Ngày dự kiến đến</label>
+                                            @Html.TextBox("txtmotakieup", null, new { @class = "form-control", type = "date", @id = "motakieu" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Ngày dự kiến trả</label>
+                                            @Html.TextBox("txttsonguoilonp", null, new { @class = "form-control", @type = "date", @id = "nguoilon" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            <table style="border:none; width:100%;">
+                                                <tr>
+                                                    <td width="70%">
+                                                        <label>Đặt cọc</label>
+                                                        @Html.TextBox("txttsotreemp", null, new { @class = "form-control", @type = "text", @id = "treem" })
+                                                    </td>
+                                                    <td style="padding-left:5px;">
+                                                        <label>Loại tiền</label>
+                                                        @{
+                                                            List<SelectListItem>
+                                                                myList3 = new List<SelectListItem>();
+                                                            foreach (var item3 in lstLoaiTien)
+                                                            {
+                                                                SelectListItem it3 = new SelectListItem { Text = item3.TENLOAITIEN, Value = item3.MALOAITIEN.ToString() };
+                                                                myList3.Add(it3);
+                                                            }
+                                                        }
+                                                        @Html.DropDownList("loaitien", (IEnumerable<SelectListItem>)(myList3), new { @class = "form-control" })
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.TextBox("txttsotreemp", null, new { @class = "form-control", @type = "hidden", @id = "treem" })
+                                        </div>
+                                    </fieldset>
+
+                                    <fieldset class="form-group" style="width:100%; padding-right:10px; padding-left:10px; padding-top:0px;">
+                                        <table style="border:none; width:100%;">
+                                            <tr>
+
+                                                <td width="25%">
+                                                    <label>Tỉnh</label>
+                                                    @{
+                                                        List<SelectListItem>
+                                                            lstTinh = new List<SelectListItem>();
+                                                        //foreach (var item3 in lstLoaiPhong)
+                                                        //{
+                                                        SelectListItem ittinh1 = new SelectListItem { Text = "THÁI NGUYÊN", Value = "1" };
+                                                        lstTinh.Add(ittinh1);
+                                                        SelectListItem ittinh2 = new SelectListItem { Text = "THANH HÓA", Value = "2" };
+                                                        lstTinh.Add(ittinh2);
+                                                        //}
+                                                    }
+                                                    <select id="countrySelect" class="form-control" size="1" onchange="makeSubmenu(this.value)">
+                                                        <option value="#">----Chọn tỉnh-----</option>
+                                                        <option value="1">USA</option>
+                                                        <option value="2">Singapore</option>
+                                                    </select>
+                                                    @*@Html.DropDownList("selectTinh", (IEnumerable<SelectListItem>)(lstTinh), new { @class = "form-control", @onchange="getHuyen('this.value')"})*@
+                                                </td>
+                                                <td width="25%" style="padding-left:5px;">
+                                                    <label>Quận/Huyện</label>
+                                                    @{
+                                                        List<SelectListItem>
+                                                            lstHuyen = new List<SelectListItem>();
+                                                        //foreach (var item3 in lstLoaiPhong)
+                                                        //{
+                                                        SelectListItem ithuyen1 = new SelectListItem { Text = "VND", Value = "1" };
+                                                        lstHuyen.Add(ithuyen1);
+                                                        SelectListItem ithuyen2 = new SelectListItem { Text = "USD", Value = "2" };
+                                                        lstHuyen.Add(ithuyen2);
+                                                        //}
+                                                    }
+                                                    @*@Html.DropDownList("loaiphong", (IEnumerable<SelectListItem>)(lstHuyen), new { @class = "form-control" })*@
+                                                    <select id="citySelect" size="1" class="form-control"></select>
+                                                </td>
+                                                <td style="padding-left:5px;" width="25%">
+                                                    <label>Xã/Phường</label>
+                                                    @{
+                                                        List<SelectListItem>
+                                                            lstXa = new List<SelectListItem>();
+                                                        //foreach (var item3 in lstLoaiPhong)
+                                                        //{
+                                                        SelectListItem itxa1 = new SelectListItem { Text = "VND", Value = "1" };
+                                                        lstXa.Add(itxa1);
+                                                        SelectListItem itxa2 = new SelectListItem { Text = "USD", Value = "2" };
+                                                        lstXa.Add(itxa2);
+                                                        //}
+                                                    }
+                                                    @Html.DropDownList("loaiphong", (IEnumerable<SelectListItem>)(lstXa), new { @class = "form-control" })
+                                                </td>
+
+                                                <td width="25%" style="padding-left:5px;">
+                                                    <label>Số nhà</label>
+                                                    @Html.TextBox("txttsotreemp", null, new { @class = "form-control", @type = "text", @id = "treem" })
+                                                </td>
+
+                                            </tr>
+                                        </table>
+
+                                        <div style="padding-top:20px; text-align:center;">
+                                            <button type="submit" class="btn btn-primary" onclick="checkUpdate()">Xác nhận</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Hủy</button>
+                                        </div>
+                                    </fieldset>
+
+                                                        }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--DS khach hang-->
+<div id="dskh" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>

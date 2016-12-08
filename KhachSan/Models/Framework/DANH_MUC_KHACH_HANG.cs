@@ -6,10 +6,10 @@ namespace Models.Framework
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class DANH_MUC_KHACH_HANG
+    public partial class DANH_SACH_KHACH_HANG
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DANH_MUC_KHACH_HANG()
+        public DANH_SACH_KHACH_HANG()
         {
             PHIEU_NHAN_PHONG = new HashSet<PHIEU_NHAN_PHONG>();
             PHIEU_THANH_TOAN = new HashSet<PHIEU_THANH_TOAN>();

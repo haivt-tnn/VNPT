@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using Models.Framework;
 
 namespace KhachSan.Areas.Admin.Controllers
 {

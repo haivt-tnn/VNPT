@@ -3,24 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Models.Framework;
+using KhachSan.Areas.Admin.Models;
 
 namespace KhachSan.Areas.Admin.Controllers
 {
     public class KhachhangController : Controller
     {
         // GET: Admin/Khachhang
+        [HttpGet]
+        [Authorize]
         public ActionResult Index()
         {
-            return View();
+            KhachHangModel t = new KhachHangModel();
+            List<DANH_SACH_KHACH_HANG1> model = t.getAllKhachHang();
+            return View(model);
         }
-        public ActionResult KHodau()
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult KHdango()
         {
-            return View();
+            KhachHangModel t = new KhachHangModel();
+            List<DANH_SACH_KHACH_HANG2> model = t.getKhachHangDangO();
+            return View(model);
 
         }
-            public ActionResult KHdatphong()
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult KHdatphong()
         {
-            return View();
+            KhachHangModel t = new KhachHangModel();
+            List<PHIEU_DAT_PHONG1> model = t.getKhachHangDatPhong();
+            return View(model);
         }
     }
 }

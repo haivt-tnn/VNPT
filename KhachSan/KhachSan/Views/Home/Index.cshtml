@@ -9,6 +9,9 @@
     List<Models.Framework.DANH_MUC_TIEN_ICH>
         lstTienIch = Model.ToList()[2] as List<Models.Framework.DANH_MUC_TIEN_ICH>
             ;
+    List<Models.Framework.QUANG_CAO>
+        lstQuangCao = Model.ToList()[3] as List<Models.Framework.QUANG_CAO>
+            ;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <!--Slider -->
@@ -281,7 +284,7 @@
         <!-- image intro -->
         <section class="testimonials mt50">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6" style="float:right; margin-right:30px;">
                     <div class="thumbnail">
                         @foreach (var item in lstGioiThieu)
                         {
@@ -327,6 +330,17 @@
         </div>
     </div>
 </section>
+@foreach (var itemqc in lstQuangCao)
+{
+    <div class="col-md-12">
+        <a href="@itemqc.LINK">
+            <div class="bannercontainer text-center">
+                <img src="@itemqc.HINH" alt="Lights" />
+            </div>
+        </a>
+    </div>
+    break;
+}
 <!--service-->
 <section class="about mt50">
     <div class="col-md-12">

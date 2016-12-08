@@ -135,6 +135,11 @@
     <Content Include="Content\turquoise.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Image\Ads\banner_728x90.gif" />
+    <Content Include="Image\Ads\GitHub.png" />
+    <Content Include="Image\Ads\ShakeOut.gif" />
+    <Content Include="Image\Ads\ShakeOut_BannerAds_JoinUs_728x90_v2.gif" />
+    <Content Include="Image\Ads\traica.png" />
     <Content Include="Image\Events\1.jpg" />
     <Content Include="Image\Events\Ancient.png" />
     <Content Include="Image\Events\Crystal.png" />
@@ -147,6 +152,8 @@
     <Content Include="Image\Event\hoian.jpg" />
     <Content Include="Image\Gioithieu\gt.jpg" />
     <Content Include="Image\Intro\intro.jpg" />
+    <Content Include="Image\logo2.png" />
+    <Content Include="Image\logoadmin.png" />
     <Content Include="Image\OtherEvent\1.jpg" />
     <Content Include="Image\OtherEvent\dacsanque.jpg" />
     <Content Include="Image\OtherEvent\dontet.jpg" />
@@ -182,12 +189,14 @@
     <Content Include="Areas\Admin\Views\Thongke\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Thongke\Baocao.cshtml" />
     <Content Include="Areas\Admin\Views\Khachhang\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Khachhang\KHodau.cshtml" />
+    <Content Include="Areas\Admin\Views\Khachhang\KHdango.cshtml" />
     <Content Include="Areas\Admin\Views\Khachhang\KHdatphong.cshtml" />
-    <Content Include="Areas\Admin\Views\Nhanvien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Nhanvien\DSnhanvien.cshtml" />
     <Content Include="Areas\Admin\Views\KhachSan\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Phong\KieuPhong.cshtml" />
+    <Content Include="Areas\Admin\Views\Nhanvien\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DSPhieuCho\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QuangCao\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -205,15 +214,19 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\DichVuController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DSPhieuChoController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\KhachhangController.cs" />
     <Compile Include="Areas\Admin\Controllers\KhachSanController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\NhanvienController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhongController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QuangCaoController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThongkeController.cs" />
+    <Compile Include="Areas\Admin\Models\AdsModel.cs" />
+    <Compile Include="Areas\Admin\Models\DanhMucDichVuModel.cs" />
+    <Compile Include="Areas\Admin\Models\KhachHangModel.cs" />
     <Compile Include="Areas\Admin\Models\KieuPhongModel.cs" />
-    <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Areas\Admin\Models\PhongModel.cs" />
     <Compile Include="Areas\Admin\Models\TaiKhoanModel.cs" />
     <Compile Include="Areas\Admin\Models\UpdateKhacSanModel.cs" />
@@ -233,6 +246,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AdsModel.cs" />
     <Compile Include="Models\AlertModel.cs" />
     <Compile Include="Models\ContactModel.cs" />
     <Compile Include="Models\DICHVU_MODEL.cs" />

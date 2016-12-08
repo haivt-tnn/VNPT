@@ -24,7 +24,7 @@ namespace Models.Framework
         public virtual DbSet<DANH_MUC_DICH_VU> DANH_MUC_DICH_VU { get; set; }
         public virtual DbSet<DANH_MUC_GIOI_TINH> DANH_MUC_GIOI_TINH { get; set; }
         public virtual DbSet<DANH_MUC_KIEU_PHONG> DANH_MUC_KIEU_PHONG { get; set; }
-        public virtual DbSet<DANH_MUC_KHACH_HANG> DANH_MUC_KHACH_HANG { get; set; }
+        public virtual DbSet<DANH_SACH_KHACH_HANG> DANH_MUC_KHACH_HANG { get; set; }
         public virtual DbSet<DANH_MUC_LOAI_GIAY_TO> DANH_MUC_LOAI_GIAY_TO { get; set; }
         public virtual DbSet<DANH_MUC_LOAI_PHONG> DANH_MUC_LOAI_PHONG { get; set; }
         public virtual DbSet<DANH_MUC_LOAI_TIEN> DANH_MUC_LOAI_TIEN { get; set; }
@@ -63,7 +63,7 @@ namespace Models.Framework
             modelBuilder.Entity<DANH_MUC_LOAI_GIAY_TO>()
                 .HasMany(e => e.DANH_MUC_KHACH_HANG)
                 .WithOptional(e => e.DANH_MUC_LOAI_GIAY_TO)
-                .HasForeignKey(e => e.LOAIGIAYTO);
+                .HasForeignKey((System.Linq.Expressions.Expression<Func<DANH_SACH_KHACH_HANG, int?>>)(e => (int?)e.LOAIGIAYTO));
 
             modelBuilder.Entity<DANH_MUC_LOAI_PHONG>()
                 .HasMany(e => e.DANH_MUC_PHONG)
