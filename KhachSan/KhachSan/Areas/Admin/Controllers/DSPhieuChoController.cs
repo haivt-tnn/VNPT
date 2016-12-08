@@ -13,6 +13,7 @@ namespace KhachSan.Areas.Admin.Controllers
         // GET: Admin/DSPhieuCho
         public ActionResult Index()
         {
+<<<<<<< HEAD
             List<object> myModel = new List<object>();
 
             KhachHangModel t1 = new KhachHangModel();
@@ -40,5 +41,11 @@ namespace KhachSan.Areas.Admin.Controllers
 
             return View(myModel);
         }       
+=======
+            KhachHangModel t = new KhachHangModel();
+            List<PHIEU_DAT_PHONG1> model = t.getKhachHangDatPhong();
+            return View(model);
+        }
+>>>>>>> e0fc588e21dc3e9ab6b9ef79a6713efea8f6b6ac
     }
 }

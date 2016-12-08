@@ -138,7 +138,10 @@
     <Content Include="Image\Ads\banner_728x90.gif" />
     <Content Include="Image\Ads\GitHub.png" />
     <Content Include="Image\Ads\ShakeOut.gif" />
+<<<<<<< HEAD
     <Content Include="Image\Ads\ShakeOut_BannerAds_JoinUs_728x90_v2.gif" />
+=======
+>>>>>>> e0fc588e21dc3e9ab6b9ef79a6713efea8f6b6ac
     <Content Include="Image\Ads\traica.png" />
     <Content Include="Image\Events\1.jpg" />
     <Content Include="Image\Events\Ancient.png" />
@@ -224,7 +227,10 @@
     <Compile Include="Areas\Admin\Controllers\QuangCaoController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThongkeController.cs" />
     <Compile Include="Areas\Admin\Models\AdsModel.cs" />
+<<<<<<< HEAD
     <Compile Include="Areas\Admin\Models\DanhMucDichVuModel.cs" />
+=======
+>>>>>>> e0fc588e21dc3e9ab6b9ef79a6713efea8f6b6ac
     <Compile Include="Areas\Admin\Models\KhachHangModel.cs" />
     <Compile Include="Areas\Admin\Models\KieuPhongModel.cs" />
     <Compile Include="Areas\Admin\Models\PhongModel.cs" />

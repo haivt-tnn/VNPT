@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿@model IEnumerable<object>
 @{
     List<Models.Framework.PHIEU_DAT_PHONG1>
@@ -45,6 +46,13 @@
         }
     }
 </script>
+=======
+﻿@model List<Models.Framework.PHIEU_DAT_PHONG1>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_layout_admin.cshtml";
+}
+>>>>>>> e0fc588e21dc3e9ab6b9ef79a6713efea8f6b6ac
 <section>
     <div id="wrapper">
         <div id="page-wrapper">
@@ -75,12 +83,21 @@
                                     @{
                                         int i = 1;
                                     }
+<<<<<<< HEAD
                                     @foreach (var item in lstPhieuDatPhong)
                                     {
                                         <tr>
                                             <td style="text-align:center;">@i</td>
                                             <td style="width:100px;">@item.HOTENKHACHHANG<input type="hidden" value="@item.HOTENKHACHHANG" id="txtHoTenKH" /></td>
                                             <td>@item.DIENTHOAI<input type="hidden" value="@item.DIENTHOAI" id="txtHoDienThoai" /></td>
+=======
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td style="text-align:center;">@i</td>
+                                            <td style="width:100px;">@item.HOTENKHACHHANG</td>
+                                            <td>@item.DIENTHOAI</td>
+>>>>>>> e0fc588e21dc3e9ab6b9ef79a6713efea8f6b6ac
                                             <td>
                                                 @{
                                                     string foo = item.NGAYDUKIENDEN.ToString();
@@ -88,7 +105,10 @@
                                                     string output = bar.ToString("dd/MM/yyyy");
                                                 }
                                                 @output
+<<<<<<< HEAD
                                                 <input type="hidden" value="@output" id="txtNgayDen" />
+=======
+>>>>>>> e0fc588e21dc3e9ab6b9ef79a6713efea8f6b6ac
                                             </td>
                                             <td>
                                                 @{
@@ -97,7 +117,10 @@
                                                     string output1 = bar1.ToString("dd/MM/yyyy");
                                                 }
                                                 @output1
+<<<<<<< HEAD
                                                 <input type="hidden" value="@output1" id="txtNgayDi" />
+=======
+>>>>>>> e0fc588e21dc3e9ab6b9ef79a6713efea8f6b6ac
                                             </td>
                                             <td>
                                                 @{
@@ -106,11 +129,18 @@
                                                     string output2 = bar2.ToString("dd/MM/yyyy");
                                                 }
                                                 @output2
+<<<<<<< HEAD
                                                 <input type="hidden" value="@output2" id="txtNgayTao" />
                                             </td>
                                             <td>@item.TENLOAIPHONG <input type="hidden" value="@item.TENLOAIPHONG" id="txtLoaiPhong" /></td>
                                             <td style="text-align:center;">@item.SOLUONGPHONG</td>
                                             <td style="text-align:center;"><a data-toggle="modal" href="#xuly" onclick="link()" style="font-weight:bold;"> XỬ LÝ</a></td>
+=======
+                                            </td>
+                                            <td>@item.TENLOAIPHONG</td>
+                                            <td style="text-align:center;">@item.SOLUONGPHONG</td>
+                                            <td style="text-align:center;"><a data-toggle="modal" href="#xuly" style="font-weight:bold;"> XỬ LÝ</a></td>
+>>>>>>> e0fc588e21dc3e9ab6b9ef79a6713efea8f6b6ac
                                         </tr>
                                                         i++;
                                                     }
@@ -128,6 +158,10 @@
     </div>
 </section>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e0fc588e21dc3e9ab6b9ef79a6713efea8f6b6ac
 <!--xuly-->
 <div id="xuly" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg">
@@ -154,6 +188,7 @@
                                         <legend class="h4">Thông tin khách hàng</legend>
 
                                         <div class="form-group">
+<<<<<<< HEAD
                                             <table style="border:none; width:100%;">
                                                 <tr>
                                                     <td width="70%">
@@ -196,12 +231,23 @@
                                                             }
                                                         }
                                                         @Html.DropDownList("txtgioitinh", (IEnumerable<SelectListItem>)(myList1), new { @class = "form-control" })
+=======
+                                            <label>Số giấy tờ</label>
+                                            <table style="border:none; width:100%;">
+                                                <tr>
+                                                    <td width="">
+                                                        @Html.TextBox("txttenkh", null, new { @class = "form-control", @type = "text", @id = "tenkh" })
+                                                    </td>
+                                                    <td style="text-align:center;">
+                                                        <a title="Tìm khách hàng" data-toggle="modal" href="#dskh" class="glyphicon glyphicon-search"></a>
+>>>>>>> e0fc588e21dc3e9ab6b9ef79a6713efea8f6b6ac
                                                     </td>
                                                 </tr>
                                             </table>
                                         </div>
 
                                         <div class="form-group">
+<<<<<<< HEAD
                                             <label>Ngày sinh</label>
                                             @Html.TextBox("txttsotreemp", null, new { @class = "form-control", @type = "date", @id = "treem" })
                                         </div>
@@ -222,6 +268,34 @@
 
                                         <div class="form-group">
                                             @Html.TextBox("txttsotreemp", null, new { @class = "form-control", @type = "hidden", @id = "treem" })
+=======
+                                            <label>Loại giấy tờ</label>
+                                            @{
+                                                List<SelectListItem>
+                                                    myList = new List<SelectListItem>();
+                                                //foreach (var item3 in lstLoaiPhong)
+                                                //{
+                                                SelectListItem it = new SelectListItem { Text = "CMND", Value = "1"};
+                                                myList.Add(it);
+                                                SelectListItem it1 = new SelectListItem { Text = "PASSPORT", Value = "2" };
+                                                myList.Add(it1);
+                                                //}
+                                            }
+                                            @Html.DropDownList("loaiphong", (IEnumerable<SelectListItem>)(myList), new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Thông tin mô tả</label>
+                                            @Html.TextArea("txtmotakieup", null, new { @class = "form-control", @rows = "3", @id = "motakieu" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Số người lớn</label>
+                                            @Html.TextBox("txttsonguoilonp", null, new { @class = "form-control", @type = "number", @id = "nguoilon" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Số trẻ em</label>
+                                            @Html.TextBox("txttsotreemp", null, new { @class = "form-control", @type = "number", @id = "treem" })
+>>>>>>> e0fc588e21dc3e9ab6b9ef79a6713efea8f6b6ac
                                         </div>
                                     </fieldset>
 
@@ -229,6 +303,7 @@
                                         <legend class="h4">Thông tin đặt phòng</legend>
 
                                         <div class="form-group">
+<<<<<<< HEAD
                                             <label>Loại phòng</label>
                                             @{
                                                 List<SelectListItem>
@@ -365,6 +440,31 @@
                                     </fieldset>
 
                                                         }
+=======
+                                            <label>Tên kiểu phòng</label>
+                                            @Html.TextBox("txtmakieup", null, new { @class = "form-control", @type = "hidden", @id = "makieu" })
+                                            @Html.TextBox("txttenkieup", null, new { @class = "form-control", @type = "text", @id = "tenkieu" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Thông tin mô tả</label>
+                                            @Html.TextArea("txtmotakieup", null, new { @class = "form-control", @rows = "3", @id = "motakieu" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Số người lớn</label>
+                                            @Html.TextBox("txttsonguoilonp", null, new { @class = "form-control", @type = "number", @id = "nguoilon" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Số trẻ em</label>
+                                            @Html.TextBox("txttsotreemp", null, new { @class = "form-control", @type = "number", @id = "treem" })
+                                        </div>
+                                    </fieldset>
+                                    <div style="text-align:center">
+                                        <button type="submit" class="btn btn-primary" onclick="checkUpdate()">Xác nhận</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Hủy</button>
+                                    </div>
+                                                }
+>>>>>>> e0fc588e21dc3e9ab6b9ef79a6713efea8f6b6ac
                             </div>
                         </div>
                     </div>

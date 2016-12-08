@@ -128,6 +128,7 @@ namespace KhachSan.Areas.Admin.Models
             }
             return list;
         }
+<<<<<<< HEAD
 
         public List<DANH_MUC_LOAI_GIAY_TO> getLoaiGiayTo()
         {
@@ -145,5 +146,7 @@ namespace KhachSan.Areas.Admin.Models
             }
             return list;
         }
+=======
+>>>>>>> e0fc588e21dc3e9ab6b9ef79a6713efea8f6b6ac
     }
 }
